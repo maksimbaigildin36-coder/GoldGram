@@ -8,7 +8,7 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <style>
-:root{color-scheme:dark;--bg:#141c28;--c:#1d2837;--c2:#273649;--a:#3aa0f0;--m:#7b8ba0;--r:#e5534b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{color-scheme:dark;--bg:#101923;--c:#1b2636;--c2:#273649;--a:#3aa0f0;--m:#7b8ba0;--r:#e5534b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;background:var(--bg);color:#fff;font-family:Roboto,system-ui,sans-serif;overflow:hidden}
 #app{position:relative;height:100%;overflow:hidden}
@@ -75,6 +75,76 @@ input:focus,textarea:focus{border-color:var(--a)}
 .ro{padding:16px;text-align:center;color:var(--m);background:var(--c)}
 .dv{padding:12px 6px;border-bottom:1px solid #2a384b}.dv small{color:var(--m)}
 .chip{color:#7ee0a0;font-size:13px}
+
+/* ---- переходы ---- */
+.pg{animation-duration:.34s;animation-timing-function:cubic-bezier(.2,.85,.25,1)}
+.pg.out{animation:out .26s cubic-bezier(.5,0,.9,.5) forwards}
+.fx{animation:tabin .35s cubic-bezier(.2,.8,.2,1)}
+#tc.ta>.scr{animation:tabin .3s cubic-bezier(.2,.8,.2,1)}
+@keyframes tabin{from{opacity:0;transform:translateY(12px)}}
+.modal>div{animation:pop .26s cubic-bezier(.2,.9,.3,1.15)}
+@keyframes pop{from{opacity:0;transform:scale(.9) translateY(10px)}}
+.modal.out{animation:fo .19s ease-in forwards}.modal.out>div{animation:pd .19s ease-in forwards}
+@keyframes fo{to{opacity:0}}@keyframes pd{to{opacity:0;transform:scale(.94) translateY(8px)}}
+.toast{animation:ti .28s cubic-bezier(.2,.9,.3,1.1)}.toast.out{animation:tq .25s ease-in forwards}
+@keyframes ti{from{opacity:0;transform:translate(-50%,14px)}}@keyframes tq{to{opacity:0;transform:translate(-50%,10px)}}
+nav button.on{background:#1f3550;color:#42a5f5}
+/* ---- настройки как в Telegram ---- */
+.sh{position:relative;text-align:center;padding:26px 0 4px}
+.mm{position:absolute;right:0;top:4px}
+.sav{position:relative;width:96px;margin:0 auto;cursor:pointer}
+.sav .vr{margin:0;display:block}
+.av.xl{width:96px;height:96px;font-size:36px}
+.cm{position:absolute;right:-4px;bottom:-2px;width:31px;height:31px;border-radius:50%;background:#2a9df4;border:3px solid var(--bg);display:flex;align-items:center;justify-content:center;color:#fff;z-index:2}
+.sn{font-size:22px;font-weight:700;margin-top:14px;display:flex;align-items:center;justify-content:center}
+.su{color:var(--m);font-size:14px;margin-top:3px}
+.sv{color:#5ab4f5;font-size:13.5px;margin-top:3px}
+.cd{background:var(--c);border-radius:20px;margin:14px 0;overflow:hidden}
+.st{display:flex;align-items:center;gap:19px;height:63px;padding:0 19px;cursor:pointer;transition:background .15s}
+.st.s1{height:52px}.st:active{background:#ffffff0d}
+.st .tile{width:29px;height:29px;border-radius:8px}
+.st .tx{min-width:0;flex:1}.tl{font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb{color:var(--m);font-size:14px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hd{color:#4fa3e8;font-weight:500;font-size:15px;padding:14px 19px 4px}
+/* ---- звёзды ---- */
+.pg.tr .pgt{background:transparent}
+.cv.fb{-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
+.stp{text-align:center;padding-top:34px;position:relative}
+.stbig{animation:fl 3.2s ease-in-out infinite}
+.stbig svg{margin:0 auto}
+.sh .sav+.sn.ow{margin-top:34px}
+@keyframes fl{50%{transform:translateY(-6px)}}
+.stp h2{font-size:23px;font-weight:700;margin-top:20px}
+.stp p{color:var(--m);font-size:16.5px;line-height:1.4;margin:10px 18px 0}
+.bal{background:var(--c);border-radius:26px;padding:26px 20px 22px;margin-top:34px;text-align:center}
+.bn{display:flex;gap:8px;justify-content:center;align-items:center;font-size:38px;font-weight:500}
+.bl{color:var(--m);font-size:15px;margin-top:4px}
+.bb{display:flex;gap:9px;margin-top:22px}
+.pill{flex:1;height:50px;border:0;border-radius:25px;background:#1e96f0;color:#fff;font:500 17px Roboto;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer}.pill:active{filter:brightness(.9)}
+.ops{background:var(--c);border-radius:26px;margin-top:14px;overflow:hidden;text-align:left}
+.tb{display:flex;border-bottom:1px solid #263447}
+.tb button{flex:1;background:none;border:0;color:var(--m);font:500 16px Roboto;padding:18px 4px;position:relative;cursor:pointer;transition:color .2s}
+.tb button.on{color:#3ea3f2}
+.tb button::after{content:'';position:absolute;left:16%;right:16%;bottom:0;height:3px;border-radius:3px 3px 0 0;background:#3ea3f2;transform:scaleX(0);transition:transform .25s}
+.tb button.on::after{transform:none}
+.op{display:flex;gap:14px;align-items:center;padding:12px 16px}
+.op .mid{flex:1;min-width:0}.op b{display:flex;align-items:center;font-weight:500;font-size:17px}
+.op .s{color:var(--m);font-size:15px;margin-top:2px}
+.av.op{width:48px;height:48px;font-size:18px}
+.am{display:flex;align-items:center;gap:4px;font-size:20px;font-weight:500}.am.pl{color:#4cc968}.am.mn{color:#e5534b}
+/* ---- галочка и кольцо владельца ---- */
+.vb{display:inline-flex;flex:none;vertical-align:middle;width:var(--s);height:var(--s);margin-left:5px}.vb svg{width:100%;height:100%}
+.vr{position:relative;display:inline-block;margin:16px}
+.vr .av{box-shadow:0 0 0 3px #2a9df4,0 0 22px #2a9df466}
+.orb{position:absolute;left:50%;top:50%;width:0;height:0;animation:spin 16s linear infinite;pointer-events:none}
+.orb i{position:absolute;left:0;top:0;width:0;height:0;transform:rotate(var(--a)) translateY(calc(var(--r)*-1))}
+.orb b{position:absolute;left:-9px;top:-9px;width:18px;height:18px;animation:cs 16s linear infinite}
+.orb b svg{display:block;width:18px;height:18px;animation:tw 2.4s ease-in-out infinite}
+.orb i:nth-child(odd) svg{animation-delay:-1.2s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes cs{from{transform:rotate(calc(var(--a)*-1))}to{transform:rotate(calc(var(--a)*-1 - 360deg))}}
+@keyframes tw{50%{transform:scale(1.4);opacity:.7}}
+.eco .orb,.eco .orb *,.eco .stbig{animation:none!important}
 </style></head><body><div id="app"></div>
 <script>
 const $=(s,e=document)=>e.querySelector(s),E=$('#app');
@@ -93,7 +163,7 @@ bulb:'<path d="M9 18h6M10 21h4M12 3a6 6 0 00-4 10c1 1 1 2 1 3h6c0-1 0-2 1-3a6 6 
 send:'<path d="M3 11l18-8-8 18-2-8z"/>',eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
 mega:'<path d="M3 10v4h4l9 5V5L7 10zM19 9a4 4 0 010 6"/>',group:'<circle cx="9" cy="8" r="3.500"/><path d="M2 20c0-4 3-6 7-6s7 2 7 6M16 5a3.500 3.500 0 010 7M19 14c2 1 3 3 3 6"/>',
 search:'<circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/>',x:'<path d="M5 5l14 14M19 5L5 19"/>',out:'<path d="M9 4H4v16h5M16 8l4 4-4 4M20 12H9"/>',
-lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/>',check:'<path d="M5 12l5 5 9-10"/>'};
+lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/>',check:'<path d="M5 12l5 5 9-10"/>',more:'<circle cx="12" cy="5" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="12" cy="19" r="1.3"/>',plusc:'<circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/>',bars:'<path d="M6 20v-9M12 20V4M18 20v-7"/>'};
 const ic=(n,s=24,c='')=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${c}">${IC[n]}</svg>`;
 const starSvg=(s=64)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3a0"/><stop offset=".5" stop-color="#ffc21f"/><stop offset="1" stop-color="#ff8a00"/></linearGradient><filter id="gl"><feGaussianBlur stdDeviation=".7"/></filter></defs><path d="M12 1.500l3.200 6.800 7.300.9-5.400 5 1.400 7.300L12 17.800 5.500 21.500 6.900 14.200 1.500 9.200l7.300-.9z" fill="#ffb300" filter="url(#gl)" opacity=".7"/><path d="M12 2l3 6.800 7 .8-5.200 4.800 1.400 7L12 17.900 5.800 21.400l1.400-7L2 9.600l7-.8z" fill="url(#sg)" stroke="#fff6c0" stroke-width=".6" stroke-linejoin="round"/></svg>`;
 // ---------- storage (Firebase: Auth + Firestore) ----------
@@ -116,8 +186,8 @@ const once=()=>{let f=0;return()=>{if(!f){f=1;fin()}}},U=once(),Ch=once(),Se=onc
 unsub.push(fs.collection('users').onSnapshot(q=>{const o={};q.forEach(d=>o[d.id]=d.data());C.users=o;U();notify()},err(U)));
 unsub.push(fs.collection('sessions').where('uid','==',me).onSnapshot(q=>{const o={};q.forEach(d=>o[d.id]=d.data());C.sessions=o;Se();notify()},err(Se)));
 unsub.push(fs.collection('chats').where('members','array-contains',me).onSnapshot({includeMetadataChanges:true},q=>{const o={};
-q.forEach(d=>{o[d.id]=d.data();if(!MU[d.id]&&!d.metadata.hasPendingWrites){MU[d.id]=1;pend++;const m=once(),id=d.id;
-unsub.push(fs.collection(`chats/${id}/messages`).onSnapshot(r=>{for(const k in C.messages)if(C.messages[k].cid==id)delete C.messages[k];r.forEach(x=>C.messages[x.id]=x.data());m();notify()},e=>{fer(e);delete MU[id];m()}))}});
+q.forEach(d=>{o[d.id]=d.data();if(!MU[d.id]&&!d.metadata.hasPendingWrites){MU[d.id]=1;const id=d.id;
+unsub.push(fs.collection(`chats/${id}/messages`).onSnapshot(r=>{for(const k in C.messages)if(C.messages[k].cid==id)delete C.messages[k];r.forEach(x=>C.messages[x.id]=x.data());notify()},e=>{fer(e);delete MU[id]}))}});
 C.chats=o;Ch();notify()},err(Ch)))})}
 function detach(){ready=false;unsub.forEach(f=>f());unsub=[];MU={};C.users={};C.chats={};C.messages={};C.sessions={}}
 const nmail=async n=>(await hx(n.toLowerCase(),'pg-nick-v1',1)).slice(0,40)+'@pradagram.app';
@@ -126,15 +196,21 @@ const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,9);
 const hx=async(t,salt,it)=>{const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(t),'PBKDF2',false,['deriveBits']);const b=await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt:new TextEncoder().encode(salt),iterations:it},k,256);return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')};
 const OWNER_NICK='donke'; // только этот ник видит SPC PANEL; занять его может только владелец (проверяется правилами Firestore)
 const isOwner=()=>!!(S.u&&S.u.nl==OWNER_NICK);
+const OFF=u=>!!(u&&u.nl==OWNER_NICK);
+const CHK='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11.5" fill="#2a9df4"/><path d="M6.6 12.6l3.8 3.8 7.1-8" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const STR='<svg viewBox="0 0 24 24"><path d="M12 2l3 6.8 7 .8-5.200 4.800 1.400 7L12 17.900 5.800 21.400l1.400-7L2 9.600l7-.8z" fill="#ffc21f" stroke="#fff3a0" stroke-width="1" stroke-linejoin="round"/></svg>';
+const vb=(u,z=18)=>OFF(u)?`<span class="vb" style="--s:${z}px">${CHK}</span>`:'';
+const ring=(h,sz)=>{const r=sz/2+17;return`<div class="vr">${h}<div class="orb">${[0,1,2,3,4,5,6,7].map(k=>`<i style="--a:${k*45}deg;--r:${r}px"><b>${k%2?CHK:STR}</b></i>`).join('')}</div></div>`};
+const OFFTXT='Аккаунт подтверждён как официальный.';
 // ---------- state / helpers ----------
 let S={u:null,tab:'chats',eco:false,spc:false,q:'',pages:[],open:null};
 const ft=t=>{const d=new Date(t);return d.toDateString()==new Date().toDateString()?d.toLocaleTimeString('ru',{hour:'2-digit',minute:'2-digit'}):d.toLocaleDateString('ru',{day:'numeric',month:'short'})};
 const col=s=>{let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))%360;return `hsl(${h} 55% 52%)`};
-const av=(o,c='',blackDef)=>o.avatar?`<div class="av ${c}" style="background-image:url(${o.avatar})"></div>`:`<div class="av ${c} ${blackDef?'blk':''}" style="${blackDef?'':'background-color:'+col(o.name||o.nick)}">${blackDef?ic('user',c.includes('big')?54:26):esc((o.name||o.nick||'?').slice(0,2).toUpperCase())}</div>`;
-function toast(t){const e=document.createElement('div');e.className='toast';e.textContent=t;E.append(e);setTimeout(()=>e.remove(),2600)}
-function modal(h){const m=document.createElement('div');m.className='modal';m.innerHTML='<div>'+h+'</div>';m.onclick=e=>{if(e.target==m)m.remove()};E.append(m);return m}
+const av=(o,c='',blackDef)=>o.avatar?`<div class="av ${c}" style="background-image:url(${o.avatar})"></div>`:`<div class="av ${c} ${blackDef?'blk':''}" style="${blackDef?'':'background-color:'+col(o.name||o.nick)}">${blackDef?ic('user',c.includes('big')?54:c.includes('xl')?46:26):esc((o.name||o.nick||'?').slice(0,2).toUpperCase())}</div>`;
+function toast(t){const e=document.createElement('div');e.className='toast';e.textContent=t;E.append(e);setTimeout(()=>{e.classList.add('out');setTimeout(()=>e.remove(),250)},2600)}
+function modal(h){const m=document.createElement('div');m.className='modal';m.innerHTML='<div>'+h+'</div>';const rm=Element.prototype.remove;m.remove=()=>{if(m.dataset.c)return;m.dataset.c=1;m.classList.add('out');setTimeout(()=>rm.call(m),190)};m.onclick=e=>{if(e.target==m)m.remove()};E.append(m);return m}
 function pick(cb){const i=document.createElement('input');i.type='file';i.accept='image/*';i.onchange=()=>{const f=i.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const c=document.createElement('canvas'),s=Math.min(1,256/Math.max(im.width,im.height));c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',.82))};im.src=r.result};r.readAsDataURL(f)};i.click()}
-function page(title,body,cls=''){const p=document.createElement('div');p.className='pg '+cls;p.innerHTML=`<div class="pgt"><button class="ib" data-b>${ic('back',28)}</button><h2>${title}</h2></div><div class="pgb">${body}</div>`;E.append(p);p.close=()=>{p.onclose&&p.onclose();p.classList.add('out');setTimeout(()=>p.remove(),220)};$('[data-b]',p).onclick=p.close;return p}
+function page(title,body,cls=''){const p=document.createElement('div');p.className='pg '+cls;p.innerHTML=`<div class="pgt"><button class="ib" data-b>${ic('back',28)}</button><h2>${title}</h2></div><div class="pgb">${body}</div>`;E.append(p);p.close=()=>{p.onclose&&p.onclose();p.classList.add('out');setTimeout(()=>p.remove(),260)};$('[data-b]',p).onclick=p.close;return p}
 function device(){const u=navigator.userAgent;const o=/Android/.test(u)?'Android':/iPhone|iPad/.test(u)?'iOS':/Windows/.test(u)?'Windows':/Mac/.test(u)?'macOS':/Linux/.test(u)?'Linux':'Устройство';const b=/Edg/.test(u)?'Edge':/Firefox/.test(u)?'Firefox':/Chrome/.test(u)?'Chrome':/Safari/.test(u)?'Safari':'Браузер';return o+' · '+b}
 async function saveU(u){await dbPut('users',u);if(S.u&&S.u.id==u.id)S.u=u;ping()}
 // ---------- three.js rain ----------
@@ -142,8 +218,8 @@ function tex(kind){const c=document.createElement('canvas');c.width=c.height=128
 if(kind=='star'){const g=x.createRadialGradient(64,64,4,64,64,62);g.addColorStop(0,'rgba(255,220,100,.9)');g.addColorStop(1,'rgba(255,170,0,0)');x.fillStyle=g;x.fillRect(0,0,128,128);x.beginPath();for(let i=0;i<10;i++){const r=i%2?17:36,a=-Math.PI/2+i*Math.PI/5;x.lineTo(64+r*Math.cos(a),64+r*Math.sin(a))}x.closePath();x.fillStyle='#ffd23f';x.fill();x.strokeStyle='#fff4b0';x.lineWidth=3;x.stroke()}
 else{x.fillStyle='#1f9d4a';x.strokeStyle='#8df5a8';x.lineWidth=4;x.beginPath();x.rect(10,32,108,64);x.fill();x.stroke();x.beginPath();x.arc(64,64,20,0,7);x.stroke();x.fillStyle='#d6ffe0';x.font='bold 34px Roboto,sans-serif';x.textAlign='center';x.textBaseline='middle';x.fillText('$',64,66)}
 return new THREE.CanvasTexture(c)}
-function rain(host,kind){if(!window.THREE)return;const w=()=>host.clientWidth,h=()=>host.clientHeight;
-const R=new THREE.WebGLRenderer({alpha:true,antialias:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.setSize(w(),h());R.domElement.className='cv';host.prepend(R.domElement);
+function rain(host,kind,hp){if(!window.THREE)return;const w=()=>host.clientWidth,h=()=>hp||host.clientHeight;
+const R=new THREE.WebGLRenderer({alpha:true,antialias:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.setSize(w(),h());R.domElement.className='cv'+(hp?' fb':'');host.prepend(R.domElement);
 const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(60,w()/h(),.1,100);cam.position.z=8;
 const t=tex(kind),N=S.eco?14:55,P=[];
 for(let i=0;i<N;i++){const m=new THREE.SpriteMaterial({map:t,transparent:true,opacity:.35+Math.random()*.6}),s=new THREE.Sprite(m),k=.5+Math.random()*.8;s.scale.set(kind=='star'?k:k*1.5,kind=='star'?k:k*.95,1);s.position.set((Math.random()-.5)*16,Math.random()*14-7,Math.random()*6-4);s.v=.02+Math.random()*.05;s.r=(Math.random()-.5)*.04;sc.add(s);P.push(s)}
@@ -157,23 +233,25 @@ E.innerHTML=`<div class="scr" style="padding-bottom:30px"><div class="auth"><h1>
 <div class="seg" id="md"><button data-d="in" class="on">Вход</button><button data-d="reg">Регистрация</button></div>
 <input id="an" placeholder="NickName" autocomplete="username"><input id="am" type="email" placeholder="Почта"><input id="ap" type="password" placeholder="Пароль" autocomplete="current-password">
 <div class="err" id="ae">${msg||''}</div><button class="btn" id="ab">Войти</button></div></div>`;
+[...E.children].forEach(c=>c.classList.add('fx'));
 const upd=()=>{$('#am').style.display=meth=='mail'?'':'none';$('#ab').textContent=mode=='in'?'Войти':'Зарегистрироваться';$('#ae').textContent=''};upd();
 $('#mt').onclick=e=>{const b=e.target.closest('button');if(!b)return;meth=b.dataset.m;[...$('#mt').children].forEach(x=>x.classList.toggle('on',x==b));upd()};
 $('#md').onclick=e=>{const b=e.target.closest('button');if(!b)return;mode=b.dataset.d;[...$('#md').children].forEach(x=>x.classList.toggle('on',x==b));upd()};
-$('#ab').onclick=async()=>{const err=t=>$('#ae').textContent=t,nick=$('#an').value.trim(),mail=$('#am').value.trim().toLowerCase(),pw=$('#ap').value;
+const sub=async()=>{const err=t=>$('#ae').textContent=t,nick=$('#an').value.trim(),mail=$('#am').value.trim().toLowerCase(),pw=$('#ap').value;
 if(!nick||!pw||(meth=='mail'&&!mail))return err('Заполните все поля — пропускать нельзя');
 const email=meth=='mail'?mail:await nmail(nick);
 if(mode=='reg'){if(nick.length<3||nick.length>20)return err('NickName: от 3 до 20 символов');if(/\s/.test(nick))return err('NickName без пробелов');if(meth=='mail'&&!/^\S+@\S+\.\S+$/.test(mail))return err('Некорректная почта');if(pw.length<6)return err('Пароль: минимум 6 символов');
 let cu;try{cu=(await au.createUserWithEmailAndPassword(email,pw)).user}catch(x){return err(ae(x,'Ошибка: '+(x.code||x.message)))}
 const n={id:cu.uid,nick,nl:nick.toLowerCase(),hasMail:meth=='mail',about:'',avatar:'',stars:0,premium:false,banned:false,created:Date.now()};
 try{const b=fs.batch();b.set(fs.doc('nicks/'+n.nl),{uid:cu.uid});b.set(fs.doc('users/'+cu.uid),n);await b.commit()}catch(x){console.error(x);await cu.delete().catch(()=>{});return err(x.code=='permission-denied'?'Этот NickName недоступен (занят или зарезервирован)':'Ошибка: '+(x.code||x.message))}
-await attach(cu.uid);return start(C.users[cu.uid]||n)}
+await attach(cu.uid);await start(C.users[cu.uid]||n);return toast('Вы зарегистрировались!')}
 let cu;try{cu=(await au.signInWithEmailAndPassword(email,pw)).user}catch(x){return err(ae(x,'Неверный NickName, почта или пароль'))}
 await attach(cu.uid);const u=C.users[cu.uid];
 if(!u||u.nl!=nick.toLowerCase()){detach();await au.signOut();return err('Неверный NickName, почта или пароль')}
 if(u.banned){detach();await au.signOut();return err('Аккаунт заблокирован. Зарегистрируйте или войдите в другой аккаунт.')}
-start(u)}}
-async function start(u){const sid=uid(),ss={id:sid,uid:u.id,dev:device(),t:Date.now()};C.sessions[sid]=ss;await fs.doc('sessions/'+sid).set(ss).catch(fer);await dbPut('meta',{k:'cur',uid:u.id,sid});S.u=u;S.sid=sid;S.tab='chats';home()}
+start(u)};
+$('#ab').onclick=async()=>{const bt=$('#ab');if(bt.disabled)return;bt.disabled=true;const t0=bt.textContent;bt.textContent='Подождите…';try{await sub()}finally{if(bt.isConnected){bt.disabled=false;bt.textContent=t0}}}}
+async function start(u){const sid=uid(),ss={id:sid,uid:u.id,dev:device(),t:Date.now()};C.sessions[sid]=ss;fs.doc('sessions/'+sid).set(ss).catch(fer);await dbPut('meta',{k:'cur',uid:u.id,sid});S.u=u;S.sid=sid;S.tab='chats';home()}
 async function logout(msg){const sid=S.sid;ready=false;S.pages.forEach(p=>p.close&&p.close());S.u=null;S.sid=null;if(sid)await dbDel('sessions',sid).catch(()=>{});await dbDel('meta','cur');detach();await au.signOut().catch(()=>{});authView(msg)}
 async function guard(){if(!S.u||!ready)return;const u=C.users[S.u.id],s=C.sessions[S.sid];if(!u||u.banned)return logout('Ваш аккаунт заблокирован. Вы можете войти в другой аккаунт.');if(!s)return logout('Сеанс завершён на другом устройстве');S.u=u}
 // ---------- main shell ----------
@@ -182,7 +260,7 @@ function home(){E.innerHTML=`<div id="tc"></div><div id="sheet"><button data-c="
 $('nav').onclick=e=>{const b=e.target.closest('button');b&&go(b.dataset.t)};
 $('#fab').onclick=()=>{$('#fab').classList.toggle('o');$('#sheet').classList.toggle('o')};
 $('#sheet').onclick=e=>{const b=e.target.closest('button');if(!b)return;$('#fab').classList.remove('o');$('#sheet').classList.remove('o');createFlow(b.dataset.c)};go(S.tab)}
-function go(t){S.tab=t;$('#fab').style.display=t=='chats'?'':'none';$('#sheet').classList.remove('o');[...$('nav').children].forEach(b=>b.classList.toggle('on',b.dataset.t==t));({chats:chatsView,set:setView,prof:profView})[t]()}
+function go(t){S.tab=t;$('#fab').style.display=t=='chats'?'':'none';$('#sheet').classList.remove('o');[...$('nav').children].forEach(b=>b.classList.toggle('on',b.dataset.t==t));({chats:chatsView,set:setView,prof:profView})[t]();const tc=$('#tc');tc.classList.add('ta');clearTimeout(S.tt);S.tt=setTimeout(()=>tc.classList.remove('ta'),420)}
 async function chatsView(){const u=S.u,[cs,ms]=await Promise.all([dbAll('chats'),dbAll('messages')]),us=Object.fromEntries((await dbAll('users')).map(x=>[x.id,x]));
 let rows=cs.filter(c=>c.members.includes(u.id)).map(c=>{const m=ms.filter(x=>x.cid==c.id).sort((a,b)=>a.t-b.t);return{c,last:m[m.length-1],n:Math.max(0,m.length-((c.seen||{})[u.id]||0))}}).sort((a,b)=>(b.last?b.last.t:b.c.created)-(a.last?a.last.t:a.c.created));
 if(S.q)rows=rows.filter(r=>r.c.name.toLowerCase().includes(S.q.toLowerCase()));
@@ -207,34 +285,55 @@ cc.seen=cc.seen||{};if(cc.seen[S.u.id]!=m.length){cc.seen[S.u.id]=m.length;await
 $('#cm',p).textContent=cc.members.length+(ch?' подписчиков':' участников');const box=$('#ms',p),bot=box.scrollHeight-box.scrollTop-box.clientHeight<80;
 box.innerHTML=m.length?m.map(x=>{const u=us[x.uid]||{nick:'Удалён'};
 if(ch)return`<div class="post"><div class="n">${esc(cc.name)}</div>${esc(x.text)}<div class="f">${ic('eye',15)}${(x.v||[]).length}<span>${esc(u.nick)}, ${ft(x.t)}</span></div></div>`;
-const me=x.uid==S.u.id;return`<div class="m ${me?'me':''}">${me?'':`<div data-u="${u.id}" style="cursor:pointer">${av(u,'sm')}</div>`}<div class="bub">${me?'':`<div class="n" data-u="${u.id}" style="color:${col(u.nick)}">${esc(u.nick)}</div>`}${esc(x.text)}<span class="tm">${ft(x.t)}</span></div></div>`}).join(''):`<div class="empty">${ch?'В канале пока нет публикаций':'Сообщений пока нет. Напишите первым'}</div>`;
+const me=x.uid==S.u.id;return`<div class="m ${me?'me':''}">${me?'':`<div data-u="${u.id}" style="cursor:pointer">${av(u,'sm')}</div>`}<div class="bub">${me?'':`<div class="n" data-u="${u.id}" style="color:${col(u.nick)}">${esc(u.nick)}${vb(u,14)}</div>`}${esc(x.text)}<span class="tm">${ft(x.t)}</span></div></div>`}).join(''):`<div class="empty">${ch?'В канале пока нет публикаций':'Сообщений пока нет. Напишите первым'}</div>`;
 if(bot||!box.dataset.k){box.scrollTop=box.scrollHeight;box.dataset.k=1}};
-$('#ms',p).onclick=async e=>{const t=e.target.closest('[data-u]');if(!t)return;const u=await dbGet('users',t.dataset.u);if(u)modal(`<div style="text-align:center">${av(u,'big')}<h3 style="margin-top:12px">${esc(u.nick)}</h3><div class="note" style="font-size:16px">${u.about?esc(u.about):'Пользователь ничего не рассказал о себе'}</div></div>`)};
+$('#ms',p).onclick=async e=>{const t=e.target.closest('[data-u]');if(!t)return;const u=await dbGet('users',t.dataset.u);if(u)modal(`<div style="text-align:center">${OFF(u)?ring(av(u,'big'),110):av(u,'big')}<h3 style="margin-top:12px;display:flex;align-items:center;justify-content:center">${esc(u.nick)}${vb(u,20)}</h3>${OFF(u)?'<div class="sv">'+OFFTXT+'</div>':''}<div class="note" style="font-size:16px">${u.about?esc(u.about):'Пользователь ничего не рассказал о себе'}</div></div>`)};
 const send=async()=>{const i=$('#ci',p),t=i.value.trim();if(!t)return;i.value='';await dbPut('messages',{id:uid(),cid:id,uid:S.u.id,text:t,t:Date.now(),v:[S.u.id]});ping();await rend()};
 if($('#cs',p)){$('#cs',p).onclick=send;$('#ci',p).onkeydown=e=>{if(e.key=='Enter')send()}}
 p.onclose=()=>{S.open=null;chatsView()};p.rend=rend;S.pages.push(p);
-p.close=()=>{p.onclose();p.classList.add('out');setTimeout(()=>p.remove(),220)};$('[data-b]',p).onclick=p.close;await rend()}
-bc.onmessage=()=>{const p=[...document.querySelectorAll('.pg')].pop();if(S.open&&p&&p.rend)p.rend();else if(S.u&&S.tab=='chats'&&!document.querySelector('.pg'))chatsView();guard()};
+p.close=()=>{p.onclose();p.classList.add('out');setTimeout(()=>p.remove(),260)};$('[data-b]',p).onclick=p.close;await rend()}
+bc.onmessage=()=>{guard();const p=[...document.querySelectorAll('.pg')].pop();if(p&&p.rend)p.rend();else if(S.u&&S.tab=='chats'&&!document.querySelector('.pg'))chatsView()};
 setInterval(guard,6000);
 // ---------- settings ----------
-const row=(i,g,t,s,id)=>`<div class="row" data-r="${id}"><div class="tile" style="background:${g}">${ic(i,26)}</div><div class="mid"><b>${t}</b>${s?`<div class="s">${s}</div>`:''}</div></div>`;
-function setView(){const u=S.u;$('#tc').innerHTML=`<div class="scr"><div class="top"><h1>Настройки</h1></div>
-<div class="ph">${av(u,'big',1)}<b>${esc(u.nick)}</b><span>@${esc(u.nick)}${u.mail?' • '+esc(u.mail):''}</span></div>
-<div class="card">${row('dev','linear-gradient(135deg,#2cc4d8,#1c93b5)','Устройства','Управление активными сеансами','dev')}${row('bat','linear-gradient(135deg,#f28a2e,#d9601a)','Энергосбережение',S.eco?'Включено — меньше анимаций':'Экономия энергии при низком заряде','eco')}${row('globe','linear-gradient(135deg,#a259e6,#7c3ad0)','Язык','Русский','lang')}</div>
-<div class="card">${row('star','linear-gradient(135deg,#7a6bff,#b05cf0)','PradaGram Premium','','prem')}${row('star','linear-gradient(135deg,#ffb52e,#f0820f)','Звёзды PradaGram','','stars')}${isOwner()?row('lock','linear-gradient(135deg,#e5534b,#b52e3a)','SPC PANEL','','spc'):''}${row('gift','linear-gradient(135deg,#f28a2e,#e0561a)','Отправить подарок','','gift')}</div>
-<div class="card"><div class="lbl">Помощь</div>${row('bulb','linear-gradient(135deg,#a259e6,#6d4be0)','Возможности PradaGram','','feat')}${row('shield','linear-gradient(135deg,#3ec46d,#259a4c)','Политика конфиденциальности','','priv')}</div>
+const SR=(i,g,t,s,id)=>`<div class="st${s?'':' s1'}" data-r="${id}"><div class="tile" style="background:${g}">${ic(i,18)}</div><div class="tx"><div class="tl">${t}</div>${s?`<div class="sb">${s}</div>`:''}</div></div>`;
+function setMenu(){const m=modal(`<h3>Меню</h3><button class="btn g" id="lg" style="display:flex;gap:8px;justify-content:center">${ic('out',22)}Выйти из аккаунта</button>`);$('#lg',m).onclick=()=>{m.remove();logout()}}
+function setView(){const u=S.u,ow=OFF(u),a=av(u,'xl',1);$('#tc').innerHTML=`<div class="scr"><div class="sh"><button class="ib mm" data-r="menu">${ic('more',26)}</button>
+<div class="sav" data-r="ava">${ow?ring(a,96):a}<span class="cm">${ic('cam',17)}</span></div>
+<div class="sn${ow?' ow':''}">${esc(u.nick)}${vb(u,20)}</div><div class="su">@${esc(u.nick)}</div>${ow?'<div class="sv">'+OFFTXT+'</div>':''}</div>
+<div class="cd">${SR('user','linear-gradient(135deg,#3aa6f5,#1f80d8)','Аккаунт','Ник, «О себе», аватар','acc')}${SR('dev','linear-gradient(135deg,#2cc4d8,#1c93b5)','Устройства','Управление активными сеансами','dev')}${SR('bat','linear-gradient(135deg,#f28a2e,#d9601a)','Энергосбережение',S.eco?'Включено — меньше анимаций':'Экономия энергии при низком заряде','eco')}${SR('globe','linear-gradient(135deg,#a259e6,#7c3ad0)','Язык','Русский','lang')}</div>
+<div class="cd">${SR('star','linear-gradient(135deg,#7a6bff,#b05cf0)','PradaGram Premium','','prem')}${SR('star','linear-gradient(135deg,#ffb52e,#f0820f)','Звёзды PradaGram','','stars')}${ow?SR('lock','linear-gradient(135deg,#e5534b,#b52e3a)','SPC PANEL','','spc'):''}${SR('gift','linear-gradient(135deg,#f28a2e,#e0561a)','Отправить подарок','','gift')}</div>
+<div class="cd"><div class="hd">Помощь</div>${SR('bulb','linear-gradient(135deg,#a259e6,#6d4be0)','Возможности PradaGram','','feat')}${SR('shield','linear-gradient(135deg,#3ec46d,#259a4c)','Политика конфиденциальности','','priv')}</div>
 <div class="note" style="text-align:center">PradaGram v0.1 · web</div></div>`;
-$('#tc').onclick=e=>{const r=e.target.closest('[data-r]');r&&({dev:devices,eco:toggleEco,lang:lang,prem:premium,stars:stars,spc:spcGate,gift:()=>info('Отправить подарок','Раздел появится в следующем обновлении.'),feat:feat,priv:()=>info('Политика конфиденциальности','Пароли хранятся только в виде криптографического хэша. Мы не передаём ваши данные третьим лицам. Если вы зарегистрировались без почты, восстановить пароль невозможно.')})[r.dataset.r]()}}
+$('#tc').onclick=e=>{const r=e.target.closest('[data-r]');if(!r)return;({acc:()=>go('prof'),menu:setMenu,ava:()=>pick(async d=>{u.avatar=d;await saveU(u);setView()}),dev:devices,eco:toggleEco,lang:lang,prem:premium,stars:stars,spc:spcGate,gift:()=>info('Отправить подарок','Раздел появится в следующем обновлении.'),feat:feat,priv:()=>info('Политика конфиденциальности','Пароли хранятся только в виде криптографического хэша. Мы не передаём ваши данные третьим лицам. Если вы зарегистрировались без почты, восстановить пароль невозможно.')})[r.dataset.r]()}}
 function info(t,b){page(t,`<div class="note" style="font-size:17px;color:#cfd8e3">${b}</div>`)}
 function feat(){info('Возможности PradaGram','Группы и каналы с аватарками.<br>Счётчик непрочитанных сообщений.<br>Время последнего сообщения в списке чатов.<br>Профиль с описанием «О себе».<br>Звёзды и Premium.<br>Управление активными сеансами.')}
-async function toggleEco(){S.eco=!S.eco;await dbPut('meta',{k:'eco',v:S.eco});setView();toast(S.eco?'Энергосбережение включено':'Энергосбережение выключено')}
+async function toggleEco(){S.eco=!S.eco;E.classList.toggle('eco',S.eco);await dbPut('meta',{k:'eco',v:S.eco});setView();toast(S.eco?'Энергосбережение включено':'Энергосбережение выключено')}
 function lang(){const m=modal(`<h3>Язык</h3><div class="row" style="justify-content:space-between">Русский ${ic('check',22,'')}</div><div class="row" style="color:var(--m)">English — скоро</div>`)}
 async function devices(){const p=page('Устройства','<div id="dl"></div>');const r=async()=>{const ss=(await dbAll('sessions')).filter(s=>s.uid==S.u.id).sort((a,b)=>b.t-a.t);$('#dl',p).innerHTML=ss.map(s=>`<div class="dv"><b style="font-weight:500">${esc(s.dev)}</b> ${s.id==S.sid?'<span class="chip">Это устройство</span>':''}<br><small>Вход: ${new Date(s.t).toLocaleString('ru')}</small>${s.id!=S.sid?`<br><button class="btn g" style="margin-top:8px;padding:10px" data-k="${s.id}">Завершить сеанс</button>`:''}</div>`).join('')};await r();$('#dl',p).onclick=async e=>{const b=e.target.closest('[data-k]');if(b){await dbDel('sessions',b.dataset.k);ping();r()}}}
-function stars(){const p=page('Звёзды PradaGram',`<div class="frame"><h3>Звёзды PradaGram</h3><div class="sc"><span>${S.u.stars.toLocaleString('ru')}</span>${starSvg(64)}</div></div>`);rain(p,'star')}
+const fdt=t=>new Date(t).toLocaleString('ru',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+function stars(){const p=page('',`<div class="stp"><div class="stbig">${starSvg(132)}</div><h2>Звёзды PradaGram</h2><p>Звёзды PradaGram — внутренняя валюта приложения.</p>
+<div class="bal"><div class="bn"><span id="bv">${S.u.stars.toLocaleString('ru')}</span>${starSvg(34)}</div><div class="bl">Ваш баланс</div>
+<div class="bb"><button class="pill" id="tp">${ic('plusc',24)}Пополнить</button><button class="pill" id="ts">${ic('bars',22)}Статистика</button></div></div>
+<div class="ops"><div class="tb" id="tb"><button data-k="all" class="on">Все операции</button><button data-k="in">Зачисления</button><button data-k="out">Списания</button></div><div id="ol"></div></div></div>`,'tr');
+rain(p,'star',360);let ops=null,tab='all';
+const draw=()=>{const ol=$('#ol',p);if(ops===null){ol.innerHTML='';return}
+const rows=ops.filter(o=>tab=='all'||(tab=='in'&&o.n>0)||(tab=='out'&&o.n<0));
+ol.innerHTML=rows.length?rows.map(o=>{const f=C.users[o.fid]||{nick:o.from,nl:String(o.from).toLowerCase()};return`<div class="op">${av(f,'op')}<div class="mid"><b>${esc(o.from)}${vb(f,15)}</b><div class="s">Выдача звёзд</div><div class="s">${fdt(o.t)}</div></div><div class="am ${o.n>0?'pl':'mn'}">${o.n>0?'+':'−'}${Math.abs(o.n).toLocaleString('ru')}${starSvg(20)}</div></div>`}).join(''):`<div class="empty" style="padding:34px 20px">${tab=='out'?'Списаний пока нет':'Операций пока нет'}</div>`};
+$('#tb',p).onclick=e=>{const b=e.target.closest('button');if(!b)return;tab=b.dataset.k;[...$('#tb',p).children].forEach(x=>x.classList.toggle('on',x==b));draw()};
+$('#tp',p).onclick=()=>window.open('https://t.me/ceotinkov','_blank');
+$('#ts',p).onclick=starStats;
+const un=fs.collection('users/'+S.u.id+'/ops').orderBy('t','desc').limit(200).onSnapshot(q=>{ops=q.docs.map(d=>d.data());draw()},e=>fer(e));
+const oc=p.onclose;p.onclose=()=>{oc&&oc();un()};
+p.rend=()=>{S.u&&($('#bv',p).textContent=S.u.stars.toLocaleString('ru'))}}
+async function starStats(){const p=page('Статистика','<div class="note" style="text-align:center">Загрузка…</div>');let ops=[];try{ops=(await fs.collection('users/'+S.u.id+'/ops').get()).docs.map(d=>d.data())}catch(x){fer(x)}
+const inn=ops.filter(o=>o.n>0),tot=inn.reduce((a,o)=>a+o.n,0),mx=inn.reduce((a,o)=>Math.max(a,o.n),0),first=inn.reduce((a,o)=>Math.min(a,o.t),Infinity);
+const R=(t,v)=>`<div class="st s1" style="cursor:default"><div class="tx"><div class="tl">${t}</div></div><div style="color:var(--m);font-size:16px">${v}</div></div>`;
+$('.pgb',p).innerHTML=`<div class="bal" style="margin-top:14px"><div class="bl" style="margin:0 0 10px">Поступления за всё время</div><div class="bn"><span>${tot.toLocaleString('ru')}</span>${starSvg(34)}</div></div>
+<div class="cd">${R('Всего зачислений',inn.length)}${R('Крупнейшее зачисление',mx.toLocaleString('ru'))}${R('Первое зачисление',inn.length?fdt(first):'—')}</div>`}
 function premium(){const a=S.u.premium,p=page('PradaGram Premium',`<div class="frame p"><h3>PREMIUM MODE</h3><div style="margin-top:18px;font-size:20px;font-weight:500;color:${a?'#6dffa1':'#ff9a94'}">Подписка ${a?'активна':'неактивна'}</div></div>`);rain(p,'usd')}
 // ---------- profile ----------
 function profView(){const u=S.u;$('#tc').innerHTML=`<div class="scr"><div class="top"><h1>Профиль</h1></div>
-<div style="display:flex;gap:16px;align-items:center;padding:6px"><div id="pa" style="cursor:pointer">${av(u,'big',1)}</div><div style="display:flex;align-items:center;gap:6px;min-width:0"><b style="font-size:26px;font-weight:500;word-break:break-all">${esc(u.nick)}</b><button class="ib" id="pn">${ic('pen',22)}</button></div></div>
+<div style="display:flex;gap:10px;align-items:center;padding:6px"><div id="pa" style="cursor:pointer">${OFF(u)?ring(av(u,'big',1),110):av(u,'big',1)}</div><div style="min-width:0"><div style="display:flex;align-items:center;gap:2px"><b style="font-size:26px;font-weight:500;word-break:break-all">${esc(u.nick)}</b>${vb(u,22)}<button class="ib" id="pn">${ic('pen',22)}</button></div>${OFF(u)?'<div class="sv" style="margin-top:2px">'+OFFTXT+'</div>':''}</div></div>
 <div class="card" style="padding:10px 14px"><div class="lbl" style="padding-left:0">О себе</div><div class="fld ${u.about?'':'e'}" id="pb" style="padding-left:0">${u.about?esc(u.about):'Нажмите, чтобы добавить описание'}</div></div>
 <div class="card" style="padding:14px 18px;display:flex;align-items:center;justify-content:space-between"><span>Звёзды</span><span style="display:flex;gap:8px;align-items:center;font-weight:500">${u.stars.toLocaleString('ru')}${starSvg(26)}</span></div>
 <button class="btn g" id="lo" style="display:flex;gap:8px;justify-content:center">${ic('out',22)}Выйти из аккаунта</button></div>`;
@@ -244,7 +343,9 @@ $('#pn').onclick=()=>{const m=modal(`<h3>Изменить NickName</h3><input id
 $('#lo').onclick=()=>logout()}
 // ---------- SPC PANEL ----------
 // запись владельца: ждём подтверждения сервера
-async function adminPatch(id,patch){if(!isOwner())return 'Нет доступа';try{await fs.doc('users/'+id).update(patch);return null}catch(x){console.error(x);return x.code=='permission-denied'?'Сервер отклонил запись. Проверьте, что в Firebase опубликованы актуальные правила (firestore.rules) и вы вошли под ником donke.':'Ошибка: '+(x.code||x.message)}}
+const PD=x=>{console.error(x);return x.code=='permission-denied'?'Сервер отклонил запись. Проверьте, что в Firebase опубликованы актуальные правила (firestore.rules) и вы вошли под ником donke.':'Ошибка: '+(x.code||x.message)};
+async function adminPatch(id,patch){if(!isOwner())return 'Нет доступа';try{await fs.doc('users/'+id).update(patch);return null}catch(x){return PD(x)}}
+async function adminGive(t,n){if(!isOwner())return 'Нет доступа';try{const b=fs.batch(),id=uid();b.update(fs.doc('users/'+t.id),{stars:firebase.firestore.FieldValue.increment(n)});b.set(fs.doc(`users/${t.id}/ops/${id}`),{id,t:Date.now(),n,from:S.u.nick,fid:S.u.id});await b.commit();return null}catch(x){return PD(x)}}
 function spcGate(){if(!isOwner())return toast('Нет доступа');spcPanel()}
 function spcPanel(){const p=page('SPC PANEL',`<div class="card" style="padding:14px"><button class="btn" data-f="give">Выдача звёзд по NickName</button><button class="btn r" data-f="ban">Заблокировать аккаунт по NickName</button><button class="btn g" data-f="unban">Разблокировать аккаунт по NickName</button><button class="btn" style="background:#b8791a" data-f="self">Выдача звёзд себе</button></div>`);p.onclick=e=>{const b=e.target.closest('[data-f]');b&&flow(b.dataset.f)}}
 function flow(k){const T={give:'Выдача звёзд по NickName',ban:'Заблокировать аккаунт',unban:'Разблокировать аккаунт',self:'Выдача звёзд себе'};const m=modal(`<h3>${T[k]}</h3><div id="fb"></div>`),b=$('#fb',m);let tg=null;
@@ -254,13 +355,13 @@ if(k=='ban'){if(tg.id==S.u.id)return e('Нельзя заблокировать 
 bt.disabled=true;const er=await adminPatch(tg.id,{banned:k=='ban'});bt.disabled=false;if(er)return e(er);
 toast('Аккаунт '+tg.nick+(k=='ban'?' заблокирован':' разблокирован'));m.remove()}};
 const s2=()=>{b.innerHTML=`<div class="note" style="margin-top:0">Получатель: <b>${esc(tg.nick)}</b></div><input id="fa" type="number" min="1" max="2500000" placeholder="Количество звёзд (макс. 2 500 000)"><div class="err" id="fe"></div><button class="btn" id="fo">Выдать</button>`;$('#fo',m).onclick=async()=>{const bt=$('#fo',m),e=t=>$('#fe',m).textContent=t;if(bt.disabled)return;const n=Number($('#fa',m).value);if(!Number.isInteger(n)||n<1)return e('Введите целое число больше 0');if(n>2500000)return e('Максимум — 2 500 000');
-bt.disabled=true;const er=await adminPatch(tg.id,{stars:firebase.firestore.FieldValue.increment(n)});bt.disabled=false;if(er)return e(er);
+bt.disabled=true;const er=await adminGive(tg,n);bt.disabled=false;if(er)return e(er);
 if(C.users[S.u.id])S.u=C.users[S.u.id];toast(`Выдано ${n.toLocaleString('ru')} звёзд — ${tg.nick}`);m.remove();if(S.tab!='chats')go(S.tab)}};
 if(k=='self'){tg=S.u;return s2()}
 b.innerHTML=`<input id="fn" placeholder="NickName игрока"><div class="err" id="fe"></div><button class="btn" id="fo">Проверить</button>`;
 $('#fo',m).onclick=async()=>{const n=$('#fn',m).value.trim().toLowerCase();if(!n)return $('#fe',m).textContent='Введите NickName';tg=(await dbAll('users')).find(x=>x.nl==n);if(!tg)return $('#fe',m).textContent='Игрок с таким NickName не найден';k=='give'?s2():s3()}}
 // ---------- boot ----------
-(async()=>{await open();const e=await dbGet('meta','eco');S.eco=!!(e&&e.v);let first=true;
+(async()=>{await open();const e=await dbGet('meta','eco');S.eco=!!(e&&e.v);E.classList.toggle('eco',S.eco);let first=true;
 au.onAuthStateChanged(async cu=>{if(!first)return;first=false;if(!cu)return authView();
 await attach(cu.uid);const u=C.users[cu.uid],c=await dbGet('meta','cur');
 if(u&&c&&c.uid==cu.uid&&C.sessions[c.sid]&&!u.banned){S.u=u;S.sid=c.sid;return home()}
