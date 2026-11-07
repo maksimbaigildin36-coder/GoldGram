@@ -185,6 +185,76 @@ select{flex:1;min-width:0;background:var(--c2);color:#fff;border:1px solid #2c3b
 .buy{width:100%;height:56px;border:0;border-radius:28px;background:linear-gradient(90deg,#7b86ff,#a855f7 55%,#e0589f);color:#fff;font:500 18px Roboto;cursor:pointer;box-shadow:0 4px 20px #a855f755}.buy:active{filter:brightness(.92)}.buy:disabled{opacity:.7}
 .fi{display:flex;gap:16px;padding:14px 18px;align-items:flex-start;text-align:left}.fi .tile{width:34px;height:34px;border-radius:10px}
 .fi b{display:block;font-weight:500;font-size:17px}.fi span{display:block;color:var(--m);font-size:15px;margin-top:3px;line-height:1.35}
+
+/* ---- подарки ---- */
+.gi{display:block;pointer-events:none;user-select:none;-webkit-user-drag:none}.gi.dim{opacity:.35;filter:grayscale(.6)}
+.bs{position:absolute;inset:0;background:#0009;z-index:60;display:flex;align-items:flex-end;animation:fd .2s}
+.bs.out{animation:fo .22s ease-in forwards}
+.bsc{position:relative;width:100%;max-height:92%;background:#1d2a3b;border-radius:28px 28px 0 0;display:flex;flex-direction:column;animation:su .32s cubic-bezier(.2,.85,.25,1);overflow:hidden}
+.bs.out .bsc{animation:sd .22s ease-in forwards}
+@keyframes su{from{transform:translateY(100%)}}@keyframes sd{to{transform:translateY(100%)}}
+.bs1{height:80%}.bs2{height:92%}
+.bst{font-size:23px;font-weight:500;padding:22px 22px 18px;border-bottom:1px solid #121b27;flex:none}
+.bsb{flex:1;overflow-y:auto;position:relative}
+.gsrch{background:transparent!important;border:0!important;border-bottom:1px solid #121b27!important;border-radius:0!important;margin:0!important;padding:20px 22px!important;font-size:19px!important;flex:none}
+.gh{color:var(--m);font-size:16px;font-weight:500;padding:14px 22px;background:#17222f}
+.gr{display:flex;gap:14px;align-items:center;padding:10px 14px 10px 18px;cursor:pointer}
+.gr:active{background:#ffffff0d}.gr.me{background:#2c394b}
+.gr .av{width:48px;height:48px;font-size:18px}.gr .mid{flex:1;min-width:0;border-bottom:1px solid #162230;padding:6px 0 10px}
+.gr b{display:flex;align-items:center;font-weight:500;font-size:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gr .s{color:var(--m);font-size:15px;margin-top:3px}.gr .s.on{color:#4aa8f5}.gr.me .s{color:#9fb0c4}
+.gr .mid{margin:-10px 0}.gdt{color:#9fb0c4;margin-left:auto}
+.gph{text-align:center;position:relative;padding-top:6px}
+.gbal{position:absolute;right:0;top:0;text-align:right}.gbl{font-size:17px;font-weight:500}.gbn{display:flex;gap:6px;align-items:center;justify-content:flex-end;font-size:20px;font-weight:500;margin-top:2px}
+.gav .av{width:84px;height:84px;margin:14px auto 0}
+.gph h2{font-size:24px;font-weight:700;margin-top:22px}.gph p{color:#d6dee8;font-size:16px;line-height:1.35;margin:10px 8px 0}
+.gtabs{display:flex;justify-content:center;gap:6px;margin:20px 0 16px}.gtabs button{background:none;border:0;color:var(--m);font:500 17px Roboto;padding:10px 20px;border-radius:20px;cursor:pointer}.gtabs button.on{background:#223042;color:#9fb0c4}
+.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.gc{background:#1e2937;border-radius:20px;aspect-ratio:5/6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;cursor:pointer;transition:transform .15s}.gc:active{transform:scale(.96)}
+.gc .gi{width:78%;height:auto;max-width:96px}
+.gp{display:flex;align-items:center;gap:5px;background:#3d3622aa;border-radius:18px;padding:5px 13px 5px 9px;font-size:17px;font-weight:500;box-shadow:0 0 12px #ffc21f22 inset}
+.gw{background:#121b27 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='170'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.07' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='28' cy='30' r='10'/%3E%3Cpath d='M105 18l6 12 13 2-9 9 2 13-12-6-12 6 2-13-9-9 13-2z'/%3E%3Cpath d='M38 108c-10-10 0-20 8-12 8-8 18 2 8 12l-8 8z'/%3E%3Crect x='108' y='110' width='28' height='22' rx='3'/%3E%3Cpath d='M122 110v22M108 121h28'/%3E%3Cpath d='M70 70q10-10 20 0t20 0'/%3E%3C/g%3E%3C/svg%3E");padding:16px 14px 14px}
+.gpl{width:max-content;max-width:100%;margin:0 auto;background:#1d2a3be0;border-radius:20px;padding:9px 16px;font-size:16px;font-weight:500;text-align:center}
+.gcd{background:linear-gradient(#2d3a4f,#2a3652);border-radius:26px;padding:20px 14px 18px;text-align:center;width:min(78%,300px);margin:14px auto}
+.gcd .gi{margin:0 auto 10px}.gct{font-weight:500;font-size:18px}.gcs{font-size:16px;line-height:1.35;margin-top:4px;color:#e4ebf3}
+.gcm{margin-top:10px;background:#ffffff14;border-radius:14px;padding:8px 12px;font-size:15px;word-break:break-word}
+.gvw{display:inline-block;margin-top:14px;background:#ffffff14;border-radius:18px;padding:9px 24px;font-weight:500;font-size:17px}
+.gin{display:flex;align-items:center;background:#1b2838;border:1px solid #2a3a4e;border-radius:28px;padding:0 10px 0 6px;margin-top:6px}
+.gin input{background:transparent;border:0;margin:0;flex:1;font-size:18px;padding:15px 12px}.gem{background:none;border:0;color:#9fb0c4;padding:6px;cursor:pointer}
+.gep{display:flex;flex-wrap:wrap;gap:4px;background:#1b2838;border-radius:18px;padding:8px;margin-top:8px}.gep span{font-size:26px;padding:4px 6px;cursor:pointer}
+.gro{display:flex;align-items:center;justify-content:space-between;font-size:19px;font-weight:500;padding:20px 22px;background:#1d2a3b}
+.sw{width:54px;height:32px;border-radius:16px;background:#3a4a60;position:relative;cursor:pointer;transition:background .2s}.sw i{position:absolute;left:4px;top:4px;width:24px;height:24px;border-radius:50%;background:#fff;transition:transform .2s}
+.sw.on{background:#4a9be0}.sw.on i{transform:translateX(22px)}
+.gnote{color:var(--m);font-size:16px;line-height:1.4;padding:6px 22px 18px}
+.gfoot{flex:none;padding:12px 14px calc(14px + env(safe-area-inset-bottom,0px));border-top:1px solid #121b27;background:#1d2a3b}
+.gbuy{width:100%;min-height:58px;border:0;border-radius:30px;background:#229af0;color:#fff;font:500 19px Roboto;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px}
+.gbuy span{display:flex;align-items:center;gap:6px}.gbuy small{font-size:15px;font-weight:400;color:#d4ebff;margin-top:2px}.gbuy:active{filter:brightness(.92)}
+.gmn{position:absolute;right:12px;top:12px;color:#9fb0c4;z-index:3}
+.gmenu{position:absolute;right:16px;top:54px;background:#2a3a50;border-radius:16px;box-shadow:0 8px 24px #000a;z-index:4;overflow:hidden;animation:pop .18s}.gmenu div{padding:14px 20px;font-size:17px;cursor:pointer;white-space:nowrap}.gmenu div:active{background:#ffffff14}
+.gmw{text-align:center;padding:26px 14px 6px}.gmw .gi{margin:0 auto}.gmw h2{font-size:28px;font-weight:700;margin-top:18px}.gmw p{font-size:18px;line-height:1.35;margin:10px 10px 0;color:#e4ebf3}
+.gl{color:#4aa8f5;cursor:pointer;text-decoration:none}
+.gtb{border:1px solid #2c3b50;border-radius:22px;margin:22px 2px 0;text-align:left;overflow:hidden}
+.gtr{display:flex;align-items:center;min-height:56px;border-bottom:1px solid #2c3b50}.gtr>b{flex:0 0 31%;padding:0 18px;font-weight:700;font-size:17px;align-self:stretch;display:flex;align-items:center;border-right:1px solid #2c3b50}
+.gtr>div{flex:1;display:flex;align-items:center;gap:8px;padding:8px 14px;font-size:18px;flex-wrap:wrap;min-width:0}.gtr .av{width:34px;height:34px;font-size:13px}
+.gch{background:#27405e;color:#4aa8f5;border-radius:14px;padding:4px 12px;font-size:15px;cursor:pointer}
+.gtc{padding:14px 18px;font-size:18px;line-height:1.35;word-break:break-word}
+.gft{color:var(--m);font-size:16px;padding:18px 6px 6px;text-align:center}
+.gb{position:absolute;left:8px;top:8px;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#fff;background:#2c3b50}
+.gb .av{width:26px;height:26px;font-size:10px}.gb.gh2,.gh2{background:#f0a23a}.gb.bl{background:#2a9df4}
+.gtr .gb{position:static}
+.gchip{display:flex;margin:16px 0 12px}.gchip span{background:#1e2937;border-radius:20px;padding:10px 22px;font-weight:500;font-size:17px}
+.ggrid2{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.gt{position:relative;background:#1c2735;border-radius:20px;aspect-ratio:1/.98;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .15s}.gt:active{transform:scale(.96)}
+.gt.hd .gi{opacity:.4}.geye{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff}.geye svg{filter:drop-shadow(0 1px 4px #000a)}
+.gtoast{position:absolute;left:12px;right:12px;top:calc(76px + env(safe-area-inset-top,0px));background:#2c3b52;border-radius:22px;padding:12px 16px;z-index:99;display:flex;gap:14px;align-items:center;box-shadow:0 8px 24px #0008;animation:ti2 .3s cubic-bezier(.2,.9,.3,1.1)}
+.gtoast b{font-size:19px;font-weight:500;display:block}.gtoast div div{font-size:17px;margin-top:2px}.gtoast.out{animation:tq2 .25s ease-in forwards}
+@keyframes ti2{from{opacity:0;transform:translateY(-16px)}}@keyframes tq2{to{opacity:0;transform:translateY(-10px)}}
+.gcw{display:flex;justify-content:center;margin:12px 0}
+.gcc{width:min(80%,300px);background:#2b3a50e0;border-radius:24px;padding:18px 16px;text-align:center;cursor:pointer;backdrop-filter:blur(6px)}.gcc .gi{margin:0 auto 8px}
+.gcc .gct{font-size:17px}.gcc .gcs{font-size:15px;color:#d6dee8}
+.fxc{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:70}
+.pst.on{color:#4aa8f5}
+[hidden]{display:none!important}
 </style></head><body><div id="app"></div>
 <script>
 const $=(s,e=document)=>e.querySelector(s),E=$('#app');
@@ -209,7 +279,7 @@ const starSvg=(s=64,pp)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24"><d
 // ---------- storage (Firebase: Auth + Firestore) ----------
 firebase.initializeApp({apiKey:"AIzaSyBtrMNzxw8sq38wQAMF37aIiTN4qJJSxww",authDomain:"pradagram-432ac.firebaseapp.com",projectId:"pradagram-432ac",storageBucket:"pradagram-432ac.firebasestorage.app",messagingSenderId:"991576000857",appId:"1:991576000857:web:2257b33947d2e886ac6448"});
 const au=firebase.auth(),fs=firebase.firestore();
-const C={users:{},chats:{},messages:{},sessions:{}};
+const C={users:{},chats:{},messages:{},sessions:{},gifts:{},gf:{},gt:{}};
 let ready=false,unsub=[],MU={},_t;
 const bc={postMessage(){}},ping=()=>{};
 const notify=()=>{if(!ready)return;clearTimeout(_t);_t=setTimeout(()=>bc.onmessage&&bc.onmessage(),60)};
@@ -220,16 +290,18 @@ const dbAll=async s=>Object.values(C[s]),
 dbGet=async(s,k)=>s=='meta'?JSON.parse(localStorage.getItem('pg_'+k)||'null'):C[s][k],
 dbPut=async(s,v)=>{if(s=='meta'){localStorage.setItem('pg_'+v.k,JSON.stringify(v));return}C[s][v.id]=v;fs.doc(dpath(s,v)).set(v).catch(fer)},
 dbDel=async(s,k)=>{if(s=='meta'){localStorage.removeItem('pg_'+k);return}delete C[s][k];return fs.doc(s+'/'+k).delete().catch(fer)};
-function attach(me){return new Promise(res=>{let pend=3,done=false;
+function attach(me){return new Promise(res=>{let pend=5,done=false;
 const fin=()=>{if(!done&&--pend<=0){done=true;ready=true;res()}};
-const once=()=>{let f=0;return()=>{if(!f){f=1;fin()}}},U=once(),Ch=once(),Se=once(),err=f=>e=>{fer(e);f()};
+const once=()=>{let f=0;return()=>{if(!f){f=1;fin()}}},U=once(),Ch=once(),Se=once(),G1=once(),G2=once(),err=f=>e=>{fer(e);f()};
 unsub.push(fs.collection('users').onSnapshot(q=>{const o={};q.forEach(d=>o[d.id]=d.data());C.users=o;U();notify()},err(U)));
 unsub.push(fs.collection('sessions').where('uid','==',me).onSnapshot(q=>{const o={};q.forEach(d=>o[d.id]=d.data());C.sessions=o;Se();notify()},err(Se)));
+unsub.push(fs.collection('gifts').where('from','==',me).onSnapshot(q=>{const o={};q.forEach(d=>o[d.id]=d.data());C.gf=o;C.gifts={...C.gf,...C.gt};G1();notify()},err(G1)));
+unsub.push(fs.collection('gifts').where('to','==',me).onSnapshot(q=>{const o={};q.forEach(d=>o[d.id]=d.data());C.gt=o;C.gifts={...C.gf,...C.gt};G2();notify()},err(G2)));
 unsub.push(fs.collection('chats').where('members','array-contains',me).onSnapshot({includeMetadataChanges:true},q=>{const o={};
 q.forEach(d=>{o[d.id]=d.data();if(!MU[d.id]&&!d.metadata.hasPendingWrites){MU[d.id]=1;const id=d.id;
 unsub.push(fs.collection(`chats/${id}/messages`).onSnapshot(r=>{for(const k in C.messages)if(C.messages[k].cid==id)delete C.messages[k];r.forEach(x=>C.messages[x.id]=x.data());notify()},e=>{fer(e);delete MU[id]}))}});
 C.chats=o;Ch();notify()},err(Ch)))})}
-function detach(){ready=false;unsub.forEach(f=>f());unsub=[];MU={};C.users={};C.chats={};C.messages={};C.sessions={}}
+function detach(){ready=false;unsub.forEach(f=>f());unsub=[];MU={};C.users={};C.chats={};C.messages={};C.sessions={};C.gifts={};C.gf={};C.gt={}}
 const nmail=async n=>(await hx(n.toLowerCase(),'pg-nick-v1',1)).slice(0,40)+'@pradagram.app';
 const ae=(x,d)=>({'auth/email-already-in-use':'Эта почта или NickName уже используется','auth/invalid-email':'Некорректная почта','auth/weak-password':'Пароль: минимум 6 символов','auth/operation-not-allowed':'В Firebase не включён вход Email/Password','auth/too-many-requests':'Слишком много попыток, подождите','auth/network-request-failed':'Нет сети'}[x.code]||d);
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,9);
@@ -309,15 +381,15 @@ function home(){E.innerHTML=`<div id="tc"></div><div id="sheet"><button data-c="
 <nav><button data-t="chats">${ic('chat',24)}Чаты</button><button data-t="set">${ic('set',24)}Настройки</button><button data-t="prof">${ic('user',24)}Профиль</button></nav>`;
 $('nav').onclick=e=>{const b=e.target.closest('button');b&&go(b.dataset.t)};
 $('#fab').onclick=()=>{$('#fab').classList.toggle('o');$('#sheet').classList.toggle('o')};
-$('#sheet').onclick=e=>{const b=e.target.closest('button');if(!b)return;$('#fab').classList.remove('o');$('#sheet').classList.remove('o');createFlow(b.dataset.c)};go(S.tab)}
+$('#sheet').onclick=e=>{const b=e.target.closest('button');if(!b)return;$('#fab').classList.remove('o');$('#sheet').classList.remove('o');createFlow(b.dataset.c)};setTimeout(beat,1500);go(S.tab)}
 const navAv=()=>{const b=$('nav [data-t=prof]');if(!b||!S.u)return;b.innerHTML=(S.u.avatar?`<span class="nav-av" style="background-image:url(${S.u.avatar})"></span>`:ic('user',24))+'Профиль'};
 function go(t){S.tab=t;$('#fab').style.display=t=='chats'?'':'none';$('#sheet').classList.remove('o');[...$('nav').children].forEach(b=>b.classList.toggle('on',b.dataset.t==t));navAv();({chats:chatsView,set:setView,prof:profView})[t]();const tc=$('#tc');tc.classList.add('ta');clearTimeout(S.tt);S.tt=setTimeout(()=>tc.classList.remove('ta'),420)}
 async function chatsView(){const u=S.u,[cs,ms]=await Promise.all([dbAll('chats'),dbAll('messages')]),us=Object.fromEntries((await dbAll('users')).map(x=>[x.id,x]));
-let rows=cs.filter(c=>c.members.includes(u.id)).map(c=>{const m=ms.filter(x=>x.cid==c.id).sort((a,b)=>a.t-b.t);return{c,last:m[m.length-1],n:Math.max(0,m.length-((c.seen||{})[u.id]||0))}}).sort((a,b)=>(b.last?b.last.t:b.c.created)-(a.last?a.last.t:a.c.created));
-if(S.q)rows=rows.filter(r=>r.c.name.toLowerCase().includes(S.q.toLowerCase()));
+let rows=cs.filter(c=>c.members.includes(u.id)).map(c=>{const m=ms.filter(x=>x.cid==c.id).sort((a,b)=>a.t-b.t);return{c,ci:cinfo(c,us),last:m[m.length-1],n:Math.max(0,m.length-((c.seen||{})[u.id]||0))}}).sort((a,b)=>(b.last?b.last.t:b.c.created)-(a.last?a.last.t:a.c.created));
+if(S.q)rows=rows.filter(r=>r.ci.name.toLowerCase().includes(S.q.toLowerCase()));
 if(S.tab!='chats')return;
 $('#tc').innerHTML=`<div class="scr"><div class="top">${av(u,'sm',1)}<h1>PradaGram</h1><button class="ib" id="sb">${ic('search',28)}</button></div>${S.q!==null&&S.sOpen?`<input id="sq" placeholder="Поиск" value="${esc(S.q)}">`:''}
-${rows.length?rows.map(r=>{const l=r.last,p=l?(r.c.type=='chat'?esc((us[l.uid]||{nick:'?'}).nick)+': ':'')+esc(l.text):'Нет сообщений';return`<div class="row" data-i="${r.c.id}">${av(r.c)}<div class="mid"><b>${esc(r.c.name)}</b><div class="s">${p}</div></div><div class="rt"><span>${l?ft(l.t):''}</span>${r.n?`<span class="bd">${r.n}</span>`:''}</div></div>`}).join(''):`<div class="empty">Пока нет чатов.<br>Нажмите на кнопку внизу справа, чтобы создать группу или канал.</div>`}</div>`;
+${rows.length?rows.map(r=>{const l=r.last,p=l?(r.c.type=='chat'?esc((us[l.uid]||{nick:'?'}).nick)+': ':'')+(l.g?'🎁 Подарок':esc(l.text)):'Нет сообщений';return`<div class="row" data-i="${r.c.id}">${av(r.ci)}<div class="mid"><b>${esc(r.ci.name)}${r.c.type=='dm'?bd(r.ci.u,16):''}</b><div class="s">${p}</div></div><div class="rt"><span>${l?ft(l.t):''}</span>${r.n?`<span class="bd">${r.n}</span>`:''}</div></div>`}).join(''):`<div class="empty">Пока нет чатов.<br>Нажмите на кнопку внизу справа, чтобы создать группу или канал.</div>`}</div>`;
 $('#sb').onclick=()=>{S.sOpen=!S.sOpen;if(!S.sOpen)S.q='';chatsView().then(()=>$('#sq')&&$('#sq').focus())};
 const q=$('#sq');if(q)q.oninput=()=>{S.q=q.value;const p=q.selectionStart;chatsView().then(()=>{const n=$('#sq');n.focus();n.setSelectionRange(p,p)})};
 $('#tc').onclick=e=>{const r=e.target.closest('[data-i]');r&&openChat(r.dataset.i)}}
@@ -328,22 +400,23 @@ const p=page(ch?'Новый канал':'Новая группа',`<div style="d
 $('#ca',p).onclick=()=>pick(d=>{img=d;$('#ca',p).style.cssText='background:url('+d+') center/cover;cursor:pointer';$('#ca',p).innerHTML=''});
 $('#cb',p).onclick=async()=>{const n=$('#cn',p).value.trim();if(!n)return $('#ce',p).textContent='Введите название';const c={id:uid(),type,name:n,about:$('#cd',p).value.trim(),avatar:img,owner:S.u.id,members:[S.u.id],seen:{},created:Date.now()};await dbPut('chats',c);ping();p.close();chatsView();setTimeout(()=>openChat(c.id),250)}}
 // ---------- chat view ----------
-async function openChat(id){const c=await dbGet('chats',id);if(!c)return;const ch=c.type=='channel',mine=c.owner==S.u.id;
-const p=document.createElement('div');p.className='pg';p.innerHTML=`<div class="pgt"><button class="ib" data-b>${ic('back',28)}</button>${av(c,'sm')}<div style="flex:1;min-width:0"><b style="font-size:19px;font-weight:500;display:block">${esc(c.name)}</b><span style="color:var(--m);font-size:14px" id="cm"></span></div></div><div class="msgs" id="ms"></div>${ch&&!mine?'<div class="ro">Публиковать может только владелец канала</div>':`<div class="comp">${av(S.u,'sm',1)}<input id="ci" placeholder="${ch?'Публикация':'Сообщение'}" autocomplete="off"><button class="send" id="cs">${ic('send',24)}</button></div>`}`;E.append(p);
+async function openChat(id){const c=await dbGet('chats',id);if(!c)return;const ch=c.type=='channel',mine=c.owner==S.u.id,dm=c.type=='dm',oid=dm?c.members.find(x=>x!=S.u.id):null,hd0=dm?(()=>{const o=C.users[oid];return{avatar:o&&o.avatar,name:dn(o)}})():c;
+const p=document.createElement('div');p.className='pg';p.innerHTML=`<div class="pgt"><button class="ib" data-b>${ic('back',28)}</button>${av(hd0,'sm')}<div style="flex:1;min-width:0;${dm?'cursor:pointer':''}" ${dm?'data-hp="1"':''}><b style="font-size:19px;font-weight:500;display:flex;align-items:center">${esc(hd0.name)}${dm?bd(C.users[oid],16):''}</b><span style="color:var(--m);font-size:14px" id="cm"></span></div></div><div class="msgs" id="ms"></div>${ch&&!mine?'<div class="ro">Публиковать может только владелец канала</div>':`<div class="comp">${av(S.u,'sm',1)}<input id="ci" placeholder="${ch?'Публикация':'Сообщение'}" autocomplete="off"><button class="send" id="cs">${ic('send',24)}</button></div>`}`;E.append(p);
 S.open=id;const rend=async()=>{const [cc,all,us]=[await dbGet('chats',id),await dbAll('messages'),Object.fromEntries((await dbAll('users')).map(x=>[x.id,x]))];if(!cc)return;const m=all.filter(x=>x.cid==id).sort((a,b)=>a.t-b.t);
 for(const x of m)if(ch&&!(x.v||[]).includes(S.u.id)){x.v=[...(x.v||[]),S.u.id];dbPut('messages',x)}
 cc.seen=cc.seen||{};if(cc.seen[S.u.id]!=m.length){cc.seen[S.u.id]=m.length;await dbPut('chats',cc)}
-$('#cm',p).textContent=cc.members.length+(ch?' подписчиков':' участников');const box=$('#ms',p),bot=box.scrollHeight-box.scrollTop-box.clientHeight<80;
+if(dm){const si=seenInfo(C.users[oid]),e=$('#cm',p);e.textContent=si.t;e.style.color=si.on?'#4aa8f5':''}else $('#cm',p).textContent=cc.members.length+(ch?' подписчиков':' участников');const box=$('#ms',p),bot=box.scrollHeight-box.scrollTop-box.clientHeight<80;
 box.innerHTML=m.length?m.map(x=>{const u=us[x.uid]||{nick:'Удалён'};
 if(ch)return`<div class="post"><div class="n">${esc(cc.name)}</div>${lk(x.text)}<div class="f">${ic('eye',15)}${(x.v||[]).length}<span>${esc(dn(u))}, ${ft(x.t)}</span></div></div>`;
-const me=x.uid==S.u.id;return`<div class="m ${me?'me':''}">${me?'':`<div data-u="${u.id}" style="cursor:pointer">${av(u,'sm')}</div>`}<div class="bub">${me?'':`<div class="n" data-u="${u.id}" style="color:${col(u.nick)}">${esc(dn(u))}${bd(u,14)}</div>`}${lk(x.text)}<span class="tm">${ft(x.t)}</span></div></div>`}).join(''):`<div class="empty">${ch?'В канале пока нет публикаций':'Сообщений пока нет. Напишите первым'}</div>`;
+if(x.g)return gcard(x,us);const me=x.uid==S.u.id;return`<div class="m ${me?'me':''}">${me||dm?'':`<div data-u="${u.id}" style="cursor:pointer">${av(u,'sm')}</div>`}<div class="bub">${me||dm?'':`<div class="n" data-u="${u.id}" style="color:${col(u.nick)}">${esc(dn(u))}${bd(u,14)}</div>`}${lk(x.text)}<span class="tm">${ft(x.t)}</span></div></div>`}).join(''):`<div class="empty">${ch?'В канале пока нет публикаций':'Сообщений пока нет. Напишите первым'}</div>`;
 if(bot||!box.dataset.k){box.scrollTop=box.scrollHeight;box.dataset.k=1}};
-$('#ms',p).onclick=async e=>{const l=e.target.closest('[data-un]');if(l)return openByUsername(l.dataset.un);const t=e.target.closest('[data-u]');if(!t)return;const u=await dbGet('users',t.dataset.u);if(u)openProfile(u)};
+$('#ms',p).onclick=async e=>{const gc=e.target.closest('[data-g]');if(gc)return giftModal(gc.dataset.g);const l=e.target.closest('[data-un]');if(l)return openByUsername(l.dataset.un);const t=e.target.closest('[data-u]');if(!t)return;const u=await dbGet('users',t.dataset.u);if(u)openProfile(u)};
 const send=async()=>{const i=$('#ci',p),t=i.value.trim();if(!t)return;i.value='';await dbPut('messages',{id:uid(),cid:id,uid:S.u.id,text:t,t:Date.now(),v:[S.u.id]});ping();await rend()};
 if($('#cs',p)){$('#cs',p).onclick=send;$('#ci',p).onkeydown=e=>{if(e.key=='Enter')send()}}
+if(dm)$('[data-hp]',p).onclick=()=>{const o=C.users[oid];o&&openProfile(o)};
 p.onclose=()=>{S.open=null;chatsView()};p.rend=rend;S.pages.push(p);
 p.close=()=>{p.onclose();p.classList.add('out');setTimeout(()=>p.remove(),260)};$('[data-b]',p).onclick=p.close;await rend()}
-bc.onmessage=()=>{guard();const p=[...document.querySelectorAll('.pg')].pop();if(p&&p.rend)p.rend();else if(S.u&&S.tab=='chats'&&!document.querySelector('.pg'))chatsView()};
+bc.onmessage=()=>{guard();giftsRefresh();const p=[...document.querySelectorAll('.pg')].pop();if(p&&p.rend)p.rend();else if(S.u&&S.tab=='chats'&&!document.querySelector('.pg'))chatsView()};
 setInterval(guard,6000);
 // ---------- settings ----------
 const SR=(i,g,t,s,id)=>`<div class="st${s?'':' s1'}" data-r="${id}"><div class="tile" style="background:${g}">${ic(i,18)}</div><div class="tx"><div class="tl">${t}</div>${s?`<div class="sb">${s}</div>`:''}</div></div>`;
@@ -355,7 +428,7 @@ function setView(){const u=S.u,ow=OFF(u),a=av(u,'xl',1);$('#tc').innerHTML=`<div
 <div class="cd">${SR('star','linear-gradient(135deg,#7a6bff,#b05cf0)','PradaGram Premium','','prem')}${SR('star','linear-gradient(135deg,#ffb52e,#f0820f)','Звёзды PradaGram','','stars')}${ow?SR('lock','linear-gradient(135deg,#e5534b,#b52e3a)','SPC PANEL','','spc'):''}${SR('gift','linear-gradient(135deg,#f28a2e,#e0561a)','Отправить подарок','','gift')}</div>
 <div class="cd"><div class="hd">Помощь</div>${SR('bulb','linear-gradient(135deg,#a259e6,#6d4be0)','Возможности PradaGram','','feat')}${SR('shield','linear-gradient(135deg,#3ec46d,#259a4c)','Политика конфиденциальности','','priv')}</div>
 <div class="note" style="text-align:center">PradaGram v0.1 · web</div></div>`;
-$('#tc').onclick=e=>{const r=e.target.closest('[data-r]');if(!r)return;({acc:accountPage,menu:setMenu,ava:()=>pick(async d=>{u.avatar=d;await saveU(u);setView()}),dev:devices,eco:toggleEco,lang:lang,prem:premium,stars:stars,spc:spcGate,gift:()=>info('Отправить подарок','Раздел появится в следующем обновлении.'),feat:feat,priv:()=>info('Политика конфиденциальности','Пароли хранятся только в виде криптографического хэша. Мы не передаём ваши данные третьим лицам. Если вы зарегистрировались без почты, восстановить пароль невозможно.')})[r.dataset.r]()}}
+$('#tc').onclick=e=>{const r=e.target.closest('[data-r]');if(!r)return;({acc:accountPage,menu:setMenu,ava:()=>pick(async d=>{await upd({avatar:d});setView()}),dev:devices,eco:toggleEco,lang:lang,prem:premium,stars:stars,spc:spcGate,gift:()=>giftPicker(),feat:feat,priv:()=>info('Политика конфиденциальности','Пароли хранятся только в виде криптографического хэша. Мы не передаём ваши данные третьим лицам. Если вы зарегистрировались без почты, восстановить пароль невозможно.')})[r.dataset.r]()}}
 function info(t,b){page(t,`<div class="note" style="font-size:17px;color:#cfd8e3">${b}</div>`)}
 function feat(){info('Возможности PradaGram','Группы и каналы с аватарками.<br>Счётчик непрочитанных сообщений.<br>Время последнего сообщения в списке чатов.<br>Профиль с описанием «О себе».<br>Звёзды и Premium.<br>Управление активными сеансами.')}
 async function toggleEco(){S.eco=!S.eco;E.classList.toggle('eco',S.eco);await dbPut('meta',{k:'eco',v:S.eco});setView();toast(S.eco?'Энергосбережение включено':'Энергосбережение выключено')}
@@ -369,7 +442,7 @@ function stars(){const p=page('',`<div class="stp"><div class="stbig">${starSvg(
 rain(p,'star',360);let ops=null,tab='all';
 const draw=()=>{const ol=$('#ol',p);if(ops===null){ol.innerHTML='';return}
 const rows=ops.filter(o=>tab=='all'||(tab=='in'&&o.n>0)||(tab=='out'&&o.n<0));
-ol.innerHTML=rows.length?rows.map(o=>{const f=C.users[o.fid]||{nick:o.from,nl:String(o.from).toLowerCase()};return`<div class="op">${o.n<0?`<div class="av op" style="background:linear-gradient(135deg,#7a6bff,#b05cf0)">${ic('star',22)}</div>`:av(f,'op')}<div class="mid"><b>${esc(o.from)}${o.n<0?'':bd(f,15)}</b><div class="s">${o.n<0?'Покупка подписки':'Выдача звёзд'}</div><div class="s">${fdt(o.t)}</div></div><div class="am ${o.n>0?'pl':'mn'}">${o.n>0?'+':'−'}${Math.abs(o.n).toLocaleString('ru')}${starSvg(20)}</div></div>`}).join(''):`<div class="empty" style="padding:34px 20px">${tab=='out'?'Списаний пока нет':'Операций пока нет'}</div>`};
+ol.innerHTML=rows.length?rows.map(o=>{const f=C.users[o.fid]||{nick:o.from,nl:String(o.from).toLowerCase()};const gk=o.gid&&GIFTS[o.from];return`<div class="op">${gk?`<div class="av op" style="background:#26374d">${gi(o.from,34)}</div>`:o.n<0?`<div class="av op" style="background:linear-gradient(135deg,#7a6bff,#b05cf0)">${ic('star',22)}</div>`:av(f,'op')}<div class="mid"><b>${gk?'Подарок «'+gk.n+'»':esc(o.from)}${o.n<0||gk?'':bd(f,15)}</b><div class="s">${gk?(o.n<0?'Отправка подарка':'Обмен подарка'):o.n<0?'Покупка подписки':'Выдача звёзд'}</div><div class="s">${fdt(o.t)}</div></div><div class="am ${o.n>0?'pl':'mn'}">${o.n>0?'+':'−'}${Math.abs(o.n).toLocaleString('ru')}${starSvg(20)}</div></div>`}).join(''):`<div class="empty" style="padding:34px 20px">${tab=='out'?'Списаний пока нет':'Операций пока нет'}</div>`};
 $('#tb',p).onclick=e=>{const b=e.target.closest('button');if(!b)return;tab=b.dataset.k;[...$('#tb',p).children].forEach(x=>x.classList.toggle('on',x==b));draw()};
 $('#tp',p).onclick=()=>window.open('https://t.me/ceotinkov','_blank');
 $('#ts',p).onclick=starStats;
@@ -401,17 +474,19 @@ u.stars-=pl.p;u.premiumUntil=nu;toast('Premium активирован до '+fda
 catch(x){console.error(x);toast(x.code=='low'?'Недостаточно звёзд для покупки':x.code=='permission-denied'?'Покупка отклонена сервером. Проверьте дату и время на устройстве и что опубликованы новые правила.':'Ошибка покупки: '+(x.code||x.message))}
 finally{b.disabled=false;b.textContent='Купить'}}}
 // ---------- profile ----------
-const phead=(u,own)=>{const a=av(u,'pf',1);return`<div class="pav" data-p="pic">${OFF(u)?ring(a,100):a}</div><div class="pnm">${esc(dn(u))}${bd(u,20)}</div>${own?'<div class="pst">в сети</div>':''}<div style="margin-top:2px">${caps(u)}</div>`};
+const phead=(u,own)=>{const a=av(u,'pf',1);return`<div class="pav" data-p="pic">${OFF(u)?ring(a,100):a}</div><div class="pnm">${esc(dn(u))}${bd(u,20)}</div>${own?'<div class="pst on">в сети</div>':(()=>{const si=seenInfo(u);return`<div class="pst ${si.on?'on':''}">${si.t}</div>`})()}<div style="margin-top:2px">${caps(u)}</div>`};
 const pcard=(u,own)=>{const r=[];if(u.about)r.push(`<div class="ir"><div class="iv">${lk(u.about)}</div><div class="il">О себе</div></div>`);
 if(u.username)r.push(`<div class="ir c" data-p="copy" data-un="${esc(u.username)}"><div class="iv">@${esc(u.username)}</div><div class="il">Имя пользователя</div></div>`);
 if(u.bday)r.push(`<div class="ir"><div class="iv">${fb(u.bday)}</div><div class="il">День рождения</div></div>`);
 return r.length?`<div class="cd">${r.join('')}</div>`:`<div class="note" style="text-align:center">${own?'Добавьте информацию о себе кнопкой «Изменить».':'Пользователь ничего не рассказал о себе.'}</div>`};
 const copyLink=un=>{const t='gd.me/'+un;try{navigator.clipboard.writeText(t).then(()=>toast('Ссылка скопирована: '+t),()=>toast(t))}catch(e){toast(t)}};
 function profView(){const u=S.u;navAv();$('#tc').innerHTML=`<div class="scr"><div class="sh2"><button class="ib mm" data-p="menu">${ic('more',26)}</button>${phead(u,1)}</div>
-<div class="pbs"><button class="pb" data-p="pic">${ic('camp',26)}Выбрать фото</button><button class="pb" data-p="edit">${ic('pen',26)}Изменить</button><button class="pb" data-p="set">${ic('set',26)}Настройки</button></div>${pcard(u,1)}</div>`;
-$('#tc').onclick=e=>{const r=e.target.closest('[data-p]');if(!r)return;const k=r.dataset.p;if(k=='pic')pick(async d=>{u.avatar=d;await saveU(u);profView()});else if(k=='edit')accountPage();else if(k=='set')go('set');else if(k=='menu')setMenu();else if(k=='copy')copyLink(r.dataset.un)}}
-function openProfile(u){const own=u.id==S.u.id,p=page('',`<div class="sh2" style="padding-top:8px">${phead(u,own)}</div><div style="height:18px"></div>${pcard(u,own)}`);
-p.onclick=e=>{const r=e.target.closest('[data-p=copy]');if(r)copyLink(r.dataset.un);const l=e.target.closest('[data-un]:not([data-p])');if(l)openByUsername(l.dataset.un)}}
+<div class="pbs"><button class="pb" data-p="pic">${ic('camp',26)}Выбрать фото</button><button class="pb" data-p="edit">${ic('pen',26)}Изменить</button><button class="pb" data-p="set">${ic('set',26)}Настройки</button></div>${pcard(u,1)}<div id="gsec" data-own="1"></div></div>`;renderGifts($('#gsec'),u,true);
+$('#tc').onclick=e=>{const r=e.target.closest('[data-p]');if(!r)return;const k=r.dataset.p;if(k=='pic')pick(async d=>{await upd({avatar:d});profView()});else if(k=='edit')accountPage();else if(k=='set')go('set');else if(k=='menu')setMenu();else if(k=='copy')copyLink(r.dataset.un)}}
+function openProfile(u){const own=u.id==S.u.id,p=page('',`<div class="sh2" style="padding-top:8px">${phead(u,own)}</div>${own?'':`<div class="pbs" style="margin:14px 0 4px"><button class="pb" data-p="dm">${ic('chat',26)}Написать</button><button class="pb" data-p="gift">${ic('gift',26)}Подарок</button></div>`}<div style="height:14px"></div>${pcard(u,own)}<div id="gsec" data-own="0"></div>`);
+const gh=$('#gsec',p);
+if(own)renderGifts(gh,u,true);else{renderGifts(gh,u,false);const un=fs.collection('gifts').where('to','==',u.id).where('hd','==',false).where('sold','==',false).onSnapshot(q=>{gh._g=q.docs.map(d=>d.data());renderGifts(gh,u,false)},e=>console.error(e));const oc=p.onclose;p.onclose=()=>{oc&&oc();un()}}
+p.onclick=e=>{const r=e.target.closest('[data-p=copy]');if(r)copyLink(r.dataset.un);const b=e.target.closest('[data-p=dm]');if(b)return openDm(u);const g=e.target.closest('[data-p=gift]');if(g)return giftPage(u);const l=e.target.closest('[data-un]:not([data-p])');if(l)openByUsername(l.dataset.un)}}
 async function openByUsername(un){const l=un.toLowerCase();let u=Object.values(C.users).find(x=>x.ul==l);
 if(!u){try{const d=await fs.doc('usernames/'+l).get();if(d.exists){const x=await fs.doc('users/'+d.data().uid).get();if(x.exists)u=x.data()}}catch(e){}}
 if(u)openProfile(u);else toast('Пользователь @'+un+' не найден')}
@@ -464,6 +539,219 @@ if(C.users[S.u.id])S.u=C.users[S.u.id];toast(`Выдано ${n.toLocaleString('r
 if(k=='self'){tg=S.u;return s2()}
 b.innerHTML=`<input id="fn" placeholder="NickName игрока"><div class="err" id="fe"></div><button class="btn" id="fo">Проверить</button>`;
 $('#fo',m).onclick=async()=>{const n=$('#fn',m).value.trim().toLowerCase();if(!n)return $('#fe',m).textContent='Введите NickName';tg=(await dbAll('users')).find(x=>x.nl==n);if(!tg)return $('#fe',m).textContent='Игрок с таким NickName не найден';k=='give'?s2():s3()}}
+Object.assign(IC,{eyeoff:'<path d="M2 12s4-7 10-7c2 0 4 .7 5.500 1.800M22 12s-4 7-10 7c-2 0-4-.7-5.500-1.800"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/>',ghost:'<path d="M5 21V10a7 7 0 0114 0v11l-3-2-2 2-2-2-2 2-2-2z"/><circle cx="9.500" cy="10" r="1"/><circle cx="14.500" cy="10" r="1"/>',smile:'<circle cx="12" cy="12" r="9"/><path d="M8 14c1 2 2.500 3 4 3s3-1 4-3M9 9.500v.5M15 9.500v.5"/>'});
+// ---------- подарки: SVG-картинки ----------
+const GA=(b)=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">${b}</svg>`;
+const tulip=(x,y,r,c1,c2)=>`<g transform="translate(${x} ${y}) rotate(${r})"><path d="M-14 -2C-16 -20 -6 -30 0 -32 6 -30 16 -20 14 -2 8 8 -8 8 -14 -2z" fill="${c1}"/><path d="M-5 4C-8 -12 -4 -26 0 -32 4 -26 8 -12 5 4z" fill="${c2}"/><path d="M-14 -2C-16 -20 -6 -30 0 -32" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2"/></g>`;
+const GART={
+heart:GA(`<defs><linearGradient id="a" x1=".2" y1="0" x2=".8" y2="1"><stop offset="0" stop-color="#ff8fd2"/><stop offset=".55" stop-color="#ff39a6"/><stop offset="1" stop-color="#d11a86"/></linearGradient><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff27a"/><stop offset=".6" stop-color="#ffd21f"/><stop offset="1" stop-color="#f0a800"/></linearGradient><clipPath id="c"><path d="M60 109C22 80 7 55 7 37 7 21 19 10 34 10c11 0 21 6 26 16C65 16 75 10 86 10c15 0 27 11 27 27 0 18-15 43-53 72z"/></clipPath></defs>
+<path d="M60 109C22 80 7 55 7 37 7 21 19 10 34 10c11 0 21 6 26 16C65 16 75 10 86 10c15 0 27 11 27 27 0 18-15 43-53 72z" fill="url(#a)"/>
+<g clip-path="url(#c)"><path d="M0 70L120 52V76L0 94z" fill="url(#b)"/><path d="M0 70L120 52" stroke="#c98a00" stroke-opacity=".35" stroke-width="1.5"/></g>
+<ellipse cx="38" cy="30" rx="16" ry="9" transform="rotate(-28 38 30)" fill="#fff" fill-opacity=".45"/>
+<path d="M32 76C20 62 6 66 8 78 10 88 26 86 32 76z" fill="url(#b)" stroke="#d99a00" stroke-width="1.5"/><path d="M32 76C42 62 58 66 56 78 54 88 38 86 32 76z" fill="url(#b)" stroke="#d99a00" stroke-width="1.5"/><path d="M30 82C26 98 20 102 16 106L28 108C32 102 36 94 38 84z" fill="url(#b)" stroke="#d99a00" stroke-width="1.5"/><circle cx="32" cy="76" r="8" fill="url(#b)" stroke="#d99a00" stroke-width="1.5"/>`),
+bear:GA(`<defs><radialGradient id="f" cx=".4" cy=".3" r=".8"><stop offset="0" stop-color="#ebb870"/><stop offset="1" stop-color="#a8692a"/></radialGradient><radialGradient id="l" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#f8dfae"/><stop offset="1" stop-color="#d9a35c"/></radialGradient></defs>
+<circle cx="38" cy="18" r="11" fill="url(#f)"/><circle cx="38" cy="19" r="6" fill="#efc78a"/><circle cx="82" cy="18" r="11" fill="url(#f)"/><circle cx="82" cy="19" r="6" fill="#efc78a"/>
+<ellipse cx="22" cy="70" rx="11" ry="21" transform="rotate(32 22 70)" fill="url(#f)"/><ellipse cx="98" cy="70" rx="11" ry="21" transform="rotate(-32 98 70)" fill="url(#f)"/>
+<ellipse cx="60" cy="80" rx="28" ry="30" fill="url(#f)"/><ellipse cx="60" cy="84" rx="16" ry="19" fill="url(#l)"/>
+<ellipse cx="34" cy="102" rx="16" ry="11" transform="rotate(-18 34 102)" fill="url(#f)"/><ellipse cx="86" cy="102" rx="16" ry="11" transform="rotate(18 86 102)" fill="url(#f)"/>
+<ellipse cx="30" cy="104" rx="8" ry="6" fill="#3a200c"/><circle cx="23" cy="98" r="2.4" fill="#3a200c"/><circle cx="29" cy="95" r="2.4" fill="#3a200c"/><circle cx="35" cy="96" r="2.4" fill="#3a200c"/>
+<ellipse cx="90" cy="104" rx="8" ry="6" fill="#3a200c"/><circle cx="97" cy="98" r="2.4" fill="#3a200c"/><circle cx="91" cy="95" r="2.4" fill="#3a200c"/><circle cx="85" cy="96" r="2.4" fill="#3a200c"/>
+<path d="M60 68V102" stroke="#b27a3c" stroke-dasharray="3 3" stroke-width="1.5" fill="none"/>
+<circle cx="60" cy="40" r="25" fill="url(#f)"/><path d="M60 16V30" stroke="#b27a3c" stroke-dasharray="3 3" stroke-width="1.5" fill="none"/>
+<ellipse cx="60" cy="49" rx="11" ry="8.500" fill="url(#l)"/><ellipse cx="60" cy="45.500" rx="4.500" ry="3.200" fill="#2b1608"/><path d="M60 48.500V52M53 53c3 3.500 11 3.500 14 0" stroke="#2b1608" stroke-width="1.800" fill="none" stroke-linecap="round"/>
+<circle cx="49" cy="36" r="3.300" fill="#1d0f06"/><circle cx="71" cy="36" r="3.300" fill="#1d0f06"/><circle cx="50" cy="35" r="1" fill="#fff"/><circle cx="72" cy="35" r="1" fill="#fff"/>`),
+box:GA(`<defs><linearGradient id="y" x1="0" x2="1"><stop offset="0" stop-color="#ffd84a"/><stop offset="1" stop-color="#f5a000"/></linearGradient><linearGradient id="r" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#ff5656"/><stop offset="1" stop-color="#b80f1f"/></linearGradient></defs>
+<rect x="20" y="62" width="80" height="48" rx="4" fill="url(#y)"/><rect x="14" y="46" width="92" height="22" rx="5" fill="url(#y)" stroke="#e08c00" stroke-width="1.500"/>
+<rect x="14" y="62" width="92" height="6" fill="#000" opacity=".12"/><rect x="50" y="46" width="20" height="64" fill="url(#r)"/><rect x="90" y="68" width="10" height="42" fill="#000" opacity=".08"/>
+<path d="M60 46C46 12 14 22 28 38 34 46 52 48 60 46z" fill="url(#r)" stroke="#8f0c18" stroke-width="1.500"/><path d="M60 46C74 12 106 22 92 38 86 46 68 48 60 46z" fill="url(#r)" stroke="#8f0c18" stroke-width="1.500"/>
+<path d="M58 40C48 26 38 24 34 30" stroke="#ffb0b0" stroke-width="2.500" fill="none" opacity=".6" stroke-linecap="round"/><ellipse cx="60" cy="46" rx="9" ry="7" fill="url(#r)" stroke="#8f0c18" stroke-width="1.500"/>`),
+rose:GA(`<defs><linearGradient id="p" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#ff5a4a"/><stop offset="1" stop-color="#b3001b"/></linearGradient><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#8fe05a"/><stop offset="1" stop-color="#2f9a2a"/></linearGradient></defs>
+<rect x="56" y="82" width="8" height="30" rx="3" fill="url(#g)"/>
+<path d="M60 84C46 80 28 82 14 70 30 94 52 96 60 90z" fill="url(#g)"/><path d="M60 84C74 80 92 82 106 70 90 94 68 96 60 90z" fill="url(#g)"/>
+<path d="M60 14C36 16 26 40 34 62 40 80 80 80 86 62 94 40 84 16 60 14z" fill="url(#p)"/>
+<path d="M60 14C48 28 46 52 60 80 74 52 72 28 60 14z" fill="#d4122a"/><path d="M34 40C46 36 54 48 56 70 44 66 34 56 34 40z" fill="#ff7a68" opacity=".7"/><path d="M86 40C74 36 66 48 64 70 76 66 86 56 86 40z" fill="#8f0016" opacity=".55"/>
+<path d="M60 14C48 28 46 52 60 80" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="2"/>`),
+cake:GA(`<defs><linearGradient id="w" x1="0" x2="1"><stop offset="0" stop-color="#f1f1f8"/><stop offset=".5" stop-color="#fff"/><stop offset="1" stop-color="#d3d6e3"/></linearGradient><linearGradient id="c" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff6d6"/><stop offset="1" stop-color="#e3d3a4"/></linearGradient><radialGradient id="f" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffe98a" stop-opacity=".95"/><stop offset="1" stop-color="#ffb21f" stop-opacity="0"/></radialGradient><radialGradient id="s" cx=".4" cy=".3" r=".8"><stop offset="0" stop-color="#ff5a6e"/><stop offset="1" stop-color="#c2102e"/></radialGradient></defs>
+<ellipse cx="60" cy="108" rx="44" ry="7" fill="#000" opacity=".25"/><path d="M18 64v32c0 8 18 12 42 12s42-4 42-12V64z" fill="url(#w)"/><ellipse cx="60" cy="64" rx="42" ry="15" fill="#fff" stroke="#d5d8e4" stroke-width="1.500"/>
+<g fill="url(#c)"><rect x="34" y="40" width="12" height="28" rx="3"/><rect x="74" y="40" width="12" height="28" rx="3"/><rect x="54" y="34" width="12" height="32" rx="3"/></g>
+<g fill="url(#f)"><circle cx="40" cy="28" r="13"/><circle cx="80" cy="28" r="13"/><circle cx="60" cy="22" r="13"/></g>
+<g fill="#ffc21f"><path d="M40 20C46 28 45 36 40 38 35 36 34 28 40 20z"/><path d="M80 20C86 28 85 36 80 38 75 36 74 28 80 20z"/><path d="M60 14C66 22 65 30 60 32 55 30 54 22 60 14z"/></g>
+<g fill="url(#s)"><path d="M24 66q6-5 12 0-1 9-6 11-5-2-6-11z"/><path d="M42 71q6-5 12 0-1 9-6 11-5-2-6-11z"/><path d="M62 73q6-5 12 0-1 9-6 11-5-2-6-11z"/><path d="M80 70q6-5 12 0-1 9-6 11-5-2-6-11z"/><path d="M92 62q5-4 10 0-1 8-5 9-4-1-5-9z"/></g>`),
+bouquet:GA(`<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#8fe05a"/><stop offset="1" stop-color="#2f9a2a"/></linearGradient></defs>
+<path d="M78 108C46 92 22 72 16 42 40 54 64 74 78 108z" fill="url(#g)"/><path d="M80 106C84 80 96 60 112 52 112 76 100 94 80 106z" fill="url(#g)"/><path d="M62 96C58 76 60 62 70 50 76 70 72 86 62 96z" fill="#3fa534"/>
+<path d="M46 56L80 104M72 40L80 104M32 70L80 104M66 62L80 104" stroke="#3c9a2e" stroke-width="5" stroke-linecap="round"/>
+<rect x="68" y="92" width="22" height="9" rx="3" transform="rotate(-28 79 96)" fill="#ffc21f"/>
+<g transform="translate(2 9)">${tulip(40,34,-22,'#ff3d9a','#c4106c')}${tulip(72,28,14,'#ffc21f','#f09000')}${tulip(26,64,-34,'#ffc21f','#f09000')}${tulip(58,58,8,'#ff3d9a','#c4106c')}</g>`),
+rocket:GA(`<defs><linearGradient id="b" x1="0" x2="1"><stop offset="0" stop-color="#f4f7fb"/><stop offset=".5" stop-color="#c3ccd8"/><stop offset="1" stop-color="#6f7f94"/></linearGradient><linearGradient id="n" x1="0" x2="1"><stop offset="0" stop-color="#5fb2ff"/><stop offset="1" stop-color="#1b5fd0"/></linearGradient><linearGradient id="o" x1="0" x2="1"><stop offset="0" stop-color="#ffb347"/><stop offset="1" stop-color="#ff5a1f"/></linearGradient><linearGradient id="fl" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff3a0"/><stop offset=".5" stop-color="#ffb21f"/><stop offset="1" stop-color="#ff5a1f" stop-opacity=".2"/></linearGradient></defs>
+<path d="M12 98L2 108M26 108L16 118M4 84L-4 92" stroke="#9fb0c4" stroke-width="2" stroke-linecap="round"/>
+<g transform="translate(6 6) rotate(45 60 60)"><path d="M50 84C52 100 56 108 60 116 64 108 68 100 70 84z" fill="url(#fl)"/><path d="M46 62L28 92 46 84z" fill="url(#o)" stroke="#c4440f" stroke-width="1.500"/><path d="M74 62L92 92 74 84z" fill="url(#o)" stroke="#c4440f" stroke-width="1.500"/>
+<path d="M60 8C78 24 82 52 74 84H46C38 52 42 24 60 8z" fill="url(#b)" stroke="#5d6c80" stroke-width="1.500"/><path d="M60 8C68 15 73 24 75 34H45C47 24 52 15 60 8z" fill="url(#n)"/><path d="M60 70L53 98H67z" fill="#d12a2a" stroke="#8f1414" stroke-width="1.500"/>
+<circle cx="60" cy="52" r="11" fill="#d12a2a"/><circle cx="60" cy="52" r="8" fill="#111"/><ellipse cx="57" cy="49" rx="3" ry="2" fill="#fff" opacity=".6"/></g>`),
+cup:GA(`<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ffe98a"/><stop offset=".5" stop-color="#f0b21a"/><stop offset="1" stop-color="#b87400"/></linearGradient><linearGradient id="br" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#b8601c"/><stop offset="1" stop-color="#6e3208"/></linearGradient></defs>
+<path d="M32 20C6 18 8 50 36 54" fill="none" stroke="url(#g)" stroke-width="7" stroke-linecap="round"/><path d="M88 20C114 18 112 50 84 54" fill="none" stroke="url(#g)" stroke-width="7" stroke-linecap="round"/>
+<path d="M30 10H90C90 44 78 64 60 68 42 64 30 44 30 10z" fill="url(#g)" stroke="#a96a00" stroke-width="1.500"/><path d="M40 14C40 40 46 54 56 62" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="4" stroke-linecap="round"/>
+<rect x="54" y="66" width="12" height="16" fill="url(#g)"/><path d="M42 82H78L84 92H36z" fill="url(#g)" stroke="#a96a00" stroke-width="1.500"/><rect x="28" y="92" width="64" height="18" rx="3" fill="url(#br)"/><rect x="40" y="97" width="40" height="8" rx="2" fill="url(#g)"/>`),
+ring:GA(`<defs><linearGradient id="s" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f1f5fa"/><stop offset=".5" stop-color="#a9b4c2"/><stop offset="1" stop-color="#6c7888"/></linearGradient><linearGradient id="d" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#d8f8ff"/><stop offset=".5" stop-color="#52c4ff"/><stop offset="1" stop-color="#1c7ce0"/></linearGradient></defs>
+<ellipse cx="60" cy="76" rx="42" ry="30" transform="rotate(-14 60 76)" fill="none" stroke="#4d5866" stroke-width="12"/><ellipse cx="60" cy="76" rx="42" ry="30" transform="rotate(-14 60 76)" fill="none" stroke="url(#s)" stroke-width="9"/>
+<path d="M40 24L52 8 70 8 82 24z" fill="#8fa0b4"/><path d="M46 20L54 10 66 10 74 20 60 44z" fill="url(#d)" stroke="#e6faff" stroke-width="1.500" stroke-linejoin="round"/><path d="M46 20H74M54 10L60 44M66 10L60 44" stroke="#fff" stroke-opacity=".7" stroke-width="1.200" fill="none"/>
+<path d="M44 26L52 40 58 52 54 40z" fill="#b4c0cf"/><path d="M80 26L68 40 62 52 66 40z" fill="#b4c0cf"/><path d="M92 14l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#fff"/>`)
+};
+// цветные смайлики и конфетти для анимации
+const CA=(b)=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">${b}</svg>`;
+const face=(inner,hat)=>CA(`<defs><radialGradient id="y" cx=".4" cy=".3" r=".8"><stop offset="0" stop-color="#ffe66b"/><stop offset="1" stop-color="#ffb21f"/></radialGradient></defs><circle cx="24" cy="26" r="17" fill="url(#y)"/>${inner}${hat||''}`);
+const CART={
+popper:CA(`<path d="M5 43L17 12 36 31z" fill="#ffb02e"/><path d="M5 43L11 27 21 37z" fill="#ff7a1a"/><circle cx="31" cy="9" r="3" fill="#ff4d6d"/><rect x="37" y="18" width="7" height="3.500" rx="1.700" transform="rotate(30 40 20)" fill="#4dc3ff"/><path d="M22 9q4-5 8 0" stroke="#7c5cff" fill="none" stroke-width="2.500" stroke-linecap="round"/><circle cx="41" cy="30" r="2.500" fill="#2fd16b"/><rect x="26" y="19" width="6" height="3" rx="1.500" transform="rotate(-40 29 20)" fill="#ffd21f"/>`),
+balR:CA(`<defs><radialGradient id="b" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ff8a8a"/><stop offset="1" stop-color="#d11a2a"/></radialGradient></defs><ellipse cx="24" cy="18" rx="12" ry="15" fill="url(#b)"/><path d="M21 33h6l-3 4z" fill="#d11a2a"/><path d="M24 37q-4 4 0 7t0 4" stroke="#aaa" fill="none" stroke-width="1.200"/><ellipse cx="19" cy="11" rx="3" ry="4.500" fill="#fff" opacity=".45"/>`),
+balB:CA(`<defs><radialGradient id="b" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#8fd0ff"/><stop offset="1" stop-color="#1b6fe0"/></radialGradient></defs><ellipse cx="24" cy="18" rx="12" ry="15" fill="url(#b)"/><path d="M21 33h6l-3 4z" fill="#1b6fe0"/><path d="M24 37q4 4 0 7t0 4" stroke="#aaa" fill="none" stroke-width="1.200"/><ellipse cx="19" cy="11" rx="3" ry="4.500" fill="#fff" opacity=".45"/>`),
+balY:CA(`<defs><radialGradient id="b" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff39a"/><stop offset="1" stop-color="#f0a000"/></radialGradient></defs><ellipse cx="24" cy="18" rx="12" ry="15" fill="url(#b)"/><path d="M21 33h6l-3 4z" fill="#f0a000"/><path d="M24 37q-4 4 0 7t0 4" stroke="#aaa" fill="none" stroke-width="1.200"/><ellipse cx="19" cy="11" rx="3" ry="4.500" fill="#fff" opacity=".5"/>`),
+star:CA(`<defs><linearGradient id="s" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3a0"/><stop offset=".5" stop-color="#ffc21f"/><stop offset="1" stop-color="#ff8a00"/></linearGradient></defs><path d="M24 3l6 14 15 1.500-11.500 10 3.500 15L24 35.500 10.500 43.500 14 28.500 2.500 18.500 17.500 17z" fill="url(#s)" stroke="#fff6c0" stroke-width="1.200" stroke-linejoin="round"/>`),
+heart:CA(`<defs><linearGradient id="h" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8fd2"/><stop offset="1" stop-color="#e0187f"/></linearGradient></defs><path d="M24 43C8 31 3 22 3 15 3 8 8 4 14 4c4 0 8 3 10 6 2-3 6-6 10-6 6 0 11 4 11 11 0 7-5 16-21 28z" fill="url(#h)"/><ellipse cx="13" cy="12" rx="5" ry="3" transform="rotate(-30 13 12)" fill="#fff" opacity=".5"/>`),
+faceParty:face(`<circle cx="18" cy="26" r="2.200" fill="#5a3300"/><circle cx="30" cy="26" r="2.200" fill="#5a3300"/><path d="M16 32q8 8 16 0z" fill="#5a3300"/>`,`<path d="M24 2l9 14H15z" fill="#7c5cff"/><circle cx="24" cy="3" r="2.500" fill="#ff4d6d"/><circle cx="21" cy="12" r="1.500" fill="#ffd21f"/><circle cx="27" cy="10" r="1.500" fill="#2fd16b"/>`),
+faceLove:face(`<path d="M18 22c-3-3-7 1-3 5l3 3 3-3c4-4 0-8-3-5zM30 22c-3-3-7 1-3 5l3 3 3-3c4-4 0-8-3-5z" fill="#e0182f"/><path d="M16 33q8 7 16 0" stroke="#5a3300" stroke-width="2.500" fill="none" stroke-linecap="round"/>`),
+faceStar:face(`<path d="M18 21l1.500 3 3.200.4-2.400 2.200.7 3.200-3-1.700-3 1.700.7-3.200-2.400-2.200 3.200-.4zM30 21l1.500 3 3.200.4-2.400 2.200.7 3.200-3-1.700-3 1.700.7-3.200-2.400-2.200 3.200-.4z" fill="#ff8a00"/><path d="M15 33q9 9 18 0z" fill="#5a3300"/>`),
+spark:CA(`<defs><linearGradient id="k" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d8f8ff"/><stop offset="1" stop-color="#2aa8ff"/></linearGradient></defs><path d="M24 2C26 16 32 22 46 24 32 26 26 32 24 46 22 32 16 26 2 24 16 22 22 16 24 2z" fill="url(#k)"/>`),
+swirl:CA(`<path d="M6 40C6 20 24 34 24 18S42 14 42 6" stroke="#a855f7" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M12 44C12 30 28 38 30 26" stroke="#ff4d9a" stroke-width="3.500" fill="none" stroke-linecap="round"/>`),
+bits:CA(`<rect x="6" y="8" width="10" height="5" rx="2" transform="rotate(30 11 10)" fill="#ff4d6d"/><rect x="28" y="6" width="10" height="5" rx="2" transform="rotate(-30 33 8)" fill="#4dc3ff"/><rect x="10" y="30" width="10" height="5" rx="2" transform="rotate(-20 15 32)" fill="#ffd21f"/><rect x="30" y="32" width="10" height="5" rx="2" transform="rotate(50 35 34)" fill="#2fd16b"/><circle cx="24" cy="22" r="3.500" fill="#a855f7"/>`)
+};
+const GIFTS={heart:{n:'Сердечко',p:15,b:13},bear:{n:'Мишка',p:15,b:13},box:{n:'Подарок',p:25,b:21},rose:{n:'Роза',p:25,b:21},cake:{n:'Торт',p:50,b:43},bouquet:{n:'Букет',p:50,b:43},rocket:{n:'Ракета',p:50,b:43},cup:{n:'Кубок',p:100,b:85},ring:{n:'Кольцо',p:100,b:85}};
+const GU={},du=s=>'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s);
+const gurl=k=>GU[k]||(GU[k]=du(GART[k]));
+const gi=(k,s=64,c='')=>`<img class="gi ${c}" src="${gurl(k)}" width="${s}" height="${s}" alt="" draggable="false">`;
+const zn=n=>{const a=n%10,b=n%100;return a==1&&b!=11?'звезда':(a>=2&&a<=4&&(b<10||b>=20))?'звезды':'звёзд'};
+const za=n=>{const a=n%10,b=n%100;return a==1&&b!=11?'звезду':(a>=2&&a<=4&&(b<10||b>=20))?'звезды':'звёзд'};
+
+// ---------- подарки ----------
+const GV={};
+const dmId=(a,b)=>'dm_'+[a,b].sort().join('_');
+const pad2=n=>String(n).padStart(2,'0');
+const gdate=t=>{const d=new Date(t);return `${pad2(d.getDate())} ${MON[d.getMonth()]} ${d.getFullYear()} в ${pad2(d.getHours())}:${pad2(d.getMinutes())}`};
+function seenInfo(u){if(!u||!u.ls)return{t:'был(а) недавно',on:false};const d=Date.now()-u.ls;if(d<180000)return{t:'в сети',on:true};
+const x=new Date(u.ls),n=new Date(),tm=pad2(x.getHours())+':'+pad2(x.getMinutes());
+if(x.toDateString()==n.toDateString())return{t:'был(а) в '+tm,on:false};
+if(x.toDateString()==new Date(n-864e5).toDateString())return{t:'был(а) вчера в '+tm,on:false};
+if(d<7*864e5)return{t:'был(а) недавно',on:false};return{t:'был(а) '+fdate(u.ls),on:false}}
+function beat(){if(!S.u||!ready||document.hidden)return;fs.doc('users/'+S.u.id).update({ls:Date.now()}).catch(()=>{})}
+setInterval(beat,120000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)beat()});
+const cinfo=(c,us)=>{if(c.type!='dm')return c;const o=us[c.members.find(x=>x!=S.u.id)];return{avatar:o&&o.avatar,name:o?dn(o):'?',nick:o&&o.nick,u:o}};
+async function ensureDm(o){const id=dmId(S.u.id,o.id);if(C.chats[id])return id;
+const c={id,type:'dm',name:'',about:'',avatar:'',owner:'',members:[S.u.id,o.id].sort(),seen:{},created:Date.now()};
+try{await fs.doc('chats/'+id).set(c)}catch(x){await new Promise(r=>setTimeout(r,900));if(!C.chats[id])throw x;return id}
+C.chats[id]=c;return id}
+async function openDm(u){try{const id=await ensureDm(u);await openChat(id)}catch(x){console.error(x);toast('Не удалось открыть чат: '+(x.code||x.message))}}
+// частые контакты: те, кому пользователь писал чаще всего (личные чаты, подарки), затем остальные из его групп
+function freqContacts(){const me=S.u.id,sc={};
+for(const m of Object.values(C.messages)){const c=C.chats[m.cid];if(!c)continue;
+if(c.type=='dm'){const o=c.members.find(x=>x!=me);if(o)sc[o]=(sc[o]||0)+(m.uid==me?3:1)}
+else if(m.uid==me)c.members.forEach(o=>{if(o!=me)sc[o]=(sc[o]||0)+.02})}
+return Object.entries(sc).sort((a,b)=>b[1]-a[1]).map(x=>C.users[x[0]]).filter(u=>u&&!u.banned).slice(0,15)}
+// ---- нижние панели ----
+function sheet(h,cls=''){const b=document.createElement('div');b.className='bs';b.innerHTML=`<div class="bsc ${cls}">${h}</div>`;const rm=Element.prototype.remove;
+b.remove=()=>{if(b.dataset.c)return;b.dataset.c=1;b.classList.add('out');setTimeout(()=>rm.call(b),230)};b.onclick=e=>{if(e.target==b)b.remove()};E.append(b);return b}
+function gtoast(k,t,s){const e=document.createElement('div');e.className='gtoast';e.innerHTML=`${gi(k,46)}<div><b>${t}</b><div>${s}</div></div>`;E.append(e);setTimeout(()=>{e.classList.add('out');setTimeout(()=>e.remove(),250)},3200)}
+// ---- 1. выбор получателя ----
+function giftPicker(pre){const me=S.u;
+const m=sheet(`<div class="bst">Отправить подарок</div><input class="gsrch" id="gq" placeholder="Поиск людей для отправки подарка..." autocomplete="off" autocapitalize="none" spellcheck="false"><div class="bsb" id="gl"></div>`,'bs1');
+const row=(u,sub,cl='')=>{const s=seenInfo(u);return`<div class="gr ${cl}" data-u="${u.id}">${av(u,'')}<div class="mid"><b>${esc(dn(u))}${bd(u,16)}</b><div class="s ${sub?'':s.on?'on':''}">${sub||s.t}</div></div>${cl?'':`<button class="ib gdt" data-m="${u.id}" aria-label="Профиль">${ic('more',26)}</button>`}</div>`};
+const draw=()=>{const q=$('#gq',m).value.trim().replace(/^@+/,'').toLowerCase(),L=$('#gl',m);
+if(!q){const f=freqContacts();L.innerHTML=`<div class="gh">Это Вы</div>${row(me,'купить подарок себе','me')}<div class="gh">Частые контакты</div>${f.length?f.map(u=>row(u)).join(''):'<div class="empty" style="padding:26px 24px">Здесь появятся люди, которым вы пишете.<br>Найдите человека по имени пользователя (без @).</div>'}`;return}
+const r=Object.values(C.users).filter(u=>u.id!=me.id&&!u.banned&&u.ul&&u.ul.includes(q)).sort((a,b)=>(b.ul.startsWith(q)-a.ul.startsWith(q))||a.ul.length-b.ul.length).slice(0,30);
+L.innerHTML=r.length?`<div class="gh">Результаты поиска</div>${r.map(u=>row(u,'@'+u.username)).join('')}`:`<div class="empty" style="padding:40px 24px">Никого не найдено.<br>Введите имя пользователя без @.</div>`};
+draw();$('#gq',m).oninput=draw;
+$('#gl',m).onclick=e=>{const d=e.target.closest('.gdt');if(d){const u=C.users[d.dataset.m];if(u){m.remove();openProfile(u)}return}
+const r=e.target.closest('[data-u]');if(!r)return;const u=r.dataset.u==me.id?me:C.users[r.dataset.u];if(u){m.remove();setTimeout(()=>giftPage(u),120)}}}
+// ---- 2. витрина подарков ----
+function giftPage(t){const me=S.u,self=t.id==me.id;
+const p=page('',`<div class="gph"><div class="gbal"><div class="gbl">Баланс</div><div class="gbn">${starSvg(24)}<span id="gbv">${(me.stars||0).toLocaleString('ru')}</span></div></div><div class="gav">${av(t,'xl',1)}</div>
+<h2>${self?'Купить подарок':'Отправить подарок'}</h2><p>${self?'Подарок можно добавить в профиль или отложить.':esc(dn(t))+' сможет добавить подарок в профиль или обменять его на звёзды.'}</p><p>Редкий подарок можно превратить в коллекционный и затем подарить другому пользователю.</p>
+<div class="gtabs" id="gtb"><button class="on" data-k="all">Все</button><button data-k="col">Коллекционные</button></div></div><div id="gg"></div>`,'tr');
+rain(p,'star',330);
+const draw=k=>{$('#gg',p).innerHTML=k=='all'?`<div class="ggrid">${Object.keys(GIFTS).map(x=>`<div class="gc" data-k="${x}">${gi(x,86)}<div class="gp">${starSvg(20)}${GIFTS[x].p}</div></div>`).join('')}</div>`:`<div class="empty" style="padding:40px 20px">Коллекционные подарки появятся позже</div>`};
+draw('all');
+$('#gtb',p).onclick=e=>{const b=e.target.closest('button');if(!b)return;[...$('#gtb',p).children].forEach(x=>x.classList.toggle('on',x==b));draw(b.dataset.k)};
+$('#gg',p).onclick=e=>{const c=e.target.closest('[data-k]');c&&giftBuy(c.dataset.k,t,p)};
+p.rend=()=>{S.u&&$('#gbv',p)&&($('#gbv',p).textContent=(S.u.stars||0).toLocaleString('ru'))}}
+// ---- 3. подтверждение и покупка ----
+const EMO=['😀','😍','🥳','🎉','❤️','🔥','😎','🙏','👍','🎂','🌹','⭐','😂','🥰','🤩','💎','🎁','🍀','☺️','😘'];
+function giftBuy(k,t,pg){const K=GIFTS[k],me=S.u,self=t.id==me.id;let an=true,txt='',busy=false;
+const m=sheet(`<div class="bst">${self?'Подарок себе':'Подарок для '+esc(dn(t))}</div><div class="bsb"><div class="gw"><div class="gpl">${self?'Вы купили подарок стоимостью':'Вы отправляете подарок стоимостью'} ${K.p} ${zn(K.p)}</div>
+<div class="gcd">${gi(k,170)}<div class="gct">${self?'Сохранённый подарок':'Подарок от '+esc(dn(me))}</div><div class="gcs">${self?'Подарок можно добавить в профиль.':esc(dn(t))+' может обменять его на звёзды или оставить в профиле.'}</div><div class="gcm" id="gcm" hidden></div>${self?'<div class="gvw">Посмотреть</div>':''}</div>
+<div class="gin"><input id="gmsg" maxlength="120" placeholder="Ваше сообщение" autocomplete="off"><button class="gem" id="gem" aria-label="Смайлики">${ic('smile',30)}</button></div><div class="gep" id="gep" hidden>${EMO.map(x=>`<span>${x}</span>`).join('')}</div></div>
+<div class="gro"><span>Скрыть моё имя</span><div class="sw on" id="gsw"><i></i></div></div><div class="gnote">${self?'Вы можете скрыть своё имя и сообщение от всех, кто просматривает Ваш профиль.':`Вы можете скрыть своё имя и сообщение от всех, кто просматривает профиль ${esc(dn(t))}. Сам получатель всё равно увидит, от кого подарок.`}</div></div>
+<div class="gfoot"><button class="gbuy" id="gbuy"><span>${self?'Купить подарок за':'Отправить подарок за'} ${starSvg(24)} ${K.p}</span><small id="gbs"></small></button></div>`,'bs2');
+const bal=()=>{$('#gbs',m).textContent='У Вас '+(S.u.stars||0).toLocaleString('ru')+' '+zn(S.u.stars||0)};bal();
+$('#gmsg',m).oninput=e=>{txt=e.target.value;const c=$('#gcm',m);c.textContent=txt.trim();c.hidden=!txt.trim()};
+$('#gem',m).onclick=()=>{$('#gep',m).hidden=!$('#gep',m).hidden};
+$('#gep',m).onclick=e=>{const s=e.target.closest('span');if(!s)return;const i=$('#gmsg',m);if(i.value.length>118)return;i.value+=s.textContent;i.oninput({target:i})};
+$('#gsw',m).onclick=()=>{an=!an;$('#gsw',m).classList.toggle('on',an)};
+$('#gbuy',m).onclick=async()=>{if(busy)return;const cur=S.u.stars||0;if(cur<K.p)return toast(`Недостаточно звёзд: нужно ${K.p}, на балансе ${cur.toLocaleString('ru')}`);
+busy=true;const b=$('#gbuy',m);b.style.opacity=.7;
+try{const r=await buyGift(k,t,txt.trim().slice(0,120),an);m.remove();pg&&pg.close();
+if(self){go('prof');gtoast(k,'Подарок виден','Теперь подарок виден в Вашем профиле.')}
+else{await openChat(r.cid);const top=[...document.querySelectorAll('.pg')].pop();top&&partyFx(top)}}
+catch(x){console.error(x);busy=false;b.style.opacity=1;toast(x.code=='low'?'Недостаточно звёзд для покупки':x.code=='permission-denied'?'Сервер отклонил покупку. Опубликуйте обновлённые правила Firestore и проверьте дату на устройстве.':'Ошибка: '+(x.code||x.message))}}}
+async function buyGift(k,t,tx,an){const K=GIFTS[k],me=S.u,id=uid(),now=Date.now(),self=t.id==me.id;let cid='';
+if(!self)cid=await ensureDm(t);
+const g={id,k,from:me.id,to:t.id,t:now,p:K.p,tx,an:!!an,hd:false,sold:false,cid};
+await fs.runTransaction(async q=>{const ur=fs.doc('users/'+me.id),d=await q.get(ur),o=d.data();if((o.stars||0)<K.p)throw{code:'low'};
+q.update(ur,{stars:o.stars-K.p,lg:id});q.set(fs.doc('gifts/'+id),g);q.set(fs.doc(`users/${me.id}/ops/b_${id}`),{id:'b_'+id,t:now,n:-K.p,from:k,fid:me.id,gid:id});
+if(!self){const mid=uid();q.set(fs.doc(`chats/${cid}/messages/${mid}`),{id:mid,cid,uid:me.id,text:'Подарок',t:now,v:[me.id],g:id})}});
+C.gifts[id]=g;return{cid}}
+// ---- 4. окно подарка ----
+function giftModal(x){const g=C.gifts[x]||GV[x];if(!g)return;const K=GIFTS[g.k];if(!K)return;const me=S.u.id,rec=g.to==me,snd=g.from==me,fu=C.users[g.from]||{nick:'?'},tu=C.users[g.to]||{nick:'?'};
+const hid=g.an&&!rec&&!snd,mine=rec&&!g.sold;
+const title=rec?'Подарок Вам':snd?'Подарок для '+esc(dn(tu)):'Подарок';
+const desc=g.sold?`Подарок обменян на ${K.b} ${za(K.b)}.`:rec?`Вы можете добавить этот подарок в профиль или обменять на ${K.b} ${za(K.b)}.<br><a class="gl" id="gmore">Подробнее о звёздах ›</a>`:`${esc(dn(tu))} может обменять его на звёзды или оставить в профиле.`;
+const m=sheet(`${mine?`<button class="ib gmn" id="gmn" aria-label="Меню">${ic('more',26)}</button><div class="gmenu" id="gmm" hidden><div data-a="vis">${g.hd?'Показывать в профиле':'Скрыть из профиля'}</div><div data-a="sell">Обменять на ${K.b} ${za(K.b)}</div></div>`:''}
+<div class="bsb"><div class="gmw">${gi(g.k,190,g.sold?'dim':'')}<h2>${title}</h2><p>${desc}</p>
+<div class="gtb"><div class="gtr"><b>От</b><div>${hid?`<span class="gb gh2">${ic('ghost',18)}</span><span>Скрыт</span>`:`${av(fu,'')}<a class="gl" data-u="${fu.id||''}">${esc(dn(fu))}</a>${!snd?'<span class="gch" data-a="send">отправить подарок</span>':''}`}</div></div>
+<div class="gtr"><b>Дата</b><div>${gdate(g.t)}</div></div>
+<div class="gtr"><b>Стоимость</b><div>${starSvg(22)}<span>${g.p}</span>${mine?`<span class="gch" data-a="sell">продать за ${K.b} ${za(K.b)}</span>`:''}</div></div>
+${g.tx&&!hid?`<div class="gtc">${esc(g.tx)}</div>`:''}</div>
+${mine?`<div class="gft">${g.hd?'Подарок скрыт из профиля.':'Подарок виден в Вашем профиле.'} <a class="gl" data-a="vis">${g.hd?'Показывать':'Скрыть'} ›</a></div>`:''}</div></div><div class="gfoot"><button class="gbuy" data-a="ok">OK</button></div>`,'bs3');
+const mm=$('#gmm',m);if($('#gmn',m))$('#gmn',m).onclick=e=>{e.stopPropagation();mm.hidden=!mm.hidden};
+m.onclick=async e=>{if(mm&&!e.target.closest('#gmn'))mm.hidden=true;if(e.target==m)return m.remove();
+if(e.target.closest('#gmore')){m.remove();return stars()}
+const u=e.target.closest('a[data-u]');if(u&&u.dataset.u&&C.users[u.dataset.u]){m.remove();return openProfile(C.users[u.dataset.u])}
+const a=e.target.closest('[data-a]');if(!a)return;const k=a.dataset.a;
+if(k=='ok')m.remove();
+else if(k=='send'){m.remove();setTimeout(()=>giftPage(fu),150)}
+else if(k=='vis'){try{await fs.doc('gifts/'+g.id).update({hd:!g.hd});g.hd=!g.hd;m.remove();gtoast(g.k,g.hd?'Подарок скрыт':'Подарок виден',g.hd?'Теперь подарок виден только Вам.':'Теперь подарок виден в Вашем профиле.');giftsRefresh()}catch(x){fer(x)}}
+else if(k=='sell')sellAsk(g,m)}}
+function sellAsk(g,gm){const K=GIFTS[g.k];const m=modal(`<h3>Обменять подарок?</h3><div class="note" style="margin-top:0;font-size:16px;color:#cfd8e3">Вы получите ${K.b} ${za(K.b)}, а подарок «${K.n}» полностью исчезнет из профиля. Это действие нельзя отменить.</div><button class="btn" id="sy">Обменять на ${K.b} ${za(K.b)}</button><button class="btn g" id="sn">Отмена</button>`);
+$('#sn',m).onclick=()=>m.remove();
+$('#sy',m).onclick=async()=>{const b=$('#sy',m);if(b.disabled)return;b.disabled=true;const me=S.u.id;
+try{await fs.runTransaction(async q=>{const gr=fs.doc('gifts/'+g.id),ur=fs.doc('users/'+me),gd=await q.get(gr),ud=await q.get(ur),gg=gd.data(),o=ud.data();if(!gg||gg.sold||gg.to!=me)throw{code:'gone'};const now=Date.now();
+q.update(gr,{sold:true,sa:now});q.update(ur,{stars:(o.stars||0)+K.b,lg:g.id});q.set(fs.doc(`users/${me}/ops/s_${g.id}`),{id:'s_'+g.id,t:now,n:K.b,from:g.k,fid:me,gid:g.id})});
+g.sold=true;m.remove();gm&&gm.remove();toast(`Подарок обменян на ${K.b} ${za(K.b)}`);giftsRefresh()}
+catch(x){console.error(x);b.disabled=false;toast(x.code=='gone'?'Подарок уже обменян':x.code=='permission-denied'?'Сервер отклонил обмен. Опубликуйте обновлённые правила Firestore.':'Ошибка: '+(x.code||x.message))}}}
+// ---- 5. подарки в профиле ----
+function renderGifts(host,u,own){if(!host)return;const rec=u.id==S.u.id;
+const list=(rec?Object.values(C.gifts).filter(g=>g.to==u.id&&!g.sold):(host._g||[])).filter(g=>GIFTS[g.k]).sort((a,b)=>b.t-a.t);
+list.forEach(g=>GV[g.id]=g);
+const tile=g=>{const hid=rec&&g.hd,fu=C.users[g.from];
+const bg=g.from==g.to?`<span class="gb bl">${ic('gift',16)}</span>`:g.an?`<span class="gb gh2">${ic('ghost',16)}</span>`:`<span class="gb">${av(fu||{nick:'?'},'')}</span>`;
+return`<div class="gt${hid?' hd':''}" data-g="${g.id}">${bg}${gi(g.k,70)}${hid?`<div class="geye">${ic('eyeoff',28)}</div>`:''}</div>`};
+host.innerHTML=`<div class="gchip"><span>Все подарки</span></div>${list.length?`<div class="ggrid2">${list.map(tile).join('')}</div>`:`<div class="note" style="text-align:center;margin:18px 0">${rec?'У Вас пока нет подарков.':'Подарков пока нет.'}</div>`}
+${rec&&list.length?'<div class="note" style="text-align:center">Нажмите на подарок, чтобы обменять его на звёзды или изменить настройки показа.</div>':''}
+${rec?`<button class="btn" id="gsend" style="display:flex;gap:10px;justify-content:center;align-items:center">${ic('gift',24)}Отправить подарки</button>`:''}`;
+host.onclick=e=>{const t=e.target.closest('[data-g]');if(t)return giftModal(t.dataset.g);if(e.target.closest('#gsend'))giftPicker()}}
+function giftsRefresh(){const h=$('#gsec');if(h&&S.u&&h.dataset.own=='1'&&S.tab=='prof'&&!document.querySelector('.pg'))renderGifts(h,S.u,true);
+const t=[...document.querySelectorAll('.pg')].pop();if(t&&t.rend&&t.querySelector('#gbv'))t.rend()}
+// ---- 6. анимация поздравления ----
+function partyFx(host){if(!host||!host.isConnected)return;const cv=document.createElement('canvas');cv.className='fxc';host.append(cv);
+const dpr=Math.min(devicePixelRatio||1,2),W=host.clientWidth,H=host.clientHeight;cv.width=W*dpr;cv.height=H*dpr;const x=cv.getContext('2d');x.scale(dpr,dpr);
+const srcs=[...Object.values(CART),GART.heart,GART.box,GART.cake,GART.rocket,GART.cup,GART.bouquet],imgs=srcs.map(s=>{const i=new Image();i.src=du(s);return i}),star=imgs[Object.keys(CART).indexOf('star')];
+const N=S.eco?18:48,k=H/700;const P=Array.from({length:N},(_,i)=>({im:i%4==0?star:imgs[(Math.random()*imgs.length)|0],x:W*(.06+.88*Math.random()),y:H+30+Math.random()*60,vx:(Math.random()-.5)*W/55,vy:-(12+Math.random()*8)*k,r:Math.random()*6.28,vr:(Math.random()-.5)*.14,s:24+Math.random()*26,d:Math.random()*55,ph:Math.random()*6.28}));
+const g=.34*k;let last=performance.now();
+const f=t=>{if(!cv.isConnected)return;const dt=Math.min((t-last)/16.7,3);last=t;x.clearRect(0,0,W,H);let alive=0;
+for(const p of P){if(p.dead)continue;if(p.d>0){p.d-=dt;alive++;continue}p.vy+=g*dt;p.x+=(p.vx+Math.sin(p.ph+=.06*dt)*.5)*dt;p.y+=p.vy*dt;p.r+=p.vr*dt;
+if(p.vy>0&&p.y>H+70){p.dead=1;continue}alive++;if(!p.im.complete)continue;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.drawImage(p.im,-p.s/2,-p.s/2,p.s,p.s);x.restore()}
+if(alive)requestAnimationFrame(f);else cv.remove()};requestAnimationFrame(f);setTimeout(()=>cv.remove(),7000)}
+// ---- сообщение-подарок в чате ----
+function gcard(x,us){const g=C.gifts[x.g],K=g&&GIFTS[g.k];if(!K)return`<div class="gcw"><div class="gcc"><div class="gct">Подарок</div></div></div>`;
+const to=us[g.to]||{nick:'?'},fr=us[g.from]||{nick:'?'};
+return`<div class="gcw"><div class="gcc" data-g="${g.id}">${gi(g.k,128,g.sold?'dim':'')}<div class="gct">Подарок от ${esc(dn(fr))}</div><div class="gcs">${g.sold?`${esc(dn(to))} обменял(а) подарок на звёзды.`:`${esc(dn(to))} может обменять его на звёзды или оставить в профиле.`}</div>${g.tx?`<div class="gcm">${esc(g.tx)}</div>`:''}</div></div>`}
+
 // ---------- boot ----------
 (async()=>{await open();const e=await dbGet('meta','eco');S.eco=!!(e&&e.v);E.classList.toggle('eco',S.eco);let first=true;
 au.onAuthStateChanged(async cu=>{if(!first)return;first=false;if(!cu)return authView();
