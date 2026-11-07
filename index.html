@@ -145,6 +145,46 @@ nav button.on{background:#1f3550;color:#42a5f5}
 @keyframes cs{from{transform:rotate(calc(var(--a)*-1))}to{transform:rotate(calc(var(--a)*-1 - 360deg))}}
 @keyframes tw{50%{transform:scale(1.4);opacity:.7}}
 .eco .orb,.eco .orb *,.eco .stbig{animation:none!important}
+
+/* ---- нижнее меню как в Telegram ---- */
+nav{left:50%;right:auto;transform:translateX(-50%);bottom:14px;padding:5px;border-radius:32px;background:#1a2535e8;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+nav button{flex:none;width:88px;height:49px;padding:0;gap:2px;font:500 12.5px Roboto;border-radius:25px;justify-content:center}
+nav button.on{background:#223a58;color:#4aa8f5}
+.nav-av{width:26px;height:26px;border-radius:50%;background:center/cover #3b82c4;display:block}
+/* ---- профиль ---- */
+.sh2{position:relative;text-align:center;padding:30px 0 6px}
+.av.pf{width:100px;height:100px;font-size:36px}
+.pav{position:relative;width:100px;margin:0 auto;cursor:pointer}.pav .vr{margin:0;display:block}
+.pnm{font-size:21px;font-weight:500;margin-top:16px;display:flex;align-items:center;justify-content:center}
+.pst{color:var(--m);font-size:16px;margin-top:4px}
+.sp{color:#f5b83a;font-size:13.5px;margin-top:3px}
+.pbs{display:flex;gap:8px;margin:20px 0 14px}
+.pb{flex:1;height:56px;border:0;border-radius:20px;background:#243449;color:#fff;font:500 13.5px Roboto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;transition:background .15s}.pb:active{background:#2c3f57}
+.ir{padding:11px 19px;min-height:63px;display:flex;flex-direction:column;justify-content:center;cursor:default;word-break:break-word}
+.ir.c{cursor:pointer}.ir.c:active{background:#ffffff0d}
+.iv{font-size:18px;line-height:1.3}.il{color:var(--m);font-size:14px;margin-top:3px}
+.ml{color:#6ab7f5;cursor:pointer;text-decoration:none}
+/* ---- экран «Аккаунт» ---- */
+.cd .lb{color:#4fa3e8;font-weight:500;font-size:15px;padding:16px 19px 0}
+.cd input{background:transparent;border:0;border-radius:0;margin:0;padding:12px 19px 14px;font-size:19px}
+.inp-row{display:flex;align-items:center}.inp-row input{flex:1}
+.cnt{color:var(--m);font-size:16px;padding-right:19px}
+.hint{color:var(--m);font-size:15px;line-height:1.35;padding:0 19px;margin:-4px 0 14px}
+.st.red{color:#ef5b5b}.st.red .tl{color:#ef5b5b}
+.un{display:flex;align-items:center;padding:6px 19px 14px;font-size:19px}.un span{color:#fff}.un input{padding:6px 0;text-decoration:underline;font-size:19px;flex:1;min-width:0}
+.us{font-size:15px;padding:0 19px;margin:-2px 0 10px;min-height:20px}.us.ok{color:#4cc968}.us.bad{color:#ef5b5b}.us.n{color:var(--m)}
+select{flex:1;min-width:0;background:var(--c2);color:#fff;border:1px solid #2c3b50;border-radius:14px;padding:13px 6px;font:500 16px Roboto;outline:0}
+/* ---- Premium ---- */
+.plans{background:var(--c);border-radius:26px;margin-top:22px;overflow:hidden;text-align:left}
+.pl{display:flex;align-items:center;gap:16px;padding:0 18px;height:61px;cursor:pointer;border-bottom:1px solid #263447;transition:background .15s}
+.pl:last-child{border-bottom:0}.pl:active{background:#ffffff0a}
+.rd{width:26px;height:26px;border-radius:50%;border:2.5px solid #4a5a70;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;transition:.2s}
+.pl.on .rd{background:#6c7bff;border-color:#6c7bff}.rd svg{opacity:0;transition:opacity .2s}.pl.on .rd svg{opacity:1}
+.pl .tx{flex:1;min-width:0}.pl .tl{font-weight:500}.pl .pr{display:flex;align-items:center;gap:4px;font-size:17px;font-weight:500}
+.pfoot{position:absolute;left:0;right:0;bottom:0;padding:26px 14px calc(14px + env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--bg) 45%);z-index:4}
+.buy{width:100%;height:56px;border:0;border-radius:28px;background:linear-gradient(90deg,#7b86ff,#a855f7 55%,#e0589f);color:#fff;font:500 18px Roboto;cursor:pointer;box-shadow:0 4px 20px #a855f755}.buy:active{filter:brightness(.92)}.buy:disabled{opacity:.7}
+.fi{display:flex;gap:16px;padding:14px 18px;align-items:flex-start;text-align:left}.fi .tile{width:34px;height:34px;border-radius:10px}
+.fi b{display:block;font-weight:500;font-size:17px}.fi span{display:block;color:var(--m);font-size:15px;margin-top:3px;line-height:1.35}
 </style></head><body><div id="app"></div>
 <script>
 const $=(s,e=document)=>e.querySelector(s),E=$('#app');
@@ -163,9 +203,9 @@ bulb:'<path d="M9 18h6M10 21h4M12 3a6 6 0 00-4 10c1 1 1 2 1 3h6c0-1 0-2 1-3a6 6 
 send:'<path d="M3 11l18-8-8 18-2-8z"/>',eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
 mega:'<path d="M3 10v4h4l9 5V5L7 10zM19 9a4 4 0 010 6"/>',group:'<circle cx="9" cy="8" r="3.500"/><path d="M2 20c0-4 3-6 7-6s7 2 7 6M16 5a3.500 3.500 0 010 7M19 14c2 1 3 3 3 6"/>',
 search:'<circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/>',x:'<path d="M5 5l14 14M19 5L5 19"/>',out:'<path d="M9 4H4v16h5M16 8l4 4-4 4M20 12H9"/>',
-lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/>',check:'<path d="M5 12l5 5 9-10"/>',more:'<circle cx="12" cy="5" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="12" cy="19" r="1.3"/>',plusc:'<circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/>',bars:'<path d="M6 20v-9M12 20V4M18 20v-7"/>'};
+lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/>',check:'<path d="M5 12l5 5 9-10"/>',more:'<circle cx="12" cy="5" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="12" cy="19" r="1.3"/>',plusc:'<circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/>',bars:'<path d="M6 20v-9M12 20V4M18 20v-7"/>',at:'<circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 006 0v-1a10 10 0 10-4 8"/>',cake:'<path d="M4 20h16v-6H4zM4 14c3 0 3-2 4-2s2 2 4 2 3-2 4-2 2 2 4 2M12 12V7M12 4v1"/>',crown:'<path d="M3 8l4.500 4L12 5l4.500 7L21 8l-2 11H5z"/>',camp:'<path d="M3 8h4l2-3h6l2 3h4v12H3z"/><circle cx="12" cy="13" r="4"/><path d="M19 3v4M17 5h4"/>'};
 const ic=(n,s=24,c='')=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${c}">${IC[n]}</svg>`;
-const starSvg=(s=64)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3a0"/><stop offset=".5" stop-color="#ffc21f"/><stop offset="1" stop-color="#ff8a00"/></linearGradient><filter id="gl"><feGaussianBlur stdDeviation=".7"/></filter></defs><path d="M12 1.500l3.200 6.800 7.300.9-5.400 5 1.400 7.300L12 17.800 5.500 21.500 6.900 14.200 1.500 9.200l7.300-.9z" fill="#ffb300" filter="url(#gl)" opacity=".7"/><path d="M12 2l3 6.800 7 .8-5.200 4.800 1.400 7L12 17.900 5.800 21.400l1.400-7L2 9.600l7-.8z" fill="url(#sg)" stroke="#fff6c0" stroke-width=".6" stroke-linejoin="round"/></svg>`;
+const starSvg=(s=64,pp)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24"><defs><linearGradient id="sg${pp?'p':''}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${pp?'#ecc8ff':'#fff3a0'}"/><stop offset=".5" stop-color="${pp?'#a85cf0':'#ffc21f'}"/><stop offset="1" stop-color="${pp?'#5b34d1':'#ff8a00'}"/></linearGradient><filter id="gl"><feGaussianBlur stdDeviation=".7"/></filter></defs><path d="M12 1.500l3.200 6.800 7.300.9-5.400 5 1.400 7.300L12 17.800 5.500 21.500 6.900 14.200 1.500 9.200l7.300-.9z" fill="${pp?'#9b5cf0':'#ffb300'}" filter="url(#gl)" opacity=".7"/><path d="M12 2l3 6.800 7 .8-5.200 4.800 1.400 7L12 17.900 5.800 21.400l1.400-7L2 9.600l7-.8z" fill="url(#sg${pp?'p':''})" stroke="${pp?'#f3e4ff':'#fff6c0'}" stroke-width=".6" stroke-linejoin="round"/></svg>`;
 // ---------- storage (Firebase: Auth + Firestore) ----------
 firebase.initializeApp({apiKey:"AIzaSyBtrMNzxw8sq38wQAMF37aIiTN4qJJSxww",authDomain:"pradagram-432ac.firebaseapp.com",projectId:"pradagram-432ac",storageBucket:"pradagram-432ac.firebasestorage.app",messagingSenderId:"991576000857",appId:"1:991576000857:web:2257b33947d2e886ac6448"});
 const au=firebase.auth(),fs=firebase.firestore();
@@ -201,7 +241,17 @@ const CHK='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11.5" fill="#2a9d
 const STR='<svg viewBox="0 0 24 24"><path d="M12 2l3 6.8 7 .8-5.200 4.800 1.400 7L12 17.900 5.800 21.400l1.400-7L2 9.600l7-.8z" fill="#ffc21f" stroke="#fff3a0" stroke-width="1" stroke-linejoin="round"/></svg>';
 const vb=(u,z=18)=>OFF(u)?`<span class="vb" style="--s:${z}px">${CHK}</span>`:'';
 const ring=(h,sz)=>{const r=sz/2+17;return`<div class="vr">${h}<div class="orb">${[0,1,2,3,4,5,6,7].map(k=>`<i style="--a:${k*45}deg;--r:${r}px"><b>${k%2?CHK:STR}</b></i>`).join('')}</div></div>`};
+const OWNER_UID='MrXI9W5XwGUQADbzUObTw3wphM02';
+const dn=u=>(u&&(u.name||u.nick))||'?';
+const PM=u=>!!(u&&u.premiumUntil>Date.now());
+const CROWN='<svg viewBox="0 0 24 24"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z" fill="#ffc21f" stroke="#ffe27a" stroke-width="1.2" stroke-linejoin="round"/><circle cx="3" cy="8" r="1.6" fill="#ffc21f"/><circle cx="12" cy="5" r="1.6" fill="#ffc21f"/><circle cx="21" cy="8" r="1.6" fill="#ffc21f"/></svg>';
+const bd=(u,z=18)=>vb(u,z)+(PM(u)?`<span class="vb" style="--s:${z}px">${CROWN}</span>`:'');
+const MON=['янв.','февр.','мар.','апр.','мая','июн.','июл.','авг.','сент.','окт.','нояб.','дек.'],MONF=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+const fb=b=>{if(!b)return'';const[y,m,d]=b.split('-').map(Number),n=new Date();let a=n.getFullYear()-y;if(n.getMonth()+1<m||(n.getMonth()+1==m&&n.getDate()<d))a--;const w=a%10==1&&a%100!=11?'год':(a%10>=2&&a%10<=4&&(a%100<10||a%100>=20))?'года':'лет';return`${d} ${MON[m-1]} ${y} (${a} ${w})`};
+const fdate=t=>new Date(t).toLocaleDateString('ru',{day:'numeric',month:'short',year:'numeric'});
+const lk=t=>esc(t).replace(/(^|[^\w@\/])@([A-Za-z0-9_]{5,32})\b/g,(m,a,b)=>`${a}<a class="ml" data-un="${b}">@${b}</a>`).replace(/(?:https?:\/\/)?\bgd\.me\/([A-Za-z0-9_]{5,32})\b/g,(m,b)=>`<a class="ml" data-un="${b}">${m}</a>`);
 const OFFTXT='Аккаунт подтверждён как официальный.';
+const caps=u=>(PM(u)?'<div class="sp">Аккаунт имеет подписку Premium</div>':'')+(OFF(u)?'<div class="sv">'+OFFTXT+'</div>':'');
 // ---------- state / helpers ----------
 let S={u:null,tab:'chats',eco:false,spc:false,q:'',pages:[],open:null};
 const ft=t=>{const d=new Date(t);return d.toDateString()==new Date().toDateString()?d.toLocaleTimeString('ru',{hour:'2-digit',minute:'2-digit'}):d.toLocaleDateString('ru',{day:'numeric',month:'short'})};
@@ -215,15 +265,15 @@ function device(){const u=navigator.userAgent;const o=/Android/.test(u)?'Android
 async function saveU(u){await dbPut('users',u);if(S.u&&S.u.id==u.id)S.u=u;ping()}
 // ---------- three.js rain ----------
 function tex(kind){const c=document.createElement('canvas');c.width=c.height=128;const x=c.getContext('2d');
-if(kind=='star'){const g=x.createRadialGradient(64,64,4,64,64,62);g.addColorStop(0,'rgba(255,220,100,.9)');g.addColorStop(1,'rgba(255,170,0,0)');x.fillStyle=g;x.fillRect(0,0,128,128);x.beginPath();for(let i=0;i<10;i++){const r=i%2?17:36,a=-Math.PI/2+i*Math.PI/5;x.lineTo(64+r*Math.cos(a),64+r*Math.sin(a))}x.closePath();x.fillStyle='#ffd23f';x.fill();x.strokeStyle='#fff4b0';x.lineWidth=3;x.stroke()}
+if(kind!='usd'){const P=kind=='pstar',g=x.createRadialGradient(64,64,4,64,64,62);g.addColorStop(0,P?'rgba(190,140,255,.9)':'rgba(255,220,100,.9)');g.addColorStop(1,P?'rgba(120,70,220,0)':'rgba(255,170,0,0)');x.fillStyle=g;x.fillRect(0,0,128,128);x.beginPath();for(let i=0;i<10;i++){const r=i%2?17:36,a=-Math.PI/2+i*Math.PI/5;x.lineTo(64+r*Math.cos(a),64+r*Math.sin(a))}x.closePath();x.fillStyle=P?'#c9a4ff':'#ffd23f';x.fill();x.strokeStyle=P?'#efe0ff':'#fff4b0';x.lineWidth=3;x.stroke()}
 else{x.fillStyle='#1f9d4a';x.strokeStyle='#8df5a8';x.lineWidth=4;x.beginPath();x.rect(10,32,108,64);x.fill();x.stroke();x.beginPath();x.arc(64,64,20,0,7);x.stroke();x.fillStyle='#d6ffe0';x.font='bold 34px Roboto,sans-serif';x.textAlign='center';x.textBaseline='middle';x.fillText('$',64,66)}
 return new THREE.CanvasTexture(c)}
 function rain(host,kind,hp){if(!window.THREE)return;const w=()=>host.clientWidth,h=()=>hp||host.clientHeight;
 const R=new THREE.WebGLRenderer({alpha:true,antialias:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.setSize(w(),h());R.domElement.className='cv'+(hp?' fb':'');host.prepend(R.domElement);
 const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(60,w()/h(),.1,100);cam.position.z=8;
 const t=tex(kind),N=S.eco?14:55,P=[];
-for(let i=0;i<N;i++){const m=new THREE.SpriteMaterial({map:t,transparent:true,opacity:.35+Math.random()*.6}),s=new THREE.Sprite(m),k=.5+Math.random()*.8;s.scale.set(kind=='star'?k:k*1.5,kind=='star'?k:k*.95,1);s.position.set((Math.random()-.5)*16,Math.random()*14-7,Math.random()*6-4);s.v=.02+Math.random()*.05;s.r=(Math.random()-.5)*.04;sc.add(s);P.push(s)}
-let id,on=true;const f=()=>{if(!on)return;id=requestAnimationFrame(f);P.forEach(s=>{s.position.y-=s.v;if(kind=='star')s.position.x-=s.v*.4;s.material.rotation+=s.r;if(s.position.y<-7){s.position.y=7;s.position.x=(Math.random()-.5)*16}});R.render(sc,cam)};f();
+for(let i=0;i<N;i++){const m=new THREE.SpriteMaterial({map:t,transparent:true,opacity:.35+Math.random()*.6}),s=new THREE.Sprite(m),k=.5+Math.random()*.8;s.scale.set(kind!='usd'?k:k*1.5,kind!='usd'?k:k*.95,1);s.position.set((Math.random()-.5)*16,Math.random()*14-7,Math.random()*6-4);s.v=.02+Math.random()*.05;s.r=(Math.random()-.5)*.04;sc.add(s);P.push(s)}
+let id,on=true;const f=()=>{if(!on)return;id=requestAnimationFrame(f);P.forEach(s=>{s.position.y-=s.v;if(kind!='usd')s.position.x-=s.v*.4;s.material.rotation+=s.r;if(s.position.y<-7){s.position.y=7;s.position.x=(Math.random()-.5)*16}});R.render(sc,cam)};f();
 host.onclose=()=>{on=false;cancelAnimationFrame(id);R.dispose();t.dispose()}}
 // ---------- auth ----------
 function authView(msg){let mode='in',meth='mail';
@@ -256,11 +306,12 @@ async function logout(msg){const sid=S.sid;ready=false;S.pages.forEach(p=>p.clos
 async function guard(){if(!S.u||!ready)return;const u=C.users[S.u.id],s=C.sessions[S.sid];if(!u||u.banned)return logout('Ваш аккаунт заблокирован. Вы можете войти в другой аккаунт.');if(!s)return logout('Сеанс завершён на другом устройстве');S.u=u}
 // ---------- main shell ----------
 function home(){E.innerHTML=`<div id="tc"></div><div id="sheet"><button data-c="channel">${ic('mega')}Создать канал</button><button data-c="chat">${ic('group')}Создать группу</button></div><button id="fab" aria-label="Создать">${ic('chatplus',30)}</button>
-<nav><button data-t="chats">${ic('chat',28)}Чаты</button><button data-t="set">${ic('set',28)}Настройки</button><button data-t="prof">${ic('user',28)}Профиль</button></nav>`;
+<nav><button data-t="chats">${ic('chat',24)}Чаты</button><button data-t="set">${ic('set',24)}Настройки</button><button data-t="prof">${ic('user',24)}Профиль</button></nav>`;
 $('nav').onclick=e=>{const b=e.target.closest('button');b&&go(b.dataset.t)};
 $('#fab').onclick=()=>{$('#fab').classList.toggle('o');$('#sheet').classList.toggle('o')};
 $('#sheet').onclick=e=>{const b=e.target.closest('button');if(!b)return;$('#fab').classList.remove('o');$('#sheet').classList.remove('o');createFlow(b.dataset.c)};go(S.tab)}
-function go(t){S.tab=t;$('#fab').style.display=t=='chats'?'':'none';$('#sheet').classList.remove('o');[...$('nav').children].forEach(b=>b.classList.toggle('on',b.dataset.t==t));({chats:chatsView,set:setView,prof:profView})[t]();const tc=$('#tc');tc.classList.add('ta');clearTimeout(S.tt);S.tt=setTimeout(()=>tc.classList.remove('ta'),420)}
+const navAv=()=>{const b=$('nav [data-t=prof]');if(!b||!S.u)return;b.innerHTML=(S.u.avatar?`<span class="nav-av" style="background-image:url(${S.u.avatar})"></span>`:ic('user',24))+'Профиль'};
+function go(t){S.tab=t;$('#fab').style.display=t=='chats'?'':'none';$('#sheet').classList.remove('o');[...$('nav').children].forEach(b=>b.classList.toggle('on',b.dataset.t==t));navAv();({chats:chatsView,set:setView,prof:profView})[t]();const tc=$('#tc');tc.classList.add('ta');clearTimeout(S.tt);S.tt=setTimeout(()=>tc.classList.remove('ta'),420)}
 async function chatsView(){const u=S.u,[cs,ms]=await Promise.all([dbAll('chats'),dbAll('messages')]),us=Object.fromEntries((await dbAll('users')).map(x=>[x.id,x]));
 let rows=cs.filter(c=>c.members.includes(u.id)).map(c=>{const m=ms.filter(x=>x.cid==c.id).sort((a,b)=>a.t-b.t);return{c,last:m[m.length-1],n:Math.max(0,m.length-((c.seen||{})[u.id]||0))}}).sort((a,b)=>(b.last?b.last.t:b.c.created)-(a.last?a.last.t:a.c.created));
 if(S.q)rows=rows.filter(r=>r.c.name.toLowerCase().includes(S.q.toLowerCase()));
@@ -284,10 +335,10 @@ for(const x of m)if(ch&&!(x.v||[]).includes(S.u.id)){x.v=[...(x.v||[]),S.u.id];d
 cc.seen=cc.seen||{};if(cc.seen[S.u.id]!=m.length){cc.seen[S.u.id]=m.length;await dbPut('chats',cc)}
 $('#cm',p).textContent=cc.members.length+(ch?' подписчиков':' участников');const box=$('#ms',p),bot=box.scrollHeight-box.scrollTop-box.clientHeight<80;
 box.innerHTML=m.length?m.map(x=>{const u=us[x.uid]||{nick:'Удалён'};
-if(ch)return`<div class="post"><div class="n">${esc(cc.name)}</div>${esc(x.text)}<div class="f">${ic('eye',15)}${(x.v||[]).length}<span>${esc(u.nick)}, ${ft(x.t)}</span></div></div>`;
-const me=x.uid==S.u.id;return`<div class="m ${me?'me':''}">${me?'':`<div data-u="${u.id}" style="cursor:pointer">${av(u,'sm')}</div>`}<div class="bub">${me?'':`<div class="n" data-u="${u.id}" style="color:${col(u.nick)}">${esc(u.nick)}${vb(u,14)}</div>`}${esc(x.text)}<span class="tm">${ft(x.t)}</span></div></div>`}).join(''):`<div class="empty">${ch?'В канале пока нет публикаций':'Сообщений пока нет. Напишите первым'}</div>`;
+if(ch)return`<div class="post"><div class="n">${esc(cc.name)}</div>${lk(x.text)}<div class="f">${ic('eye',15)}${(x.v||[]).length}<span>${esc(dn(u))}, ${ft(x.t)}</span></div></div>`;
+const me=x.uid==S.u.id;return`<div class="m ${me?'me':''}">${me?'':`<div data-u="${u.id}" style="cursor:pointer">${av(u,'sm')}</div>`}<div class="bub">${me?'':`<div class="n" data-u="${u.id}" style="color:${col(u.nick)}">${esc(dn(u))}${bd(u,14)}</div>`}${lk(x.text)}<span class="tm">${ft(x.t)}</span></div></div>`}).join(''):`<div class="empty">${ch?'В канале пока нет публикаций':'Сообщений пока нет. Напишите первым'}</div>`;
 if(bot||!box.dataset.k){box.scrollTop=box.scrollHeight;box.dataset.k=1}};
-$('#ms',p).onclick=async e=>{const t=e.target.closest('[data-u]');if(!t)return;const u=await dbGet('users',t.dataset.u);if(u)modal(`<div style="text-align:center">${OFF(u)?ring(av(u,'big'),110):av(u,'big')}<h3 style="margin-top:12px;display:flex;align-items:center;justify-content:center">${esc(u.nick)}${vb(u,20)}</h3>${OFF(u)?'<div class="sv">'+OFFTXT+'</div>':''}<div class="note" style="font-size:16px">${u.about?esc(u.about):'Пользователь ничего не рассказал о себе'}</div></div>`)};
+$('#ms',p).onclick=async e=>{const l=e.target.closest('[data-un]');if(l)return openByUsername(l.dataset.un);const t=e.target.closest('[data-u]');if(!t)return;const u=await dbGet('users',t.dataset.u);if(u)openProfile(u)};
 const send=async()=>{const i=$('#ci',p),t=i.value.trim();if(!t)return;i.value='';await dbPut('messages',{id:uid(),cid:id,uid:S.u.id,text:t,t:Date.now(),v:[S.u.id]});ping();await rend()};
 if($('#cs',p)){$('#cs',p).onclick=send;$('#ci',p).onkeydown=e=>{if(e.key=='Enter')send()}}
 p.onclose=()=>{S.open=null;chatsView()};p.rend=rend;S.pages.push(p);
@@ -299,12 +350,12 @@ const SR=(i,g,t,s,id)=>`<div class="st${s?'':' s1'}" data-r="${id}"><div class="
 function setMenu(){const m=modal(`<h3>Меню</h3><button class="btn g" id="lg" style="display:flex;gap:8px;justify-content:center">${ic('out',22)}Выйти из аккаунта</button>`);$('#lg',m).onclick=()=>{m.remove();logout()}}
 function setView(){const u=S.u,ow=OFF(u),a=av(u,'xl',1);$('#tc').innerHTML=`<div class="scr"><div class="sh"><button class="ib mm" data-r="menu">${ic('more',26)}</button>
 <div class="sav" data-r="ava">${ow?ring(a,96):a}<span class="cm">${ic('cam',17)}</span></div>
-<div class="sn${ow?' ow':''}">${esc(u.nick)}${vb(u,20)}</div><div class="su">@${esc(u.nick)}</div>${ow?'<div class="sv">'+OFFTXT+'</div>':''}</div>
+<div class="sn${ow?' ow':''}">${esc(dn(u))}${bd(u,20)}</div>${u.username?'<div class="su">@'+esc(u.username)+'</div>':''}${caps(u)}</div>
 <div class="cd">${SR('user','linear-gradient(135deg,#3aa6f5,#1f80d8)','Аккаунт','Ник, «О себе», аватар','acc')}${SR('dev','linear-gradient(135deg,#2cc4d8,#1c93b5)','Устройства','Управление активными сеансами','dev')}${SR('bat','linear-gradient(135deg,#f28a2e,#d9601a)','Энергосбережение',S.eco?'Включено — меньше анимаций':'Экономия энергии при низком заряде','eco')}${SR('globe','linear-gradient(135deg,#a259e6,#7c3ad0)','Язык','Русский','lang')}</div>
 <div class="cd">${SR('star','linear-gradient(135deg,#7a6bff,#b05cf0)','PradaGram Premium','','prem')}${SR('star','linear-gradient(135deg,#ffb52e,#f0820f)','Звёзды PradaGram','','stars')}${ow?SR('lock','linear-gradient(135deg,#e5534b,#b52e3a)','SPC PANEL','','spc'):''}${SR('gift','linear-gradient(135deg,#f28a2e,#e0561a)','Отправить подарок','','gift')}</div>
 <div class="cd"><div class="hd">Помощь</div>${SR('bulb','linear-gradient(135deg,#a259e6,#6d4be0)','Возможности PradaGram','','feat')}${SR('shield','linear-gradient(135deg,#3ec46d,#259a4c)','Политика конфиденциальности','','priv')}</div>
 <div class="note" style="text-align:center">PradaGram v0.1 · web</div></div>`;
-$('#tc').onclick=e=>{const r=e.target.closest('[data-r]');if(!r)return;({acc:()=>go('prof'),menu:setMenu,ava:()=>pick(async d=>{u.avatar=d;await saveU(u);setView()}),dev:devices,eco:toggleEco,lang:lang,prem:premium,stars:stars,spc:spcGate,gift:()=>info('Отправить подарок','Раздел появится в следующем обновлении.'),feat:feat,priv:()=>info('Политика конфиденциальности','Пароли хранятся только в виде криптографического хэша. Мы не передаём ваши данные третьим лицам. Если вы зарегистрировались без почты, восстановить пароль невозможно.')})[r.dataset.r]()}}
+$('#tc').onclick=e=>{const r=e.target.closest('[data-r]');if(!r)return;({acc:accountPage,menu:setMenu,ava:()=>pick(async d=>{u.avatar=d;await saveU(u);setView()}),dev:devices,eco:toggleEco,lang:lang,prem:premium,stars:stars,spc:spcGate,gift:()=>info('Отправить подарок','Раздел появится в следующем обновлении.'),feat:feat,priv:()=>info('Политика конфиденциальности','Пароли хранятся только в виде криптографического хэша. Мы не передаём ваши данные третьим лицам. Если вы зарегистрировались без почты, восстановить пароль невозможно.')})[r.dataset.r]()}}
 function info(t,b){page(t,`<div class="note" style="font-size:17px;color:#cfd8e3">${b}</div>`)}
 function feat(){info('Возможности PradaGram','Группы и каналы с аватарками.<br>Счётчик непрочитанных сообщений.<br>Время последнего сообщения в списке чатов.<br>Профиль с описанием «О себе».<br>Звёзды и Premium.<br>Управление активными сеансами.')}
 async function toggleEco(){S.eco=!S.eco;E.classList.toggle('eco',S.eco);await dbPut('meta',{k:'eco',v:S.eco});setView();toast(S.eco?'Энергосбережение включено':'Энергосбережение выключено')}
@@ -318,7 +369,7 @@ function stars(){const p=page('',`<div class="stp"><div class="stbig">${starSvg(
 rain(p,'star',360);let ops=null,tab='all';
 const draw=()=>{const ol=$('#ol',p);if(ops===null){ol.innerHTML='';return}
 const rows=ops.filter(o=>tab=='all'||(tab=='in'&&o.n>0)||(tab=='out'&&o.n<0));
-ol.innerHTML=rows.length?rows.map(o=>{const f=C.users[o.fid]||{nick:o.from,nl:String(o.from).toLowerCase()};return`<div class="op">${av(f,'op')}<div class="mid"><b>${esc(o.from)}${vb(f,15)}</b><div class="s">Выдача звёзд</div><div class="s">${fdt(o.t)}</div></div><div class="am ${o.n>0?'pl':'mn'}">${o.n>0?'+':'−'}${Math.abs(o.n).toLocaleString('ru')}${starSvg(20)}</div></div>`}).join(''):`<div class="empty" style="padding:34px 20px">${tab=='out'?'Списаний пока нет':'Операций пока нет'}</div>`};
+ol.innerHTML=rows.length?rows.map(o=>{const f=C.users[o.fid]||{nick:o.from,nl:String(o.from).toLowerCase()};return`<div class="op">${o.n<0?`<div class="av op" style="background:linear-gradient(135deg,#7a6bff,#b05cf0)">${ic('star',22)}</div>`:av(f,'op')}<div class="mid"><b>${esc(o.from)}${o.n<0?'':bd(f,15)}</b><div class="s">${o.n<0?'Покупка подписки':'Выдача звёзд'}</div><div class="s">${fdt(o.t)}</div></div><div class="am ${o.n>0?'pl':'mn'}">${o.n>0?'+':'−'}${Math.abs(o.n).toLocaleString('ru')}${starSvg(20)}</div></div>`}).join(''):`<div class="empty" style="padding:34px 20px">${tab=='out'?'Списаний пока нет':'Операций пока нет'}</div>`};
 $('#tb',p).onclick=e=>{const b=e.target.closest('button');if(!b)return;tab=b.dataset.k;[...$('#tb',p).children].forEach(x=>x.classList.toggle('on',x==b));draw()};
 $('#tp',p).onclick=()=>window.open('https://t.me/ceotinkov','_blank');
 $('#ts',p).onclick=starStats;
@@ -330,17 +381,70 @@ const inn=ops.filter(o=>o.n>0),tot=inn.reduce((a,o)=>a+o.n,0),mx=inn.reduce((a,o
 const R=(t,v)=>`<div class="st s1" style="cursor:default"><div class="tx"><div class="tl">${t}</div></div><div style="color:var(--m);font-size:16px">${v}</div></div>`;
 $('.pgb',p).innerHTML=`<div class="bal" style="margin-top:14px"><div class="bl" style="margin:0 0 10px">Поступления за всё время</div><div class="bn"><span>${tot.toLocaleString('ru')}</span>${starSvg(34)}</div></div>
 <div class="cd">${R('Всего зачислений',inn.length)}${R('Крупнейшее зачисление',mx.toLocaleString('ru'))}${R('Первое зачисление',inn.length?fdt(first):'—')}</div>`}
-function premium(){const a=S.u.premium,p=page('PradaGram Premium',`<div class="frame p"><h3>PREMIUM MODE</h3><div style="margin-top:18px;font-size:20px;font-weight:500;color:${a?'#6dffa1':'#ff9a94'}">Подписка ${a?'активна':'неактивна'}</div></div>`);rain(p,'usd')}
+const PLANS=[{k:1,t:'1 Месяц',p:250,d:30},{k:6,t:'6 Месяцев',p:1000,d:180},{k:12,t:'1 Год',p:7500,d:365}];
+function premium(){let sel=6;
+const p=page('',`<div class="stp"><div class="stbig">${starSvg(132,1)}</div><h2>PradaGram Premium</h2><p id="pp"></p>
+<div class="plans" id="pl"></div>
+<div class="cd" style="margin-top:14px"><div class="fi"><div class="tile" style="background:linear-gradient(135deg,#ffb52e,#f0820f)">${ic('crown',20)}</div><div><b>Корона рядом с ником</b><span>Жёлтая корона отображается рядом с вашим именем и галочкой.</span></div></div><div class="fi"><div class="tile" style="background:linear-gradient(135deg,#a259e6,#6d4be0)">${ic('star',20)}</div><div><b>Особый статус</b><span>Под ником появляется надпись «Аккаунт имеет подписку Premium».</span></div></div></div><div style="height:90px"></div></div>`,'tr');
+rain(p,'pstar',380);
+const foot=document.createElement('div');foot.className='pfoot';foot.innerHTML='<button class="buy" id="buy">Купить</button>';p.append(foot);
+const draw=()=>{const u=S.u;$('#pp',p).innerHTML=PM(u)?`Подписка активна до <b style="color:#f5b83a">${fdate(u.premiumUntil)}</b> Можно продлить.`:'Подписка PradaGram Premium: корона рядом с ником и особый статус в профиле.';
+$('#pl',p).innerHTML=PLANS.map(x=>`<div class="pl ${x.k==sel?'on':''}" data-k="${x.k}"><div class="rd">${ic('check',16)}</div><div class="tx"><div class="tl">${x.t}</div><div class="sb">PG PREMIUM</div></div><div class="pr">${x.p.toLocaleString('ru')}${starSvg(20)}</div></div>`).join('')};
+draw();p.rend=draw;
+$('#pl',p).onclick=e=>{const r=e.target.closest('[data-k]');if(!r)return;sel=+r.dataset.k;draw()};
+$('#buy',p).onclick=async()=>{const b=$('#buy',p);if(b.disabled)return;const pl=PLANS.find(x=>x.k==sel),u=S.u;
+if((u.stars||0)<pl.p)return toast(`Недостаточно звёзд: нужно ${pl.p.toLocaleString('ru')}, на балансе ${(u.stars||0).toLocaleString('ru')}`);
+b.disabled=true;b.textContent='Подождите…';let nu=0;
+try{const ref=fs.doc('users/'+u.id);await fs.runTransaction(async tx=>{const d=await tx.get(ref),o=d.data(),now=Date.now();if((o.stars||0)<pl.p)throw{code:'low'};
+nu=(o.premiumUntil>now?o.premiumUntil:now)+pl.d*864e5;tx.update(ref,{stars:o.stars-pl.p,premiumUntil:nu});const id=uid();tx.set(fs.doc(`users/${u.id}/ops/${id}`),{id,t:now,n:-pl.p,from:'PradaGram Premium · '+pl.t,fid:u.id})});
+u.stars-=pl.p;u.premiumUntil=nu;toast('Premium активирован до '+fdate(nu));draw()}
+catch(x){console.error(x);toast(x.code=='low'?'Недостаточно звёзд для покупки':x.code=='permission-denied'?'Покупка отклонена сервером. Проверьте дату и время на устройстве и что опубликованы новые правила.':'Ошибка покупки: '+(x.code||x.message))}
+finally{b.disabled=false;b.textContent='Купить'}}}
 // ---------- profile ----------
-function profView(){const u=S.u;$('#tc').innerHTML=`<div class="scr"><div class="top"><h1>Профиль</h1></div>
-<div style="display:flex;gap:10px;align-items:center;padding:6px"><div id="pa" style="cursor:pointer">${OFF(u)?ring(av(u,'big',1),110):av(u,'big',1)}</div><div style="min-width:0"><div style="display:flex;align-items:center;gap:2px"><b style="font-size:26px;font-weight:500;word-break:break-all">${esc(u.nick)}</b>${vb(u,22)}<button class="ib" id="pn">${ic('pen',22)}</button></div>${OFF(u)?'<div class="sv" style="margin-top:2px">'+OFFTXT+'</div>':''}</div></div>
-<div class="card" style="padding:10px 14px"><div class="lbl" style="padding-left:0">О себе</div><div class="fld ${u.about?'':'e'}" id="pb" style="padding-left:0">${u.about?esc(u.about):'Нажмите, чтобы добавить описание'}</div></div>
-<div class="card" style="padding:14px 18px;display:flex;align-items:center;justify-content:space-between"><span>Звёзды</span><span style="display:flex;gap:8px;align-items:center;font-weight:500">${u.stars.toLocaleString('ru')}${starSvg(26)}</span></div>
-<button class="btn g" id="lo" style="display:flex;gap:8px;justify-content:center">${ic('out',22)}Выйти из аккаунта</button></div>`;
-$('#pa').onclick=()=>pick(async d=>{u.avatar=d;await saveU(u);profView()});
-$('#pb').onclick=()=>{const m=modal(`<h3>О себе</h3><textarea id="ab2" rows="4" maxlength="200">${esc(u.about)}</textarea><button class="btn" id="sv">Сохранить</button>`);$('#sv',m).onclick=async()=>{u.about=$('#ab2',m).value.trim();await saveU(u);m.remove();profView()}};
-$('#pn').onclick=()=>{const m=modal(`<h3>Изменить NickName</h3><input id="nn" maxlength="20" value="${esc(u.nick)}"><div class="err" id="ne"></div><button class="btn" id="sv">Сохранить</button>`);$('#sv',m).onclick=async()=>{const n=$('#nn',m).value.trim(),e=t=>$('#ne',m).textContent=t;if(n.length<3||/\s/.test(n))return e('От 3 до 20 символов, без пробелов');if((await dbAll('users')).some(x=>x.nl==n.toLowerCase()&&x.id!=u.id))return e('Этот NickName уже занят');const on=u.nick,ol=u.nl;u.nick=n;u.nl=n.toLowerCase();if(ol!=u.nl){try{const b=fs.batch();b.set(fs.doc('nicks/'+u.nl),{uid:u.id});b.delete(fs.doc('nicks/'+ol));b.set(fs.doc('users/'+u.id),u);await b.commit()}catch(x){u.nick=on;u.nl=ol;return e('NickName недоступен (занят или зарезервирован)')}}else await saveU(u);m.remove();profView()}};
-$('#lo').onclick=()=>logout()}
+const phead=(u,own)=>{const a=av(u,'pf',1);return`<div class="pav" data-p="pic">${OFF(u)?ring(a,100):a}</div><div class="pnm">${esc(dn(u))}${bd(u,20)}</div>${own?'<div class="pst">в сети</div>':''}<div style="margin-top:2px">${caps(u)}</div>`};
+const pcard=(u,own)=>{const r=[];if(u.about)r.push(`<div class="ir"><div class="iv">${lk(u.about)}</div><div class="il">О себе</div></div>`);
+if(u.username)r.push(`<div class="ir c" data-p="copy" data-un="${esc(u.username)}"><div class="iv">@${esc(u.username)}</div><div class="il">Имя пользователя</div></div>`);
+if(u.bday)r.push(`<div class="ir"><div class="iv">${fb(u.bday)}</div><div class="il">День рождения</div></div>`);
+return r.length?`<div class="cd">${r.join('')}</div>`:`<div class="note" style="text-align:center">${own?'Добавьте информацию о себе кнопкой «Изменить».':'Пользователь ничего не рассказал о себе.'}</div>`};
+const copyLink=un=>{const t='gd.me/'+un;try{navigator.clipboard.writeText(t).then(()=>toast('Ссылка скопирована: '+t),()=>toast(t))}catch(e){toast(t)}};
+function profView(){const u=S.u;navAv();$('#tc').innerHTML=`<div class="scr"><div class="sh2"><button class="ib mm" data-p="menu">${ic('more',26)}</button>${phead(u,1)}</div>
+<div class="pbs"><button class="pb" data-p="pic">${ic('camp',26)}Выбрать фото</button><button class="pb" data-p="edit">${ic('pen',26)}Изменить</button><button class="pb" data-p="set">${ic('set',26)}Настройки</button></div>${pcard(u,1)}</div>`;
+$('#tc').onclick=e=>{const r=e.target.closest('[data-p]');if(!r)return;const k=r.dataset.p;if(k=='pic')pick(async d=>{u.avatar=d;await saveU(u);profView()});else if(k=='edit')accountPage();else if(k=='set')go('set');else if(k=='menu')setMenu();else if(k=='copy')copyLink(r.dataset.un)}}
+function openProfile(u){const own=u.id==S.u.id,p=page('',`<div class="sh2" style="padding-top:8px">${phead(u,own)}</div><div style="height:18px"></div>${pcard(u,own)}`);
+p.onclick=e=>{const r=e.target.closest('[data-p=copy]');if(r)copyLink(r.dataset.un);const l=e.target.closest('[data-un]:not([data-p])');if(l)openByUsername(l.dataset.un)}}
+async function openByUsername(un){const l=un.toLowerCase();let u=Object.values(C.users).find(x=>x.ul==l);
+if(!u){try{const d=await fs.doc('usernames/'+l).get();if(d.exists){const x=await fs.doc('users/'+d.data().uid).get();if(x.exists)u=x.data()}}catch(e){}}
+if(u)openProfile(u);else toast('Пользователь @'+un+' не найден')}
+async function upd(patch){try{await fs.doc('users/'+S.u.id).update(patch);Object.assign(S.u,patch);return true}catch(x){fer(x);return false}}
+function accountPage(){const u=S.u;const p=page('Аккаунт',`<div class="cd"><div class="lb">Ваше имя</div><input id="an2" maxlength="30" placeholder="Имя" autocomplete="off" value="${esc(dn(u))}"></div>
+<div class="cd inp-row"><input id="ab3" maxlength="70" placeholder="О себе" autocomplete="off" value="${esc(u.about||'')}"><span class="cnt" id="cn">${70-(u.about||'').length}</span></div><div class="hint">Напишите немного о себе.</div>
+<div class="cd"><div class="hd">Информация о Вас</div><div id="inf"></div></div><div class="hint">Имя пользователя позволяет другим найти вас и открыть ваш профиль по ссылке gd.me/имя.</div>
+<div class="cd"><div class="st s1 red" data-r="out">${ic('out',26)}<div class="tx"><div class="tl">Выход</div></div></div></div>`);
+const inf=()=>{$('#inf',p).innerHTML=SR('at','linear-gradient(135deg,#ffb52e,#f0820f)',u.username?'@'+esc(u.username):'Не задано','Имя пользователя','un')+SR('cake','linear-gradient(135deg,#3aa6f5,#1f80d8)',u.bday?fb(u.bday):'Не указан','День рождения','bd')};inf();
+$('#ab3',p).oninput=e=>{$('#cn',p).textContent=70-e.target.value.length};
+p.onclick=e=>{const r=e.target.closest('[data-r]');if(!r)return;if(r.dataset.r=='un')usernamePage(inf);else if(r.dataset.r=='bd')bdayPicker(inf);else if(r.dataset.r=='out')logout()};
+p.onclose=()=>{const n=$('#an2',p).value.trim(),a=$('#ab3',p).value.trim(),patch={};if(n&&n!=dn(u))patch.name=n;if(a!=(u.about||''))patch.about=a;if(Object.keys(patch).length)upd(patch).then(ok=>{if(ok){toast('Сохранено');S.tab=='prof'?profView():S.tab=='set'?setView():0}})}}
+function usernamePage(done){const u=S.u,p=page('Имя пользователя',`<div class="cd"><div class="lb">Задать имя пользователя</div><div class="un"><span>gd.me/</span><input id="un" maxlength="32" autocomplete="off" autocapitalize="none" spellcheck="false" value="${esc(u.username||'')}"></div></div><div class="us n" id="us"></div>
+<div class="hint">Вы можете выбрать публичное имя пользователя в PradaGram. В этом случае другие люди смогут найти Вас по такому имени и открыть профиль, не зная Вашего ника.<br><br>Можно использовать символы a–z, 0–9 и подчёркивания. Минимальная длина — 5 символов.</div>`);
+const ok=document.createElement('button');ok.className='ib';ok.style.marginLeft='auto';ok.innerHTML=ic('check',28);$('.pgt',p).append(ok);
+const st=$('#us',p),inp=$('#un',p);let good=true,tm=0,seq=0;const say=(c,t,g)=>{st.className='us '+c;st.textContent=t;good=g};
+const chk=()=>{const raw=inp.value,v=raw.replace(/[^A-Za-z0-9_]/g,'');if(v!=raw)inp.value=v;const l=v.toLowerCase();clearTimeout(tm);++seq;
+if(!v)return say('n','Имя пользователя будет удалено.',true);
+if(v.length<5)return say('bad','Минимальная длина — 5 символов.',false);
+if(l=='donke'&&u.id!=OWNER_UID)return say('bad','Это имя недоступно.',false);
+if(l==u.ul)return say('n','Это ваше текущее имя.',true);
+say('n','Проверяем…',false);const my=seq;tm=setTimeout(async()=>{try{const d=await fs.doc('usernames/'+l).get();if(my!=seq)return;d.exists?say('bad','Имя '+v+' занято.',false):say('ok','Имя '+v+' свободно.',true)}catch(e){if(my==seq)say('n','Не удалось проверить имя.',true)}},350)};
+inp.oninput=chk;chk();setTimeout(()=>inp.focus(),300);
+ok.onclick=async()=>{if(!good)return toast('Это имя нельзя использовать');if(ok.disabled)return;const nu=inp.value.trim(),nl=nu.toLowerCase();if(nu==(u.username||''))return p.close();
+ok.disabled=true;try{const b=fs.batch();b.update(fs.doc('users/'+u.id),{username:nu,ul:nl});if(nu&&nl!=u.ul)b.set(fs.doc('usernames/'+nl),{uid:u.id});if(u.ul&&u.ul!=nl)b.delete(fs.doc('usernames/'+u.ul));await b.commit();
+u.username=nu;u.ul=nl;toast(nu?'Имя пользователя сохранено':'Имя пользователя удалено');done&&done();p.close()}
+catch(x){console.error(x);ok.disabled=false;say('bad',x.code=='permission-denied'?'Имя занято или недоступно.':'Ошибка: '+(x.code||x.message),false)}}}
+function bdayPicker(done){const u=S.u,c=(u.bday||'').split('-').map(Number),n=new Date(),o=(v,t,sel)=>`<option value="${v}" ${sel?'selected':''}>${t}</option>`;
+const m=modal(`<h3>День рождения</h3><div style="display:flex;gap:8px;margin-top:10px"><select id="bd">${o('','День',!c[2])}${Array.from({length:31},(_,i)=>o(i+1,i+1,c[2]==i+1)).join('')}</select><select id="bm">${o('','Месяц',!c[1])}${MONF.map((t,i)=>o(i+1,t,c[1]==i+1)).join('')}</select><select id="by">${o('','Год',!c[0])}${Array.from({length:n.getFullYear()-1899},(_,i)=>o(n.getFullYear()-i,n.getFullYear()-i,c[0]==n.getFullYear()-i)).join('')}</select></div>
+<div class="err" id="be"></div><button class="btn" id="bs">Сохранить</button>${u.bday?'<button class="btn g" id="br">Удалить</button>':''}`);
+const save=async v=>{if(await upd({bday:v})){toast(v?'День рождения сохранён':'День рождения удалён');done&&done();m.remove();S.tab=='prof'&&profView()}};
+$('#bs',m).onclick=()=>{const d=+$('#bd',m).value,mo=+$('#bm',m).value,y=+$('#by',m).value,e=t=>$('#be',m).textContent=t;if(!d||!mo||!y)return e('Выберите день, месяц и год');const dt=new Date(y,mo-1,d);if(dt.getMonth()!=mo-1)return e('Такой даты не существует');if(dt>n)return e('Дата в будущем');save(`${y}-${String(mo).padStart(2,'0')}-${String(d).padStart(2,'0')}`)};
+if($('#br',m))$('#br',m).onclick=()=>save('')}
 // ---------- SPC PANEL ----------
 // запись владельца: ждём подтверждения сервера
 const PD=x=>{console.error(x);return x.code=='permission-denied'?'Сервер отклонил запись. Проверьте, что в Firebase опубликованы актуальные правила (firestore.rules) и вы вошли под ником donke.':'Ошибка: '+(x.code||x.message)};
