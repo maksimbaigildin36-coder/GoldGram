@@ -291,7 +291,7 @@ lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0
 const ic=(n,s=24,c='')=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${c}">${IC[n]}</svg>`;
 const starSvg=(s=64,pp)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24"><defs><linearGradient id="sg${pp?'p':''}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${pp?'#ecc8ff':'#fff3a0'}"/><stop offset=".5" stop-color="${pp?'#a85cf0':'#ffc21f'}"/><stop offset="1" stop-color="${pp?'#5b34d1':'#ff8a00'}"/></linearGradient><filter id="gl"><feGaussianBlur stdDeviation=".7"/></filter></defs><path d="M12 1.500l3.200 6.800 7.300.9-5.400 5 1.400 7.300L12 17.800 5.500 21.500 6.900 14.200 1.500 9.200l7.300-.9z" fill="${pp?'#9b5cf0':'#ffb300'}" filter="url(#gl)" opacity=".7"/><path d="M12 2l3 6.800 7 .8-5.200 4.800 1.400 7L12 17.900 5.800 21.400l1.400-7L2 9.600l7-.8z" fill="url(#sg${pp?'p':''})" stroke="${pp?'#f3e4ff':'#fff6c0'}" stroke-width=".6" stroke-linejoin="round"/></svg>`;
 // ---------- storage (Supabase: Auth + Postgres + Realtime) ----------
-const SB_URL='https://lkcosocwwxolnyiemlde.supabase.co',SB_KEY='sb_publishable_BGhh_P5AtVrtyrDyhiQ21w_EoHRa_jS',MAILDOM='pradagram.app';
+const SB_URL='https://lkcosocwwxolnyiemlde.supabase.co',SB_KEY='sb_publishable_BGhh_P5AtVrtyrDyhiQ21w_EoHRa_jS',MAILDOM='gmail.com';
 const SB=supabase.createClient(SB_URL,SB_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}});
 const C={users:{},chats:{},messages:{},sessions:{},gifts:{},gf:{},gt:{},nm:{},ss:{},sb:{}};
 let ready=false,unsub=[],MU={},_t;
