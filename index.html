@@ -306,7 +306,7 @@ const C={users:{},chats:{},messages:{},sessions:{},gifts:{},gf:{},gt:{},nm:{},ss
 let ready=false,unsub=[],MU={},_t;
 const bc={postMessage(){}},ping=()=>{};
 const notify=()=>{if(!ready)return;clearTimeout(_t);_t=setTimeout(()=>bc.onmessage&&bc.onmessage(),60)};
-const fer=e=>{console.error(e);toast('Ошибка базы: '+(e.code||e.message))};
+const fer=e=>{console.error(e);toast('Ошибка базы: '+(e.code||'')+(e.message&&e.message!=e.code?' — '+String(e.message).slice(0,220):''))};
 const sbe=e=>{const m=(e&&e.message)||'';return{code:['low','gone','own','notyours','listed','range','taken'].includes(m)?m:(m=='permission-denied'||m=='nick-reserved'||e.code=='42501'||e.code=='23505')?'permission-denied':(e.code||m),message:m}};
 const dbw=async p=>{const r=await p;if(r.error)throw sbe(r.error);return r.data};
 const rpc=(f,a)=>dbw(SB.rpc(f,a||{}));
