@@ -267,6 +267,28 @@ select{flex:1;min-width:0;background:var(--c2);color:#fff;border:1px solid #2c3b
 .npl{display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:#0000004d;border-radius:18px;padding:7px 16px;font-weight:700;font-size:18px}
 .gch.pc{background:#233a55;color:#5aaef5;padding:3px 10px;font-size:14px}.gbuy.gry{background:#2f3e52;color:#fff}
 .nmini{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;overflow:hidden;flex:none}
+:root{--bg:#0b121b}
+html,body{background:#0b121b;-webkit-font-smoothing:antialiased}
+*{scrollbar-width:none;touch-action:manipulation}
+::-webkit-scrollbar{display:none}
+#app::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(70% 38% at 12% 6%,#2d6cb066,transparent 72%),radial-gradient(60% 40% at 96% 28%,#7a45b24d,transparent 72%),radial-gradient(70% 42% at 8% 92%,#1c8f8a3d,transparent 72%),radial-gradient(55% 36% at 92% 94%,#2f6fd84d,transparent 72%)}
+.pg{background:radial-gradient(70% 38% at 12% 6%,#2d6cb066,transparent 72%),radial-gradient(60% 40% at 96% 28%,#7a45b24d,transparent 72%),radial-gradient(70% 42% at 8% 92%,#1c8f8a3d,transparent 72%),radial-gradient(55% 36% at 92% 94%,#2f6fd84d,transparent 72%),#0b121b;will-change:transform}
+.top,.pgt{background:#0b121bb8;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.pg.tr .pgt{background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+.comp{background:#0b121bcc;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.cd,.card,.bal,.ops,.post,.bub,.ro{background:#1a2638b8;border:1px solid #ffffff0f}
+.me .bub{background:linear-gradient(135deg,#3a82cde0,#2b5a94e0);border-color:#ffffff14}
+.bub,.post{box-shadow:0 2px 10px #0003}
+input,textarea{background:#16202eb3;border-color:#ffffff14}
+.btn{background:linear-gradient(180deg,#4cb2f8,#2d8fe3);box-shadow:0 6px 18px #2d8fe040}
+.btn.g{background:#ffffff14;box-shadow:none}
+.btn.r{background:linear-gradient(180deg,#c23b3b,#8f2b2b);box-shadow:none}
+#fab{background:linear-gradient(135deg,#4cb2f8,#2d7fe0);box-shadow:0 10px 26px #2d8fe066}
+nav{background:#16212fcc;border:1px solid #ffffff10;box-shadow:0 8px 28px #0006}
+.modal>div{background:#1a2638f5;border:1px solid #ffffff12}
+.av{box-shadow:0 2px 8px #0005}
+.row:active{background:#ffffff10}
+.nul{color:#5ab4f5;cursor:pointer;text-decoration:none}
 .stbar{padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:var(--c2,#17212b)}
 .qt{margin-top:8px;padding:8px 10px;border-left:3px solid #4a9be0;background:#ffffff12;border-radius:8px;white-space:pre-wrap;font-size:15px}
 .rs{margin-top:8px;font-size:14px;color:#aab6c6}
@@ -353,10 +375,10 @@ const starSvg=(s=64,pp)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24"><d
 // ---------- storage (Supabase: Auth + Postgres + Realtime) ----------
 const SB_URL='https://lkcosocwwxolnyiemlde.supabase.co',SB_KEY='sb_publishable_BGhh_P5AtVrtyrDyhiQ21w_EoHRa_jS',MAILDOM='gmail.com';
 const SB=supabase.createClient(SB_URL,SB_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}});
-const C={users:{},chats:{},messages:{},sessions:{},gifts:{},gf:{},gt:{},nm:{},ss:{},sb:{},seenMap:{},vw:{}};
+const C={users:{},chats:{},messages:{},sessions:{},gifts:{},gf:{},gt:{},nm:{},ss:{},sb:{},seenMap:{},vw:{},nu:{},nuo:{}};
 let ready=false,unsub=[],MU={},_t;
 const bc={postMessage(){}},ping=()=>{};
-const notify=()=>{if(!ready)return;clearTimeout(_t);_t=setTimeout(()=>bc.onmessage&&bc.onmessage(),60)};
+const notify=()=>{if(!ready)return;clearTimeout(_t);_t=setTimeout(()=>bc.onmessage&&bc.onmessage(),40)};
 const fer=e=>{console.error(e);toast('Ошибка базы: '+(e.code||'')+(e.message&&e.message!=e.code?' — '+String(e.message).slice(0,220):''))};
 const sbe=e=>{const m=(e&&e.message)||'';return{code:['low','gone','own','notyours','listed','range','taken'].includes(m)?m:(m=='permission-denied'||m=='nick-reserved'||e.code=='42501'||e.code=='23505')?'permission-denied':(e.code||m),message:m}};
 const dbw=async p=>{const r=await p;if(r.error)throw sbe(r.error);return r.data};
@@ -364,21 +386,22 @@ const rpc=(f,a)=>dbw(SB.rpc(f,a||{}));
 const rtAuth=async()=>{const{data:{session:s}}=await SB.auth.getSession();if(s)SB.realtime.setAuth(s.access_token)};
 // подписка на таблицу: первичная загрузка + realtime (аналог onSnapshot)
 function live(tb,o,cb,ecb){let rows={},dead=false,poll=null;
-const emit=()=>{if(!dead)cb(Object.values(rows))};
+let et=0;const flush=()=>{clearTimeout(et);et=0;if(!dead)cb(Object.values(rows))};const emit=()=>{if(dead||et)return;et=setTimeout(flush,45)};
 const load=async()=>{try{let all=[];for(let i=0;;i+=1000){let q=SB.from(tb).select(o.sel||'*');if(o.q)q=o.q(q);const r=await q.order('id').range(i,i+999);if(r.error)throw r.error;all=all.concat(r.data);if(r.data.length<1000)break}
-if(dead)return;rows={};all.forEach(x=>{if(!o.w||o.w(x))rows[x.id]=x});emit()}catch(e){if(!dead&&ecb)ecb(sbe(e))}};
+if(dead)return;rows={};all.forEach(x=>{if(!o.w||o.w(x))rows[x.id]=x});flush()}catch(e){if(!dead&&ecb)ecb(sbe(e))}};
 const ch=SB.channel('l_'+tb+'_'+Math.random().toString(36).slice(2)).on('postgres_changes',Object.assign({event:'*',schema:'public',table:tb},o.f?{filter:o.f}:{}),p=>{if(dead)return;
 if(p.eventType=='DELETE'){const id=p.old&&p.old.id;if(id!=null)delete rows[id]}else{const n=p.new,r=Object.assign({},rows[n.id],n);if(o.w&&!o.w(r))delete rows[n.id];else rows[n.id]=r}emit()})
 .subscribe(s=>{if(dead)return;if(s=='SUBSCRIBED'){clearInterval(poll);poll=null;load()}else if(s=='CHANNEL_ERROR'||s=='TIMED_OUT'){load();if(!poll)poll=setInterval(load,15000)}});
 const iv=o.poll?setInterval(load,o.poll):0;
-const un=()=>{dead=true;clearInterval(poll);clearInterval(iv);SB.removeChannel(ch)};un.reload=load;return un}
+const un=()=>{dead=true;clearTimeout(et);clearInterval(poll);clearInterval(iv);SB.removeChannel(ch)};un.reload=load;return un}
+const PEND={};
 const dbAll=async s=>Object.values(C[s]),
 dbGet=async(s,k)=>s=='meta'?JSON.parse(localStorage.getItem('pg_'+k)||'null'):C[s][k],
 dbPut=async(s,v)=>{if(s=='meta'){localStorage.setItem('pg_'+v.k,JSON.stringify(v));return}const had=!!C[s][v.id];C[s][v.id]=v;
 try{if(s=='users'){const p={};for(const k of['nick','nl','about','name','username','ul','bday'])if(k in v)p[k]=v[k];if('avatar' in v){const pv=AVC[v.id];if(v.avatar?(!pv||v.avatar!==pv.d):!!pv)p.avatar=v.avatar}if(Object.keys(p).length)await dbw(SB.from('users').update(p).eq('id',v.id))}
 else if(s=='sessions')await dbw(SB.from('sessions').insert(v))
-else if(s=='messages'){if(had)await rpc('msg_view',{mid:v.id});else{const r=await dbw(SB.from('messages').insert(v).select('id'));if(!r||!r.length){delete C.messages[v.id];notify()}}}
-else if(s=='chats'){if(had)await rpc('chat_seen',{cid:v.id,n:+((v.seen||{})[S.u.id])||0});else await dbw(SB.from('chats').insert(v))}}catch(e){fer(e)}},
+else if(s=='messages'){if(had)await rpc('msg_view',{mid:v.id});else{PEND[v.id]=v;setTimeout(()=>delete PEND[v.id],30000);const r=await dbw(SB.from('messages').insert(v).select('id'));if(!r||!r.length){delete PEND[v.id];delete C.messages[v.id];notify()}}}
+else if(s=='chats'){if(had)await rpc('chat_seen',{cid:v.id,n:+((v.seen||{})[S.u.id])||0});else await dbw(SB.from('chats').insert(v))}}catch(e){if(s=='messages'&&!had){delete PEND[v.id];delete C.messages[v.id];notify()}fer(e)}},
 dbDel=async(s,k)=>{if(s=='meta'){localStorage.removeItem('pg_'+k);return}delete C[s][k];return dbw(SB.from(s).delete().eq('id',k)).catch(fer)};
 function attach(me){return new Promise(async res=>{await rtAuth();await Promise.all([loadSeen(me),pollLs()]).catch(()=>{});let pend=5,done=false;
 const fin=()=>{if(!done&&--pend<=0){done=true;ready=true;res()}};
@@ -391,8 +414,9 @@ unsub.push(live('nfts',{q:q=>q.eq('owner',me),w:n=>n.owner==me},r=>{C.nm=mk(r);n
 unsub.push(live('sales',{f:'seller=eq.'+me,q:q=>q.eq('seller',me),w:x=>x.seller==me},r=>{const o=mk(r);C.ss=o;saleSeen(o);claimSales();notify()},e=>console.error(e)));
 unsub.push(live('sales',{f:'buyer=eq.'+me,q:q=>q.eq('buyer',me),w:x=>x.buyer==me},r=>{C.sb=mk(r);notify()},e=>console.error(e)));
 unsub.push(live('chats',{poll:30000,w:c=>(c.members||[]).includes(me)},r=>{C.chats=mk(r);applyAv();Ch();notify()},err(Ch)));
-unsub.push(live('messages',{},r=>{C.messages=mk(r);botWatch();notify()},e=>fer(e)));const lsIv=setInterval(pollLs,45000);unsub.push(()=>clearInterval(lsIv))})}
-function detach(){ready=false;unsub.forEach(f=>f());unsub=[];MU={};C.users={};C.chats={};C.messages={};C.sessions={};C.gifts={};C.gf={};C.gt={};C.nm={};C.ss={};C.sb={};C.seenMap={};C.vw={};BW.r=false;BW.ids={};PFX.t=null}
+unsub.push(live('messages',{},r=>{const o=mk(r);for(const k in PEND){if(o[k])delete PEND[k];else o[k]=PEND[k]}C.messages=o;botWatch();notify()},e=>fer(e)));
+unsub.push(live('nftu',{},r=>{C.nu={};C.nuo={};r.forEach(x=>{(C.nu[x.owner]||(C.nu[x.owner]=[])).push(x.id);C.nuo[x.id]=x.owner});if(S.tab=='prof'&&!document.querySelector('.pg')&&S.u)profView();notify()},e=>console.error(e)));const lsIv=setInterval(pollLs,45000);unsub.push(()=>clearInterval(lsIv))})}
+function detach(){ready=false;unsub.forEach(f=>f());unsub=[];MU={};C.users={};C.chats={};C.messages={};C.sessions={};C.gifts={};C.gf={};C.gt={};C.nm={};C.ss={};C.sb={};C.seenMap={};C.vw={};C.nu={};C.nuo={};VIEWED.clear();BW.r=false;BW.ids={};PFX.t=null}
 const nmail=async n=>(await hx(n.toLowerCase(),'pg-nick-v1',1)).slice(0,40)+'@'+MAILDOM;
 const ae=(x,d)=>{const c=x.code||'',m=x.message||'';if(/Database error/i.test(m))return 'Этот NickName недоступен (занят или зарезервирован)';
 return({user_already_exists:'Эта почта или NickName уже используется',email_exists:'Эта почта или NickName уже используется',email_address_invalid:'Некорректная почта (если вход по NickName — смените MAILDOM в коде)',weak_password:'Пароль: минимум 6 символов',email_provider_disabled:'В Supabase не включён вход Email/Password',signup_disabled:'В Supabase отключена регистрация',over_request_rate_limit:'Слишком много попыток, подождите',over_email_send_rate_limit:'Слишком много попыток, подождите',invalid_credentials:'Неверный NickName, почта или пароль',email_not_confirmed:'В Supabase включено подтверждение почты — отключите Confirm email'}[c])||(/fetch|network/i.test(m)?'Нет сети':d)};
@@ -481,14 +505,15 @@ $('nav').onclick=e=>{const b=e.target.closest('button');b&&go(b.dataset.t)};
 $('#fab').onclick=()=>{$('#fab').classList.toggle('o');$('#sheet').classList.toggle('o')};
 $('#sheet').onclick=e=>{const b=e.target.closest('button');if(!b)return;$('#fab').classList.remove('o');$('#sheet').classList.remove('o');createFlow(b.dataset.c)};setTimeout(beat,1500);go(S.tab)}
 const navAv=()=>{const b=$('nav [data-t=prof]');if(!b||!S.u)return;b.innerHTML=(S.u.avatar?`<span class="nav-av" style="background-image:url(${S.u.avatar})"></span>`:ic('user',24))+'Профиль'};
-function go(t){S.tab=t;$('#fab').style.display=t=='chats'?'':'none';$('#sheet').classList.remove('o');[...$('nav').children].forEach(b=>b.classList.toggle('on',b.dataset.t==t));navAv();({chats:chatsView,set:setView,prof:profView})[t]();const tc=$('#tc');tc.classList.add('ta');clearTimeout(S.tt);S.tt=setTimeout(()=>tc.classList.remove('ta'),420)}
+function go(t){S.tab=t;$('#fab').style.display=t=='chats'?'':'none';$('#sheet').classList.remove('o');[...$('nav').children].forEach(b=>b.classList.toggle('on',b.dataset.t==t));$('#tc')._h=null;navAv();({chats:chatsView,set:setView,prof:profView})[t]();const tc=$('#tc');tc.classList.add('ta');clearTimeout(S.tt);S.tt=setTimeout(()=>tc.classList.remove('ta'),420)}
 async function chatsView(){const u=S.u,[cs,ms]=await Promise.all([dbAll('chats'),dbAll('messages')]),us=Object.fromEntries((await dbAll('users')).map(x=>[x.id,x]));
-const by={};for(const x of ms)(by[x.cid]||(by[x.cid]=[])).push(x);const pr=c=>c.id=='bot_'+u.id?0:c.id=='ch_pradagram'?1:2;
-let rows=cs.filter(c=>c.members.includes(u.id)).map(c=>{const m=(by[c.id]||[]).sort((a,b)=>a.t-b.t);return{c,ci:cinfo(c,us),last:m[m.length-1],n:Math.max(0,m.length-seenOf(c))}}).sort((a,b)=>pr(a.c)-pr(b.c)||(b.last?b.last.t:b.c.created)-(a.last?a.last.t:a.c.created));
+const by={};for(const x of ms){const b=by[x.cid]||(by[x.cid]={n:0,last:null});b.n++;if(!b.last||x.t>b.last.t)b.last=x}const pr=c=>c.id=='bot_'+u.id?0:c.id=='ch_pradagram'?1:2;
+let rows=cs.filter(c=>c.members.includes(u.id)).map(c=>{const b=by[c.id]||{n:0,last:null};return{c,ci:cinfo(c,us),last:b.last,n:Math.max(0,b.n-seenOf(c))}}).sort((a,b)=>pr(a.c)-pr(b.c)||(b.last?b.last.t:b.c.created)-(a.last?a.last.t:a.c.created));
 if(S.q)rows=rows.filter(r=>r.ci.name.toLowerCase().includes(S.q.toLowerCase()));
 if(S.tab!='chats')return;
-$('#tc').innerHTML=`<div class="scr"><div class="top">${av(u,'sm',1)}<h1>PradaGram</h1><button class="ib" id="sb">${ic('search',28)}</button></div>${S.q!==null&&S.sOpen?`<input id="sq" placeholder="Поиск" value="${esc(S.q)}">`:''}
+const html=`<div class="scr"><div class="top">${av(u,'sm',1)}<h1>PradaGram</h1><button class="ib" id="sb">${ic('search',28)}</button></div>${S.q!==null&&S.sOpen?`<input id="sq" placeholder="Поиск" value="${esc(S.q)}">`:''}
 ${rows.length?rows.map(r=>{const l=r.last,p=l?(r.c.type=='chat'?esc((us[l.uid]||{nick:'?'}).nick)+': ':'')+(l.g?'🎁 Подарок':esc(l.text)):'Нет сообщений';return`<div class="row" data-i="${r.c.id}">${av(r.ci)}<div class="mid"><b>${esc(r.ci.name)}${r.c.type=='dm'?bd(r.ci.u,16):''}</b><div class="s">${p}</div></div><div class="rt"><span>${l?ft(l.t):''}</span>${r.n?`<span class="bd">${r.n}</span>`:''}</div></div>`}).join(''):`<div class="empty">Пока нет чатов.<br>Нажмите на кнопку внизу справа, чтобы создать группу или канал.</div>`}</div>`;
+const tc=$('#tc');if(tc._h!==html){const sc=tc.querySelector('.scr'),st0=sc?sc.scrollTop:0;tc.innerHTML=html;tc._h=html;const nsc=tc.querySelector('.scr');if(nsc&&st0)nsc.scrollTop=st0}
 $('#sb').onclick=()=>{S.sOpen=!S.sOpen;if(!S.sOpen)S.q='';chatsView().then(()=>$('#sq')&&$('#sq').focus())};
 const q=$('#sq');if(q)q.oninput=()=>{S.q=q.value;const p=q.selectionStart;chatsView().then(()=>{const n=$('#sq');n.focus();n.setSelectionRange(p,p)})};
 $('#tc').onclick=e=>{const r=e.target.closest('[data-i]');r&&openChat(r.dataset.i)}}
@@ -508,16 +533,17 @@ if(dm){const si=seenInfo(C.users[oid]),e=$('#cm',p);e.textContent=si.t;e.style.c
 box.classList.toggle('nocp',!!(ch&&cc.nocopy&&!isAdm(cc)));
 if(isBot){const st=m.some(x=>x.uid==S.u.id);$('#stb',p).style.display=st?'none':'';$('#cmp',p).style.display=st?'':'none'}
 const first=!p._r,prev=p._ids||(p._ids=new Set()),nw=x=>(!first&&!prev.has(x.id))?' mi':'';
-box.innerHTML=(ch&&cc.welOn&&cc.wel&&!isAdm(cc)?`<div class="post" style="border:1px dashed #2f6db0"><div class="n">Приветствие</div>${lk(cc.wel)}</div>`:'')+(m.length?m.map(x=>{const u=us[x.uid]||{nick:'Удалён'};
+const html=(ch&&cc.welOn&&cc.wel&&!isAdm(cc)?`<div class="post" style="border:1px dashed #2f6db0"><div class="n">Приветствие</div>${lk(cc.wel)}</div>`:'')+(m.length?m.map(x=>{const u=us[x.uid]||{nick:'Удалён'};
 if(ch)return`<div class="post${nw(x)}" data-mid="${x.id}"><div class="n">${esc(cc.name)}</div>${ffHtml(x)}${rtHtml(x,us)}${lk(x.text)}${rxHtml(cc,x)}<div class="f">${ic('eye',15)}${vcnt(x)}<span>${cc.sig===false?'':(cc.sigp&&u.id?`<a class="ml" data-u="${u.id}">${esc(dn(u))}</a>`:esc(dn(u)))+', '}${ft(x.t)}</span></div></div>`;
 if(x.g)return gcard(x,us);const me=x.uid==S.u.id;return`<div class="m ${me?'me':''}${nw(x)}" data-mid="${x.id}">${me||dm?'':`<div data-u="${u.id}" style="cursor:pointer">${av(u,'sm')}</div>`}<div class="bub">${x.fw?`<div class="n" style="color:var(--a)">Из канала «${esc(x.fn||'')}»</div>`:''}${me||dm?'':`<div class="n" data-u="${u.id}" style="color:${col(u.nick)}">${esc(dn(u))}${bd(u,14)}</div>`}${ffHtml(x)}${rtHtml(x,us)}${x.uid=='spambot'?`<span style="white-space:pre-wrap">${lk(x.text)}</span>`:lk(x.text)}${x.qt?`<div class="qt">${esc(x.qt)}</div>`:''}${btHtml(x)}${rxHtml(cc,x,1)}<span class="tm">${ft(x.t)}</span></div></div>`}).join(''):`<div class="empty">${ch?'В канале пока нет публикаций':'Сообщений пока нет. Напишите первым'}</div>`);
+if(p._h!==html){box.innerHTML=html;p._h=html}
 m.forEach(x=>prev.add(x.id));if(m.length)p._r=true;
 if(S.focus){const fe=box.querySelector('[data-mid="'+S.focus+'"]');if(fe){S.focus=null;fe.scrollIntoView({block:'center',behavior:'smooth'});fe.classList.add('flash');box.dataset.k=1}}
 else if(!box.dataset.k){box.scrollTop=box.scrollHeight;box.dataset.k=1}else if(bot)box.scrollTo({top:box.scrollHeight,behavior:'smooth'})};
 $('#ms',p).onclick=async e=>{const rd=e.target.closest('[data-rd]');if(rd)return reportDecide(rd.dataset.rd);const rc=e.target.closest('[data-rx]');if(rc)return rxSet(id,rc.dataset.m,rc.dataset.rx);const rp=e.target.closest('[data-rp]');if(rp)return emojiPanel(id,rp.dataset.rp);const rt=e.target.closest('[data-rt]');if(rt){const te=$('#ms',p).querySelector('[data-mid="'+rt.dataset.rt+'"]');if(te){te.scrollIntoView({block:'center',behavior:'smooth'});te.classList.add('flash');setTimeout(()=>te.classList.remove('flash'),1500)}return}const gc=e.target.closest('[data-g]');if(gc)return giftModal(gc.dataset.g);const l=e.target.closest('[data-un]');if(l)return openByUsername(l.dataset.un);const t=e.target.closest('[data-u]');if(!t){const mb=e.target.closest('[data-mid]');if(!mb)return;if(window.getSelection&&String(getSelection()).length>0)return;const mid=mb.dataset.mid,dt=p._dt||(p._dt={}),now=Date.now();
 if(dt.id==mid&&now-dt.t<320){clearTimeout(dt.to);dt.id=null;heartBurst(e.clientX,e.clientY);rxSet(id,mid,'❤️',1);return}
 dt.id=mid;dt.t=now;clearTimeout(dt.to);dt.to=setTimeout(()=>{dt.id=null;msgPop(id,mid,()=>$('#ms',p).querySelector('[data-mid="'+mid+'"]'),{reply:p._setReply})},270);return}const u=await dbGet('users',t.dataset.u);if(u&&!u.bot)openProfile(u)};
-const send=async()=>{const i=$('#ci',p),t=i.value.trim();if(!t)return;if(rBlocked(id,CH(id)))return;i.value='';const rto=p._rpl;p._rpl=null;$('#rpb',p).style.display='none';await dbPut('messages',{id:uid(),cid:id,uid:S.u.id,text:t,t:Date.now(),v:[S.u.id],rt:rto?rto.id:undefined});ping();const c2=CH(id);if(ch&&c2&&c2.dc&&CH(c2.dc))dbPut('messages',{id:uid(),cid:c2.dc,uid:S.u.id,text:t,t:Date.now(),v:[S.u.id],fw:id,fn:c2.name});await rend()};
+const send=async()=>{const i=$('#ci',p),t=i.value.trim();if(!t)return;if(rBlocked(id,CH(id)))return;i.value='';const rto=p._rpl;p._rpl=null;$('#rpb',p).style.display='none';const pr=dbPut('messages',{id:uid(),cid:id,uid:S.u.id,text:t,t:Date.now(),v:[S.u.id],rt:rto?rto.id:undefined});rend();await pr;ping();const c2=CH(id);if(ch&&c2&&c2.dc&&CH(c2.dc))dbPut('messages',{id:uid(),cid:c2.dc,uid:S.u.id,text:t,t:Date.now(),v:[S.u.id],fw:id,fn:c2.name});await rend()};
 p.addEventListener('copy',ev=>{const c3=CH(id);if(c3&&c3.nocopy&&!isAdm(c3))ev.preventDefault()});
 if($('#cs',p)){$('#cs',p).onclick=send;$('#ci',p).onkeydown=e=>{if(e.key=='Enter')send()}}
 if(isBot)$('#stt',p).onclick=async()=>{const b=$('#stt',p);b.disabled=true;await dbPut('messages',{id:uid(),cid:id,uid:S.u.id,text:'/start',t:Date.now(),v:[S.u.id]});setTimeout(()=>{b.disabled=false},1500)};
@@ -586,6 +612,7 @@ finally{b.disabled=false;b.textContent='Купить'}}}
 const phead=(u,own)=>{const a=av(u,'pf',1);return`<div class="pav" data-p="pic">${OFF(u)?ring(a,100):a}</div><div class="pnm">${esc(dn(u))}${bd(u,20)}</div>${u.prefix?`<div class="pfx">${esc(u.prefix)}</div>`:''}${own?'<div class="pst on">в сети</div>':(()=>{const si=seenInfo(u);return`<div class="pst ${si.on?'on':''}">${si.t}</div>`})()}<div style="margin-top:2px">${caps(u)}</div>`};
 const pcard=(u,own)=>{const r=[];if(u.about)r.push(`<div class="ir"><div class="iv">${lk(u.about)}</div><div class="il">О себе</div></div>`);
 if(u.username)r.push(`<div class="ir c" data-p="copy" data-un="${esc(u.username)}"><div class="iv">@${esc(u.username)}</div><div class="il">Имя пользователя</div></div>`);
+{const nl=(C.nu||{})[u.id]||[];if(nl.length)r.push(`<div class="ir"><div class="iv"><span style="color:var(--m)">Также —</span> ${nl.map(n=>`<a class="nul" data-p="copy" data-un="${esc(n)}">@${esc(n)}</a>`).join(', ')}</div><div class="il">NFT юзернеймы</div></div>`)}
 if(u.bday)r.push(`<div class="ir"><div class="iv">${fb(u.bday)}</div><div class="il">День рождения</div></div>`);
 return r.length?`<div class="cd">${r.join('')}</div>`:`<div class="note" style="text-align:center">${own?'Добавьте информацию о себе кнопкой «Изменить».':'Пользователь ничего не рассказал о себе.'}</div>`};
 const copyLink=un=>{const t='gd.me/'+un;try{navigator.clipboard.writeText(t).then(()=>toast('Ссылка скопирована: '+t),()=>toast(t))}catch(e){toast(t)}};
@@ -598,6 +625,7 @@ if(own)renderGifts(gh,u,true);else{renderGifts(gh,u,false);const un=live('gifts'
 p.onclick=e=>{const r=e.target.closest('[data-p=copy]');if(r)copyLink(r.dataset.un);const b=e.target.closest('[data-p=dm]');if(b)return openDm(u);const g=e.target.closest('[data-p=gift]');if(g)return giftPage(u);const l=e.target.closest('[data-un]:not([data-p])');if(l)openByUsername(l.dataset.un)}}
 async function openByUsername(un){if(un.includes('/')){const pp=un.split('/');if(pp[0].toLowerCase()=='chats'){if(C.chats[pp[1]]){S.focus=pp[2];return openChat(pp[1])}return toast('Чат недоступен')}S.focus=pp[1];un=pp[0]}
 const l=un.toLowerCase();
+if(C.nuo&&C.nuo[l]){const ow=C.users[C.nuo[l]];if(ow)return openProfile(ow)}
 if(l=='spambot'){const bid='bot_'+S.u.id;if(!C.chats[bid])await refetchChat(bid);return C.chats[bid]?openChat(bid):toast('Бот пока недоступен')}
 let u=Object.values(C.users).find(x=>x.ul==l);
 if(!u){try{u=(await dbw(SB.from('users').select('*').eq('ul',l).maybeSingle()))||u}catch(e){}}
@@ -622,7 +650,7 @@ if(!v)return say('n','Имя пользователя будет удалено.
 if(v.length<5)return say('bad','Минимальная длина — 5 символов.',false);
 if(l=='donke'&&u.nl!=OWNER_NICK)return say('bad','Это имя недоступно.',false);
 if(l==u.ul)return say('n','Это ваше текущее имя.',true);
-say('n','Проверяем…',false);const my=seq;tm=setTimeout(async()=>{try{const d=await dbw(SB.from('users').select('id').eq('ul',l).maybeSingle());if(my!=seq)return;d?say('bad','Имя '+v+' занято.',false):say('ok','Имя '+v+' свободно.',true)}catch(e){if(my==seq)say('n','Не удалось проверить имя.',true)}},350)};
+say('n','Проверяем…',false);const my=seq;tm=setTimeout(async()=>{try{const rr=await Promise.all([dbw(SB.from('users').select('id').eq('ul',l).maybeSingle()),SB.from('nftu').select('id').eq('id',l).maybeSingle(),SB.from('chlinks').select('id').eq('id',l).maybeSingle()]);if(my!=seq)return;(rr[0]||rr[1].data||rr[2].data)?say('bad','Имя '+v+' занято.',false):say('ok','Имя '+v+' свободно.',true)}catch(e){if(my==seq)say('n','Не удалось проверить имя.',true)}},350)};
 inp.oninput=chk;chk();setTimeout(()=>inp.focus(),300);
 ok.onclick=async()=>{if(!good)return toast('Это имя нельзя использовать');if(ok.disabled)return;const nu=inp.value.trim(),nl=nu.toLowerCase();if(nu==(u.username||''))return p.close();
 ok.disabled=true;try{await dbw(SB.from('users').update({username:nu,ul:nl}).eq('id',u.id));
@@ -640,7 +668,7 @@ const PD=x=>{console.error(x);return x.code=='permission-denied'?'Сервер �
 async function adminPatch(id,patch){if(!isOwner())return 'Нет доступа';try{await rpc('admin_ban',{target:id,b:!!patch.banned});return null}catch(x){return PD(x)}}
 async function adminGive(t,n){if(!isOwner())return 'Нет доступа';try{await rpc('admin_give',{target:t.id,n});return null}catch(x){return PD(x)}}
 function spcGate(){if(!isOwner())return toast('Нет доступа');spcPanel()}
-function spcPanel(){const p=page('SPC PANEL',`<div class="card" style="padding:14px"><button class="btn" data-f="give">Выдача звёзд по NickName</button><button class="btn r" data-f="ban">Заблокировать аккаунт по NickName</button><button class="btn g" data-f="unban">Разблокировать аккаунт по NickName</button><button class="btn" style="background:#b8791a" data-f="self">Выдача звёзд себе</button><button class="btn" style="background:#6d4be0" data-f="nftself">Выдача NFT себе</button><button class="btn" style="background:#6d4be0" data-f="nftnick">Выдача NFT по NickName</button><button class="btn" style="background:#1f8f6b" data-f="pfx">Выдать префикс по NickName</button></div>`);p.onclick=e=>{const b=e.target.closest('[data-f]');if(!b)return;const f=b.dataset.f;if(f=='nftself')return nftPick(S.u);if(f=='nftnick')return nftNick();if(f=='pfx')return pfxFlow();flow(f)}}
+function spcPanel(){const p=page('SPC PANEL',`<div class="card" style="padding:14px"><button class="btn" data-f="give">Выдача звёзд по NickName</button><button class="btn r" data-f="ban">Заблокировать аккаунт по NickName</button><button class="btn g" data-f="unban">Разблокировать аккаунт по NickName</button><button class="btn" style="background:#b8791a" data-f="self">Выдача звёзд себе</button><button class="btn" style="background:#6d4be0" data-f="nftself">Выдача NFT себе</button><button class="btn" style="background:#6d4be0" data-f="nftnick">Выдача NFT по NickName</button><button class="btn" style="background:#1f8f6b" data-f="pfx">Выдать префикс по NickName</button><button class="btn" style="background:#8a4fd8" data-f="nug">Выдать NFT UserName</button><button class="btn" style="background:#c0562f" data-f="nut">Забрать NFT UserName</button></div>`);p.onclick=e=>{const b=e.target.closest('[data-f]');if(!b)return;const f=b.dataset.f;if(f=='nftself')return nftPick(S.u);if(f=='nftnick')return nftNick();if(f=='pfx')return pfxFlow();if(f=='nug')return nuFlow('give');if(f=='nut')return nuFlow('take');flow(f)}}
 function flow(k){const T={give:'Выдача звёзд по NickName',ban:'Заблокировать аккаунт',unban:'Разблокировать аккаунт',self:'Выдача звёзд себе'};const m=modal(`<h3>${T[k]}</h3><div id="fb"></div>`),b=$('#fb',m);let tg=null;
 const s3=()=>{b.innerHTML=`<div class="note" style="margin-top:0">Игрок: <b>${esc(tg.nick)}</b> (${tg.banned?'заблокирован':'активен'})</div><div class="err" id="fe"></div><button class="btn ${k=='ban'?'r':''}" id="fo">Подтвердить</button>`;$('#fo',m).onclick=async()=>{const e=t=>$('#fe',m).textContent=t,bt=$('#fo',m);if(bt.disabled)return;
 const cur=await dbw(SB.from('users').select('*').eq('id',tg.id).maybeSingle()).catch(()=>null);if(!cur)return e('Игрок не найден или нет сети');
@@ -1128,7 +1156,7 @@ const chk=()=>{const inp=$('#tl',p);if(!inp)return;const raw=inp.value,v=raw.rep
 if(v.length<5)return say('bad','Минимальная длина — 5 символов.',false);
 if(l=='donke')return say('bad','Эта ссылка недоступна.',false);
 if(c0.pub&&l==c0.link)return say('n','Это текущая ссылка канала.',true);
-say('n','Проверяем…',false);const my=seq;tm=setTimeout(async()=>{try{const r=await Promise.all([SB.from('chlinks').select('id').eq('id',l).maybeSingle(),SB.from('users').select('id').eq('ul',l).maybeSingle()]);if(my!=seq)return;if(r[0].error||r[1].error)throw 0;r[0].data||r[1].data?say('bad','Ссылка gd.me/'+v+' занята.',false):say('ok','Ссылка gd.me/'+v+' свободна.',true)}catch(e){if(my==seq)say('n','Не удалось проверить ссылку.',true)}},350)};
+say('n','Проверяем…',false);const my=seq;tm=setTimeout(async()=>{try{const r=await Promise.all([SB.from('chlinks').select('id').eq('id',l).maybeSingle(),SB.from('users').select('id').eq('ul',l).maybeSingle(),SB.from('nftu').select('id').eq('id',l).maybeSingle()]);if(my!=seq)return;if(r[0].error||r[1].error)throw 0;r[0].data||r[1].data||r[2].data?say('bad','Ссылка gd.me/'+v+' занята.',false):say('ok','Ссылка gd.me/'+v+' свободна.',true)}catch(e){if(my==seq)say('n','Не удалось проверить ссылку.',true)}},350)};
 const R=(v,t,d)=>`<div class="pl${pub==v?' on':''}" data-v="${v?1:0}" style="height:auto;padding:14px 18px"><div class="rd">${ic('check',16)}</div><div class="tx"><div class="tl">${t}</div><div class="sb" style="white-space:normal;line-height:1.35">${d}</div></div></div>`;
 const draw=()=>{const c=CH(cid)||c0;$('#tt',p).innerHTML=`<div class="cd"><div class="hd">Тип канала</div><div class="plans" style="margin:0;border-radius:0;background:none">${R(false,'Частный канал','На частные каналы можно подписаться только по ссылке-приглашению.')}${R(true,'Публичный канал','Публичные каналы можно найти через поиск, подписаться на них может любой пользователь.')}</div></div>
 ${pub?`<div class="cd"><div class="lb">Публичная ссылка</div><div class="un"><span>gd.me/</span><input id="tl" maxlength="32" autocomplete="off" autocapitalize="none" spellcheck="false" value="${esc(c0.pub?c0.link:'')}"></div></div><div class="us n" id="ts"></div><div class="hint">Если у канала будет постоянная публичная ссылка, другие пользователи смогут найти его и подписаться.<br><br>Можно использовать латиницу (a-z), цифры (0-9) и подчёркивание. Минимальная длина — 5 символов.</div>`:`<div class="cd"><div class="lb">Ссылка-приглашение</div><div class="un"><span>gd.me/</span><span style="color:var(--m)">${!c.pub&&c.link?esc(c.link):'будет создана при сохранении'}</span></div></div><div class="hint">На частные каналы можно подписаться только по ссылке-приглашению.</div>`}
@@ -1345,6 +1373,29 @@ else if(a=='new')ask('Новая ссылка?','Старая ссылка пе�
 else if(a=='leave')ask('Покинуть группу?','Вы перестанете получать сообщения группы «'+esc(c.name)+'».','Покинуть',true,async()=>{try{await rpc('ch_leave',{p_cid:cid});delete C.chats[cid];document.querySelectorAll('.pg').forEach(x=>x.close?x.close():x.remove());S.open=null;chatsView()}catch(x){fer(x)}});
 return}
 const r=e.target.closest('[data-u]');if(r&&C.users[r.dataset.u])openProfile(C.users[r.dataset.u])};return p}
+// ---------- NFT юзернеймы: выдать / забрать (SPC PANEL) ----------
+function nuFlow(mode){const give=mode=='give';
+const m=modal(`<h3>${give?'Выдать NFT UserName':'Забрать NFT UserName'}</h3><div id="nb"></div>`),b=$('#nb',m);let tg=null;
+const err=t=>{const e=$('#ne',m);if(e)e.textContent=t};
+b.innerHTML=`<input id="nn" placeholder="NickName игрока" autocapitalize="none" autocomplete="off"><div class="err" id="ne"></div><button class="btn" id="no">Проверить</button>`;
+const giveStep=()=>{b.innerHTML=`<div class="note" style="margin-top:0">Игрок: <b>${esc(tg.nick)}</b></div><input id="nu" placeholder="NFT UserName (a-z, 0-9, _)" autocapitalize="none" autocomplete="off" maxlength="32"><div class="err" id="ne"></div><button class="btn" id="ng">Выдать</button>`;
+const inp=$('#nu',m);inp.oninput=()=>{const v=inp.value.replace(/[^A-Za-z0-9_]/g,'');if(v!=inp.value)inp.value=v};
+$('#ng',m).onclick=async()=>{const v=inp.value.trim().toLowerCase();if(!/^[a-z0-9_]{5,32}$/.test(v))return err('От 5 до 32 символов: a-z, 0-9, _');const bt=$('#ng',m);bt.disabled=true;
+try{const r=await Promise.all([SB.from('nftu').select('id').eq('id',v).maybeSingle(),SB.from('users').select('id').eq('ul',v).maybeSingle(),SB.from('chlinks').select('id').eq('id',v).maybeSingle()]);
+if(r.some(x=>x.error)){bt.disabled=false;return err('Не удалось проверить занятость')}
+if(r.some(x=>x.data)){bt.disabled=false;return err('@'+v+' уже занят (NFT юзернейм, обычное имя или ссылка)')}
+await rpc('admin_nftu_give',{target:tg.id,p_name:v});toast('NFT UserName @'+v+' выдан '+tg.nick);m.remove()}
+catch(x){bt.disabled=false;err(x.code=='taken'?'Этот юзернейм уже занят':x.code=='range'?'Недопустимый юзернейм':x.code=='permission-denied'?'Нет доступа':'Ошибка: '+(x.code||x.message))}}};
+const takeStep=async()=>{b.innerHTML='<div class="note">Загрузка…</div>';
+try{const r=await dbw(SB.from('nftu').select('id').eq('owner',tg.id).order('id'));
+if(!r.length){b.innerHTML=`<div class="err" id="ne">У пользователя ${esc(tg.nick)} нет NFT юзернеймов</div><button class="btn g" id="nx">Закрыть</button>`;$('#nx',m).onclick=()=>m.remove();return}
+b.innerHTML=`<div class="note" style="margin-top:0">NFT юзернеймы пользователя ${esc(tg.nick)}. Нажмите на нужный, чтобы забрать:</div><div class="err" id="ne"></div>${r.map(x=>`<button class="btn g" data-n="${x.id}" style="margin-top:8px">@${x.id}</button>`).join('')}`;
+b.onclick=async e=>{const x=e.target.closest('[data-n]');if(!x||x.disabled)return;x.disabled=true;
+try{await rpc('admin_nftu_take',{p_name:x.dataset.n});const n=x.dataset.n;x.remove();toast('@'+n+' забран у '+tg.nick);if(!b.querySelector('[data-n]'))m.remove()}
+catch(er){x.disabled=false;err(er.code=='gone'?'Этот юзернейм уже забран':'Ошибка: '+(er.code||er.message))}}}
+catch(x){b.innerHTML='<div class="err">Нет связи с базой</div>'}};
+$('#no',m).onclick=async()=>{const n=$('#nn',m).value.trim().toLowerCase();if(!n)return err('Введите NickName');const bt=$('#no',m);bt.disabled=true;
+try{const r=await dbw(SB.from('users').select('id,nick,banned').eq('nl',n).maybeSingle());bt.disabled=false;if(!r)return err('Игрок с таким NickName не найден');tg=r;give?giveStep():takeStep()}catch(x){bt.disabled=false;err('Нет связи с базой')}}}
 // ---------- boot ----------
 (async()=>{await open();const e=await dbGet('meta','eco');S.eco=!!(e&&e.v);E.classList.toggle('eco',S.eco);let first=true;
 const{data:{session:ss0}}=await SB.auth.getSession();{const cu=ss0&&ss0.user;first=false;if(!cu)return authView();
